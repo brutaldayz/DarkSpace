@@ -1,0 +1,122 @@
+.skillContainer {
+    position: relative;
+    height: 85px;
+    width: 74px;
+}
+.skillPointFont {
+    color: #666;
+    font-size: 14px;
+    margin-top: -5px;
+}
+.skill {
+    width: 74px;
+    height: 85px;
+    position: absolute;
+    background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
+    cursor: pointer;
+}
+.skill_effect, .skill_effect_inactive, .skill_effect_max {
+    width: 74px;
+    height: 85px;
+}
+.skill .skill_effect:hover {
+    background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
+    background-position: -74px 0;
+}
+.skill .skill_effect:active {
+    background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
+    background-position: -148px 0;
+}
+.skill .skill_effect_inactive {
+    background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
+    background-position: -222px 0;
+    cursor: default;
+}
+.skill .skill_effect_inactive:hover {
+    background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
+    background-position: 0 0;
+}
+#skill_1 {
+    background-position: -296px 0;
+}
+#skill_2 {
+    background-position: -370px 0;
+}
+#skill_4 {
+    background-position: -444px 0;
+}
+#skill_5a {
+    background-position: -518px 0;
+}
+#skill_5b {
+    background-position: -592px 0;
+}
+#skill_6 {
+    background-position: -666px 0;
+}
+#skill_8 {
+    background-position: -740px 0;
+}
+#skill_9 {
+    background-position: -814px 0;
+}
+#skill_11 {
+    background-position: -888px 0;
+}
+#skill_13 {
+    background-position: -962px 0;
+}
+#skill_14 {
+    background-position: -1036px 0;
+}
+#skill_15 {
+    background-position: -1110px 0;
+}
+#skill_16a {
+    background-position: -1184px 0;
+}
+#skill_16b {
+    background-position: -1258px 0;
+}
+#skill_17 {
+    background-position: -1332px 0;
+}
+#skill_18a {
+    background-position: -1406px 0;
+}
+#skill_18b {
+    background-position: -1480px 0;
+}
+#skill_19 {
+    background-position: -1554px 0;
+}
+#skill_20 {
+    background-position: -1628px 0;
+}
+#skill_21a {
+    background-position: -1702px 0;
+}
+#skill_21b {
+    background-position: -1776px 0;
+}
+#skill_22a {
+    background-position: -1850px 0;
+}
+#skill_22b {
+    background-position: -1924px 0;
+}
+#skill_23a {
+    background-position: -1998px 0;
+}
+#skill_23b {
+    background-position: -2072px 0;
+}
+#skill_1 {
+    background-position: -296px 0;
+}
+.skillPoints {
+    position: absolute;
+    text-align: center;
+    top: 66px;
+    width: 74px;
+}

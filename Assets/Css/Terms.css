@@ -1,0 +1,48 @@
+.terms-area{
+    color: black;
+}
+
+.terms-area a{
+    color: #dd163b;
+    font-weight: 600;
+}
+
+.terms-main {
+    border-color: #e9e9e9;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.terms-header {
+    color: #767676;
+    background-color: #f6f6f6;
+    border-color: #e9e9e9;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.terms-header h3 {
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 20px;
+    height: 20px;
+    margin: 0;
+    color: black;
+}
+
+.terms-content {
+    padding: 15px;
+}
+
+.terms-comment {
+    border:thin inset; 
+    padding:6px; 
+    height:350px;
+    overflow:auto;
+}

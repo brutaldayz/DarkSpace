@@ -1,0 +1,139 @@
+body{
+  font-family: 'Titillium Web',sans-serif;
+}
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 3px;
+    background: #15151e;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color:#dd163b;
+}
+/* ScrollBar */
+
+/* SweetAlert */
+.swal-modal {
+  background-color: #131317;
+}
+.swal-modal .swal-title {
+  color: #ffffff;
+}
+.swal-modal .swal-text {
+  color: rgba(255, 255, 255, 0.91);
+  text-align: center;
+}
+.swal-modal .swal-button {
+  background-color: #dd163b;
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  padding: 10px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+}
+.swal-modal .swal-button:active:hover,
+.swal-modal .swal-button:active.active,
+.swal-modal .swal-button:active:focus,
+.swal-modal .swal-button:active:active {
+  background-color: #dd163b;
+  border-color: #FFFFFF;
+}
+.swal-modal .swal-button:hover,
+.swal-modal .swal-button.active,
+.swal-modal .swal-button:focus,
+.swal-modal .swal-button:active {
+  background-color: #dd163b;
+  border-color: #FFFFFF;
+}
+.swal-modal .swal-icon {
+  border-radius: 50% !important;
+}
+.swal-modal .swal-icon:before,
+.swal-modal .swal-icon:after {
+  background-color: transparent !important;
+}
+.swal-modal .swal-icon .swal-icon--success__hide-corners {
+  background-color: transparent !important;
+}
+.swal-modal .swal-icon .swal-icon--success__ring {
+  border-radius: 50% !important;
+}
+.swal-modal .swal-icon .swal-icon--error {
+    border-color: #f27474;
+    -webkit-animation: animateErrorIcon .5s;
+    animation: animateErrorIcon .5s;
+}
+.swal-modal .swal-icon .swal-icon--error__x-mark {
+    position: relative;
+    display: block;
+    -webkit-animation: animateXMark .5s;
+    animation: animateXMark .5s;
+}
+.swal-modal .swal-icon .swal-icon--error__line--left {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    left: 17px;
+}
+.swal-modal .swal-icon .swal-icon--error__line {
+    position: absolute;
+    height: 5px;
+    width: 47px;
+    background-color: #f27474;
+    display: block;
+    top: 37px;
+    border-radius: 2px;
+}
+.swal-modal .swal-icon .swal-icon--error__line--right {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    right: 16px;
+}
+/* SweetAlert */
+
+.full-width{
+  width: 100%;
+}
+
+.modal-content{
+  background-color: #131317;
+}
+
+.modal-header{
+  border: none;
+}
+
+.modal-footer{
+  border: none;
+}
+
+.modal-title{
+  color: rgba(255, 255, 255, 0.91);
+}
+
+.modal-body{
+  color: rgba(255, 255, 255, 0.91);
+}
+.modal-adv{
+  width: 728px; 
+  height: 90px; 
+  margin: 0;
+}
+.modal-adv-header{
+  padding: 15px;
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+.modal-button{
+  background-color: #dd163b;
+  color: #fff;
+}
+.rb-text{
+  color: #dd163b!important;
+}
+.rb-button{
+  background-color: #dd163b;
+  color: #fff;
+}

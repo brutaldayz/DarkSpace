@@ -1,0 +1,9 @@
+.evoucher-input{
+    width: 75%;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    background: rgb(0, 0, 0, 0.6);
+    color: #fff;
+}

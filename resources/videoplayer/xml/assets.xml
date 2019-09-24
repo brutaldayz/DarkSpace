@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assets>
+	<location id="ui" path="/resources/videoplayer/swf/ui/"/>
+	<file id="videoUI" location="ui" name="videoUI" type="swf" hash="9f5eed71797b34ea546518832b14e100"/>
+</assets>

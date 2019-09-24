@@ -1,0 +1,64 @@
+html, body {height: 100%}
+body {
+    width: 100%;
+    position:absolute;
+    background-color: #34495e;
+    overflow:auto;
+    background:url(/Assets/Img/Background.jpg) no-repeat black; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    padding: 40px 15px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.login-box {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+.auth-head-icon {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    background-color: #fff;
+    color: #5c6bc0;
+    box-shadow: 0 5px 20px #d6dee4;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.register-panel{
+    display: none;
+}
+.g-recaptcha {
+    -webkit-transform: scale(0.93);
+    -moz-transform: scale(0.93);
+    -ms-transform: scale(0.93);
+    -o-transform: scale(0.93);
+    transform: scale(0.93);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+.checkbox-primary input:checked~span::before{
+    background-color: #dd163b;
+    border-color: #dd163b;
+}
+a{
+    color:#dd163b;
+}
+a:hover{
+    color:#dd163b;
+}

@@ -1,0 +1,30 @@
+RewriteEngine On
+Options -Indexes
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^([^/]+)?$ /Main.php?Page=$1 [L,NC]
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+RewriteRule ^Blog/(.*) Blog/Main.php?Page=$1 [L,NC]
+RewriteRule ^ACP/(.*) ACP/Main.php?Page=$1 [L,NC]
+
+ErrorDocument 403 /404
+ErrorDocument 404 /404
+ErrorDocument 500 /404
+
+<IfModule mod_headers.c>
+  Header always set X-XSS-Protection "1; mode=block"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-FRAME-OPTIONS "DENY"
+  <FilesMatch "\.(jpeg|jpg|css|js|json|xml|woff|woff2|ttf|ico)$">
+    Header set Cache-Control "must_revalidate, public, max-age=31536000"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  <FilesMatch "\.(html|txt|css|js|json|xml|php|pl)$">
+     SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>

@@ -16,13 +16,15 @@
                 Security::Empty($Password);
                 Security::Empty($Email);
                 if(!filter_var($Email, FILTER_VALIDATE_EMAIL)) die(json_encode(["error" => true, "msg" => Lang::Get('NotCorrectMail')]));
-                /*$Key		= '6LcK_5EUAAAAAE3wvJVtPNEIs_1V_JgaZ7YPO3Xp';
-                $Recaptcha  = Security::Post('g-recaptcha-response');
-                $IP 		= $_SERVER['REMOTE_ADDR'];
-                $Url = "https://www.google.com/recaptcha/api/siteverify?secret=".$Key."&response=".$Recaptcha."&remoteip=".$IP;
-                $Check = file_get_contents($Url);
-                $Json  = json_decode($Check, true);
-                if(!$Json['success']) die(json_encode(["error" => true, "msg" => Lang::Get('VerificationFailed')]));*/
+                if(Config::Get('SERVER_HOST') != "127.0.0.1"){
+                    $Key		= '6LeDvLoUAAAAAHvACfKYhV0cnYiOoUOQTp-ud2wT';
+                    $Recaptcha  = Security::Post('g-recaptcha-response');
+                    $IP 		= $_SERVER['REMOTE_ADDR'];
+                    $Url = "https://www.google.com/recaptcha/api/siteverify?secret=".$Key."&response=".$Recaptcha."&remoteip=".$IP;
+                    $Check = file_get_contents($Url);
+                    $Json  = json_decode($Check, true);
+                    if(!$Json['success']) die(json_encode(["error" => true, "msg" => Lang::Get('VerificationFailed')]));
+                }
                 if (!preg_match('/^[A-Za-z0-9*_-]+$/', $Username)) die(json_encode(["error" => true, "msg" => Lang::Get('PregUsername')]));
                 Functions::Long("Username", $Username);
                 Functions::Short("Username", $Username);

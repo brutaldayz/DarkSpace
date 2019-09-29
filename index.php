@@ -29,7 +29,9 @@
     <!-- Include JS-->
     <script type="text/javascript" src="<?php echo Config::Get('JS'); ?>Jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo Config::Get('JS'); ?>Main.min.js"></script>
-    <!--<script src="https://www.google.com/recaptcha/api.js" async defer></script>-->
+    <?php if(Config::Get('SERVER_HOST') != "127.0.0.1"){ ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <?php } ?>
     <script type="text/javascript" src="<?php echo Config::Get('JS'); ?>sweetalert.min.js"></script>
     <script type="text/javascript" src="<?php echo Config::Get('JS'); ?>material-bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Lato:400,700,900|Raleway:300,400,500,600,700,800,900" rel="stylesheet">
@@ -92,9 +94,11 @@
                         </label>
                     </div>
 
-                    <!--<div class="md-form">
-                        <div class="g-recaptcha" data-theme="dark" data-sitekey="6LcK_5EUAAAAAL4CgovsLv9AHUJhB8JAN3xadZeY"></div>
-                    </div>-->
+                    <?php if(Config::Get('SERVER_HOST') != "127.0.0.1"){ ?>
+                    <div class="md-form">
+                        <div class="g-recaptcha" data-theme="dark" data-sitekey="6LeDvLoUAAAAANkEr3QGP5esfAWIEMHkXh-u2k9S"></div>
+                    </div>
+                    <?php } ?>
                     
                     <input type="hidden" name="csrf-token" value="<?php echo $Token; ?>">
                     <button id="register-button" type="button" class="btn rb-button btn-block"><?php echo Lang::Get('LoginRegister'); ?></button>
@@ -304,4 +308,98 @@
 </script>
 
 <?php } ?>
+
+    <div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="shopTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="col-md-12 modal-title text-center"><?php echo Config::Get('SERVER_NAME'); ?></h5>
+                </div>
+                <div class="modal-body">
+                    <div style="padding: 15px;font-family: 'Comfortaa', cursive;">
+                        <h3><?php echo Lang::Terms('1Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('1Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('2Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('2Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('3Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('3Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('4Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('4Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('5Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('5Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('6Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('6Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('7Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('7Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('8Title'); ?></h3>
+                        <ol type="a">
+                            <li><?php echo Lang::Terms('8Message'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('9Title'); ?></h3>
+                        <p><?php echo Lang::Terms('9MessageA'); ?></p>
+
+                        <ol type="a">
+                            <?php echo Lang::Terms('9MessageB'); ?></li>
+                        </ol>
+
+                        <br>
+
+                        <h3><?php echo Lang::Terms('10Title'); ?></h3>
+                        <p><?php echo Lang::Terms('10MessageA'); ?></p>
+                        <ol type="a">
+                            <?php echo Lang::Terms('10MessageB'); ?>
+                        </ol>
+
+                        <br>
+
+                        <p><?php echo Lang::Terms('10MessageC'); ?></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn modal-button waves-effect waves-light" data-dismiss="modal"><?php echo Lang::Get('Close'); ?></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>$("#terms").click(function(){ $("#termsModal").modal(); });</script>
+
 </html>

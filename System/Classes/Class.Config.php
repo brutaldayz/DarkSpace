@@ -17,6 +17,7 @@
                 "CSS" => Main . 'Assets/Css/', // http://Domain.com/Assets/Css
                 "JS" => Main . 'Assets/Js/', // http://Domain.com/Assets/Js/
                 "IMG" => Main . 'Assets/Img/', // http://Domain.com/Assets/Img/
+                "ACP" => Main. 'ACP/', // http://Domain.com/ACP/
                 "ADMIN" => Main . 'Admin/', // http://Domain.com/Admin/
                 "ADMIN_CSS" => Main . 'Assets/Admin/Css/', // http://Domain.com/Admin/Css/
                 "ADMIN_JS" => Main . 'Assets/Admin/Js/', // http://Domain.com/Admin/Js/

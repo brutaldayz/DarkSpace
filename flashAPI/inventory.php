@@ -21,6 +21,37 @@ $g3ns = [];
 $havocs = [];
 $herculess = [];
 
+/*
+$goliathDesigns = [10, 53, 56, 57, 59, 61, 62, 63, 64, 65, 66, 67, 68, 86, 87, 88, 109, 110, 140, 141, 142, 153, 155, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495];
+$vengeanceDesigns = [8, 16, 17, 18, 58, 60];
+$aegisDesigns = [49, 157, 158, 475, 476, 477, 478, 479];
+$spearheadDesigns = [70, 161, 162];
+$citadelDesigns = [69, 159, 160];
+$surgeonDesigns = [156, 473, 474];
+$gchampionDesigns = [445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472];
+
+$Control = $db->query("SELECT items FROM player_equipment WHERE userId = ".$Player->Data['userID']."")->fetch()['items'];
+$currentShips = json_decode($Control)->ships;
+array_push($currentShips, 8);
+array_push($currentShips, 10);
+array_push($currentShips, 56);
+array_push($currentShips, 16);
+array_push($currentShips, 17);
+array_push($currentShips, 53);
+array_push($currentShips, 58);
+array_push($currentShips, 59);
+array_push($currentShips, 60);
+array_push($currentShips, 61);
+array_push($currentShips, 62);
+array_push($currentShips, 63);
+array_push($currentShips, 64);
+array_push($currentShips, 65);
+array_push($currentShips, 66);
+array_push($currentShips, 67);
+array_push($currentShips, 68);
+array_push($currentShips, 110);
+*/
+
 CreateDrone(2, 0, 8); //iris
 if ($apis) { CreateDrone(3, 8, 1); } //Apis
 if ($zeus) { CreateDrone(4, $apis ? 9 : 8, 1); }//Zeus

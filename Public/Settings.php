@@ -27,7 +27,7 @@
             $("#language").change(function(){
                 $.ajax({
                     type: 'POST',
-                    url: '<?php echo Main; ?>Ajax/Account/LanguageChange.php',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Account/LanguageChange.php',
                     data: {"Param1": $("#language").val()},
                     success: function(resultData){
                         if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');

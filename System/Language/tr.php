@@ -256,25 +256,27 @@
         }
 
         public static function Terms($Data){
+            $SERVER_NAME = Config::Get('SERVER_NAME');
+
             $Lang = array(
                 "Title" => "Web Sitesi Kullanım Şartları Anlaşması",
                 "SmallTitle" => "Devam etmek için aşağıdaki kurallara uymalısınız:",
                 "1Title" => "1. Şartlar",
                 "1Message" => "Bu web sitesine erişerek, bu web sitesinin Şartlar ve Koşullar, yürürlükteki tüm yasa ve düzenlemelere tabi olmayı kabul edersiniz ve yürürlükteki yerel yasalara uymaktan sorumlu olduğunuzu kabul edersiniz. Bu şartların hiçbirine katılmıyorsanız, bu siteyi kullanmanız veya bu siteye erişmeniz yasaktır. Bu web sitesinde bulunan materyaller, telif hakları ve ticari marka yasaları ile korunmamaktadır. Bu web sitesinde gezinerek, telif hakkı yasalarını çiğnemekle cezalandırılacak tek kişinin siz olduğunu kabul edersiniz.",
                 "2Title" => "2. Kullanım Lisansı",
-                "2Message" => "Yalnızca kişisel, ticari olmayan geçici görüntüleme için ".Config::Get('SERVER_NAME')."'in web sitesindeki materyallerin (bilgi veya yazılım) bir kopyasını geçici olarak indirmek için izin verilir.",
+                "2Message" => "Yalnızca kişisel, ticari olmayan geçici görüntüleme için {$SERVER_NAME}'in web sitesindeki materyallerin (bilgi veya yazılım) bir kopyasını geçici olarak indirmek için izin verilir.",
                 "3Title" => "3. Feragatname",
-                "3Message" => "".Config::Get('SERVER_NAME')."'in web sitesindeki materyaller \"olduğu gibi\" sağlanmıştır. ".Config::Get('SERVER_NAME').", hiçbir garanti vermez, ifade etmez veya ima etmez ve işbu sözleşmeyle sınırlı olmamak kaydıyla, ima edilen garantiler veya satılabilirlik koşulları, belirli bir amaca uygunluk veya fikri mülkiyet haklarının ihlali veya diğer hakların ihlal edilmemesi de dahil olmak üzere diğer tüm garantileri reddeder ve reddeder. Ayrıca, ".Config::Get('SERVER_NAME').", malzemelerin İnternet web sitesinde kullanımının doğruluğu, olası sonuçları veya güvenilirliği ile ilgili veya başka türlü bu malzemelerle veya bu siteye bağlı herhangi bir site ile ilgili hiçbir garanti vermez veya sunmaz.",
+                "3Message" => "{$SERVER_NAME}'in web sitesindeki materyaller \"olduğu gibi\" sağlanmıştır. {$SERVER_NAME}, hiçbir garanti vermez, ifade etmez veya ima etmez ve işbu sözleşmeyle sınırlı olmamak kaydıyla, ima edilen garantiler veya satılabilirlik koşulları, belirli bir amaca uygunluk veya fikri mülkiyet haklarının ihlali veya diğer hakların ihlal edilmemesi de dahil olmak üzere diğer tüm garantileri reddeder ve reddeder. Ayrıca, {$SERVER_NAME}, malzemelerin İnternet web sitesinde kullanımının doğruluğu, olası sonuçları veya güvenilirliği ile ilgili veya başka türlü bu malzemelerle veya bu siteye bağlı herhangi bir site ile ilgili hiçbir garanti vermez veya sunmaz.",
                 "4Title" => "4. Sınırlamalar",
-                "4Message" => "Hiçbir koşulda ".Config::Get('SERVER_NAME')." veya tedarikçileri, malzemelerin ".Config::Get('SERVER_NAME')." İnternet sitesinde kullanılmamasından veya kullanılmamasından doğacak zararlardan (bunlarla sınırlı olmamak üzere, veri veya kar zararı veya iş kesintisi nedeniyle) sorumlu tutulamaz. ".Config::Get('SERVER_NAME')." veya bir ".Config::Get('SERVER_NAME')." yetkili temsilcisine sözlü olarak veya bu tür bir hasar olasılığını yazılı olarak bildirilmiş olsa bile. Bazı yargı bölgelerinde zımni garantilerde sınırlamalar veya dolaylı veya olası zararlar için sorumluluk sınırlamaları bulunmadığından, bu sınırlamalar sizin için geçerli olmayabilir.",
+                "4Message" => "Hiçbir koşulda {$SERVER_NAME} veya tedarikçileri, malzemelerin {$SERVER_NAME} İnternet sitesinde kullanılmamasından veya kullanılmamasından doğacak zararlardan (bunlarla sınırlı olmamak üzere, veri veya kar zararı veya iş kesintisi nedeniyle) sorumlu tutulamaz. {$SERVER_NAME} veya bir {$SERVER_NAME} yetkili temsilcisine sözlü olarak veya bu tür bir hasar olasılığını yazılı olarak bildirilmiş olsa bile. Bazı yargı bölgelerinde zımni garantilerde sınırlamalar veya dolaylı veya olası zararlar için sorumluluk sınırlamaları bulunmadığından, bu sınırlamalar sizin için geçerli olmayabilir.",
                 "5Title" => "5. Revizyonlar ve Hata",
-                "5Message" => "".Config::Get('SERVER_NAME')."'in web sitesinde görünen materyaller teknik, tipografik veya fotografik hatalar içerebilir. ".Config::Get('SERVER_NAME').", web sitesindeki materyallerin hiçbirinin doğru, eksiksiz veya güncel olduğunu garanti etmemektedir. ".Config::Get('SERVER_NAME').", web sitesinde bulunan materyallerde herhangi bir zamanda önceden bildirimde bulunmaksızın değişiklik yapabilir. Ancak ".Config::Get('SERVER_NAME').", malzemeleri güncellemek için herhangi bir taahhütte bulunmaz.",
+                "5Message" => "{$SERVER_NAME}'in web sitesinde görünen materyaller teknik, tipografik veya fotografik hatalar içerebilir. {$SERVER_NAME}, web sitesindeki materyallerin hiçbirinin doğru, eksiksiz veya güncel olduğunu garanti etmemektedir. {$SERVER_NAME}, web sitesinde bulunan materyallerde herhangi bir zamanda önceden bildirimde bulunmaksızın değişiklik yapabilir. Ancak {$SERVER_NAME}, malzemeleri güncellemek için herhangi bir taahhütte bulunmaz.",
                 "6Title" => "6. Bağlantılar",
-                "6Message" => "".Config::Get('SERVER_NAME').", İnternet web sitesine bağlı tüm siteleri incelememiştir ve bu bağlantılı sitelerin içeriğinden sorumlu değildir. Herhangi bir bağlantının eklenmesi, sitenin ".Config::Get('SERVER_NAME')." tarafından onaylandığı anlamına gelmez. Bu tür bağlantılı web sitelerinin kullanımı kullanıcının sorumluluğundadır.",
+                "6Message" => "{$SERVER_NAME}, İnternet web sitesine bağlı tüm siteleri incelememiştir ve bu bağlantılı sitelerin içeriğinden sorumlu değildir. Herhangi bir bağlantının eklenmesi, sitenin {$SERVER_NAME} tarafından onaylandığı anlamına gelmez. Bu tür bağlantılı web sitelerinin kullanımı kullanıcının sorumluluğundadır.",
                 "7Title" => "7. Site Kullanım Koşulları Değişiklikleri",
-                "7Message" => "".Config::Get('SERVER_NAME').", web sitesi için bu kullanım koşullarını herhangi bir zamanda önceden bildirimde bulunmaksızın gözden geçirebilir. Bu web sitesini kullanarak, bu Kullanım Koşulları'nın güncel versiyonuna bağlı kalmayı kabul etmiş sayılırsınız.",
+                "7Message" => "{$SERVER_NAME}, web sitesi için bu kullanım koşullarını herhangi bir zamanda önceden bildirimde bulunmaksızın gözden geçirebilir. Bu web sitesini kullanarak, bu Kullanım Koşulları'nın güncel versiyonuna bağlı kalmayı kabul etmiş sayılırsınız.",
                 "8Title" => "8. Geçerli Yasa",
-                "8Message" => "".Config::Get('SERVER_NAME')."'in web sitesi ile ilgili herhangi bir iddia, yasa hükümleriyle çelişki ne olursa olsun, İspanya Eyaleti yasalarına tabidir. <br> Bir Web Sitesinin Kullanımı ile İlgili Genel Hüküm ve Koşullar.",
+                "8Message" => "{$SERVER_NAME}'in web sitesi ile ilgili herhangi bir iddia, yasa hükümleriyle çelişki ne olursa olsun, İspanya Eyaleti yasalarına tabidir. <br> Bir Web Sitesinin Kullanımı ile İlgili Genel Hüküm ve Koşullar.",
                 "9Title" => "9. Telif Hakkı Koruması",
                 "9MessageA" => "Sitede veya Siteden erişilebilecek herhangi bir materyalin telif hakkınızı ihlal ettiğini düşünüyorsanız, bizimle iletişime geçerek ve aşağıdaki bilgileri vererek bu materyallerin (veya bunlara erişimin) bu siteden kaldırılmasını isteyebilirsiniz:",
                 "9MessageB" => "<li> Kopyalandığını düşündüğünüz telif hakkı alınmış çalışmanın tespiti. Lütfen çalışmayı tanımlayın ve mümkünse çalışmanın yetkili bir versiyonunun bir kopyasını veya konumunu da ekleyin.</li>
@@ -292,7 +294,7 @@
                 <li> Kişisel bilgileri, makul olmayan güvenlik önlemleriyle kayıp veya hırsızlığa karşı koruyacağız, ayrıca yetkisiz erişim, açıklama, kopyalama, kullanım veya değiştirmeyle koruyacağız.</li>
                 <li> Kişisel bilgilerin yönetimi ile ilgili politikalarımız ve uygulamalarımız hakkında müşterilerimize bilgi sunacağız.</li>",
                 "10MessageC" => "Kişisel bilgilerin gizliliğinin korunmasını ve korunmasını sağlamak için işimizi bu ilkelere uygun olarak yürütmeyi taahhüt ediyoruz.",
-                "Footer1" => "".Config::Get('SERVER_NAME')." bağımsız bir projedir (Kâr amacı gütmeyen hedef) © 2019.",
+                "Footer1" => "{$SERVER_NAME} bağımsız bir projedir (Kâr amacı gütmeyen hedef) © 2019.",
                 "Footer2" => "<a target=\"_blank\" href=\"http://darkorbit.com/\">DarkOrbit</a>, <a target=\"_blank\" href=\"http://bigpoint.com/\">BigPoint GmbH</a> şirketinin tescilli ticari markasıdır. Tüm hakları kendi sahip(lerine) aittir.",
                 "Footer3" => "<a target=\"_blank\" href=\"http://bigpoint.com/\">BigPoint GmbH</a> tarafından desteklenmiyor, bağlı değil veya teklif edilmiyoruz."
             );
@@ -305,8 +307,8 @@
         }
 
         public static function KillLog($Type, $name){ return Functions::getShipName($name) . ($Type == 1 ? " isimli oyuncuyu yok ettin." : " isimli oyuncu tarafından yok edildin."); }
-        public static function getOtherRank($Point, $Rank){ return "Bir sonraki <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".Rank($Rank)."</strong> rütbesine ulaşmak için, şu anda ".$Point." Rütbe Puanı'na ihtiyacın var."; }
-        public static function getTerms(){ return "<span><a href='".Config::Get('SERVER_URL')."Terms.php' target='_blank'>Şartlar & Koşullar </a> okundu ve kabul edildi.</span>"; }
+        public static function getOtherRank($Point, $Rank){ return "Bir sonraki <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".Rank($Rank)."</strong> rütbesine ulaşmak için, şu anda {$Point} Rütbe Puanı'na ihtiyacın var."; }
+        public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Şartlar & Koşullar </a> okundu ve kabul edildi.</span>"; }
         public static function getRP($Data){ return "ArGe Puanı dağıtıldı: 50 vardı {$Data} kullanıldı."; }
 
         public static function LogMessages($Data){
@@ -315,7 +317,12 @@
                 "2" => " uridium harcandı.",
                 "3" => " kredi harcandı.",
                 "4" => "Apis droidi satın alındı.",
-                "5" => "Zeus droidi satın alındı."
+                "5" => "Zeus droidi satın alındı.",
+                "156" => "Cerrah satın alındı.",
+                "81" => "Pusat satın alındı.",
+                "49" => "Aegis satın alındı.",
+                "69" => "Citadel satın alındı.",
+                "70" => "Spearhead satın alındı."
             );
             return $Lang[$Data];
         }

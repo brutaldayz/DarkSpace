@@ -256,25 +256,27 @@
         }
 
         public static function Terms($Data){
+            $SERVER_NAME = Config::Get('SERVER_NAME');
+
             $Lang = array(
                 "Title" => "Agreement Web Site Terms and Conditions of Use",
                 "SmallTitle" => "In order to proceed, you must agree with the following rules:",
                 "1Title" => "1. Terms",
                 "1Message" => "By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are not protected by applicable copyright and trade mark law. By surfing on this website, you agree that your the only one who would be punished for breaking copyright laws.By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are not protected by applicable copyright and trade mark law. By surfing on this website, you agree that your the only one who would be punished for breaking copyright laws.",
                 "2Title" => "2. Use License",
-                "2Message" => "Permission is granted to temporarily download one copy of the materials (information or software) on ".Config::Get('SERVER_NAME')."'s web site for personal, non-commercial transitory viewing only.",
+                "2Message" => "Permission is granted to temporarily download one copy of the materials (information or software) on {$SERVER_NAME}'s web site for personal, non-commercial transitory viewing only.",
                 "3Title" => "3. Disclaimer",
-                "3Message" => "The materials on ".Config::Get('SERVER_NAME')."'s web site are provided \"as is\". ".Config::Get('SERVER_NAME')." makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights. Further, ".Config::Get('SERVER_NAME')." does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its Internet web site or otherwise relating to such materials or on any sites linked to this site.",
+                "3Message" => "The materials on {$SERVER_NAME}'s web site are provided \"as is\". {$SERVER_NAME} makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties, including without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights. Further, {$SERVER_NAME} does not warrant or make any representations concerning the accuracy, likely results, or reliability of the use of the materials on its Internet web site or otherwise relating to such materials or on any sites linked to this site.",
                 "4Title" => "4. Limitations",
-                "4Message" => "In no event shall ".Config::Get('SERVER_NAME')." or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on ".Config::Get('SERVER_NAME')."'s Internet site, even if ".Config::Get('SERVER_NAME')." or a ".Config::Get('SERVER_NAME')." authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.",
+                "4Message" => "In no event shall {$SERVER_NAME} or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption,) arising out of the use or inability to use the materials on {$SERVER_NAME}'s Internet site, even if {$SERVER_NAME} or a {$SERVER_NAME} authorized representative has been notified orally or in writing of the possibility of such damage. Because some jurisdictions do not allow limitations on implied warranties, or limitations of liability for consequential or incidental damages, these limitations may not apply to you.",
                 "5Title" => "5. Revisions and Errata",
-                "5Message" => "The materials appearing on ".Config::Get('SERVER_NAME')."'s web site could include technical, typographical, or photographic errors. ".Config::Get('SERVER_NAME')." does not warrant that any of the materials on its web site are accurate, complete, or current. ".Config::Get('SERVER_NAME')." may make changes to the materials contained on its web site at any time without notice. ".Config::Get('SERVER_NAME')." does not, however, make any commitment to update the materials.",
+                "5Message" => "The materials appearing on {$SERVER_NAME}'s web site could include technical, typographical, or photographic errors. {$SERVER_NAME} does not warrant that any of the materials on its web site are accurate, complete, or current. {$SERVER_NAME} may make changes to the materials contained on its web site at any time without notice. {$SERVER_NAME} does not, however, make any commitment to update the materials.",
                 "6Title" => "6. Links",
-                "6Message" => "".Config::Get('SERVER_NAME')." has not reviewed all of the sites linked to its Internet web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by ".Config::Get('SERVER_NAME')." of the site. Use of any such linked web site is at the user's own risk.",
+                "6Message" => "{$SERVER_NAME} has not reviewed all of the sites linked to its Internet web site and is not responsible for the contents of any such linked site. The inclusion of any link does not imply endorsement by {$SERVER_NAME} of the site. Use of any such linked web site is at the user's own risk.",
                 "7Title" => "7. Site Terms of Use Modifications",
-                "7Message" => "".Config::Get('SERVER_NAME')." may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.",
+                "7Message" => "{$SERVER_NAME} may revise these terms of use for its web site at any time without notice. By using this web site you are agreeing to be bound by the then current version of these Terms and Conditions of Use.",
                 "8Title" => "8. Governing Law",
-                "8Message" => "Any claim relating to ".Config::Get('SERVER_NAME')."'s web site shall be governed by the laws of the State of Spain without regard to its conflict of law provisions. <br> General Terms and Conditions applicable to Use of a Web Site." ,
+                "8Message" => "Any claim relating to {$SERVER_NAME}'s web site shall be governed by the laws of the State of Spain without regard to its conflict of law provisions. <br> General Terms and Conditions applicable to Use of a Web Site." ,
                 "9Title" => "9. Copyright Protection",
                 "9MessageA" => "If you believe any materials accessible on or from the Site infringe your copyright, you may request removal 
                 of those materials (or access thereto) from this web site by contacting us and providing the 
@@ -294,7 +296,7 @@
                 <li> We will protect personal information by reasonable security safeguards against loss or theft, as well as unauthorized access, disclosure, copying, use or modification.</li>
                 <li> We will make readily available to customers information about our policies and practices relating to the management of personal information. </li>",
                 "10MessageC" => "We are committed to conducting our business in accordance with these principles in order to ensure that the confidentiality of personal information is protected and maintained.",
-                "Footer1" => "".Config::Get('SERVER_NAME')." is an independent project (Nonprofit goal) © 2019.",
+                "Footer1" => "{$SERVER_NAME} is an independent project (Nonprofit goal) © 2019.",
                 "Footer2" => "<a target=\"_blank\" href=\"http://darkorbit.com/\">DarkOrbit</a> is a registered trademark of <a target=\"_blank\" href=\"http://bigpoint.com/\">BigPoint GmbH</a>. All rights reserved to their respective owner(s).",
                 "Footer3" => "We are not endorsed, affiliated or offered by <a target=\"_blank\" href=\"http://bigpoint.com/\">BigPoint GmbH</a>."
             );
@@ -307,8 +309,8 @@
         }
 
         public static function KillLog($Type, $name){ return ($Type == 1 ? "You have destroyed " : "You have been destroyed by ") . Functions::getShipName($name) . "."; }
-        public static function getOtherRank($Point, $Rank){ return "You need approx. ".$Point." rank points to reach the next rank of <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_".$Rank.".png'> <strong>".Rank($Rank)."</strong>."; }
-        public static function getTerms(){ return "<span><a href='".Config::Get('SERVER_URL')."Terms.php' target='_blank'>Terms & Conditions</a> read and accepted.</span>"; }
+        public static function getOtherRank($Point, $Rank){ return "You need approx. {$Point} rank points to reach the next rank of <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".Rank($Rank)."</strong>."; }
+        public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Terms & Conditions</a> read and accepted.</span>"; }
         public static function getRP($Data){ return "Research Points used: {$Data}/50."; }
 
         public static function LogMessages($Data){
@@ -317,7 +319,12 @@
                 "2" => " uridium was spent.",
                 "3" => " credits was spent.",
                 "4" => "The Apis drone was purchased.",
-                "5" => "The Zeus drone was purchased."
+                "5" => "The Zeus drone was purchased.",
+                "156" => "Surgeon was purchased.",
+                "81" => "Pusat was purchased.",
+                "49" => "Aegis was purchased.",
+                "69" => "Citadel was purchased.",
+                "70" => "Spearhead was purchased."
             );
             return $Lang[$Data];
         }

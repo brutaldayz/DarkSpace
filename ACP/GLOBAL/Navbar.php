@@ -1,169 +1,51 @@
-            <div class="header-area">
-                <div class="row align-items-center">
-                    <div class="col-md-6 col-sm-8 clearfix">
-                        <div class="nav-btn pull-left">
-                            <span></span>
-                            <span></span>
-                            <span></span>
+<body class="app sidebar-mini rtl">
+
+<div id="global-loader">
+    <img src="<?php echo Config::Get('ASSETS'); ?>ACP/images/icons/loader.svg" alt="loader">
+</div>
+
+<div class="page">
+    <div class="page-main">
+        <div class="app-header header hor-topheader d-flex">
+			<div class="container">
+				<div class="d-flex">
+					<a class="header-brand mt-2" href="<?php echo Config::Get('ACP'); ?>"><?php echo Config::Get('SERVER_NAME'); ?></a>
+					<a id="horizontal-navtoggle" class="animated-arrow hor-toggle"><span></span></a>
+                    <div class="d-flex order-lg-2 ml-auto header-rightmenu">
+                        <div class="dropdown">
+							<a class="nav-link icon full-screen-link" id="fullscreen-button"><i class="fe fe-maximize-2"></i></a>
                         </div>
-                        <!--<div class="search-box pull-left">
-                            <form action="#">
-                                <input type="text" name="search" placeholder="Search..." required>
-                                <i class="ti-search"></i>
-                            </form>
-                        </div>-->
-                    </div>
-                    <div class="col-md-6 col-sm-4 clearfix">
-                        <ul class="notification-area pull-right">
-                            <li id="full-view"><i class="ti-fullscreen"></i></li>
-                            <li id="full-view-exit"><i class="ti-zoom-out"></i></li>
-                            <!--<li class="dropdown">
-                                <i class="ti-bell dropdown-toggle" data-toggle="dropdown">
-                                    <span>2</span>
-                                </i>
-                                <div class="dropdown-menu bell-notify-box notify-box">
-                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
-                                    <div class="nofity-list">
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
-                                            <div class="notify-text">
-                                                <p>New Commetns On Post</p>
-                                                <span>30 Seconds ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
-                                            <div class="notify-text">
-                                                <p>Some special like you</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-comments-smiley btn-info"></i></div>
-                                            <div class="notify-text">
-                                                <p>New Commetns On Post</p>
-                                                <span>30 Seconds ago</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-primary"></i></div>
-                                            <div class="notify-text">
-                                                <p>Some special like you</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb"><i class="ti-key btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p>You have Changed Your Password</p>
-                                                <span>Just Now</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="dropdown">
-                                <i class="fa fa-envelope-o dropdown-toggle" data-toggle="dropdown"><span>3</span></i>
-                                <div class="dropdown-menu notify-box nt-enveloper-box">
-                                    <span class="notify-title">You have 3 new notifications <a href="#">view all</a></span>
-                                    <div class="nofity-list">
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img1.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">Hey I am waiting for you...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img2.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">When you can connect with me...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img3.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">I missed you so much...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img4.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">Your product is completely Ready...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img2.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">Hey I am waiting for you...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img1.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">Hey I am waiting for you...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                        <a href="#" class="notify-item">
-                                            <div class="notify-thumb">
-                                                <img src="<?php echo Config::Get('ADMIN_IMG'); ?>author/author-img3.jpg" alt="image">
-                                            </div>
-                                            <div class="notify-text">
-                                                <p>Aglae Mayer</p>
-                                                <span class="msg">Hey I am waiting for you...</span>
-                                                <span>3:15 PM</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>-->
-                            <li class="settings-btn">
-                                <i class="fa fa-sign-out" id="back"></i>
-                            </li>
-                        </ul>
-                    </div>
+                        <div class="dropdown header-user">
+							<a class="nav-link leading-none siderbar-link" data-toggle="sidebar-right" data-target=".sidebar-right">
+								<span class="mr-3 d-none d-lg-block">
+									<span class="text-gray-white"><span class="ml-2"><?php echo $Player->Data['shipName']; ?></span></span>
+								</span>
+								<span class="avatar avatar-md brround"><img src="<?php echo Config::Get('SERVER_URL'); ?>Upload/Players/Avatar.png" class="avatar avatar-md brround"></span>
+							</a>
+					    </div>
+				    </div>
                 </div>
             </div>
-
-            <script>
-            $("#back").click(function(){
-                window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>Home";
-            });
-            </script>
+        </div>
+                
+        <div class="horizontal-main hor-menu clearfix">
+            <div class="horizontal-mainwrapper container clearfix">
+                <nav class="horizontalMenu clearfix">
+                    <ul class="horizontalMenu-list">
+                        <li aria-haspopup="true"><a href="<?php echo Config::Get('ACP'); ?>Home" class="sub-icon active"><i class="typcn typcn-device-desktop hor-icon"></i> Homepage</a></li>
+                        <li aria-haspopup="true"><a href="javascript:;" class="sub-icon"><i class="si si-user hor-icon"></i> Player Operations <i class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu">
+                                <li aria-haspopup="true"><a href="<?php echo Config::Get('ACP'); ?>Players">Players</a></li>
+                                <li aria-haspopup="true"><a href="<?php echo Config::Get('ACP'); ?>PlayerSearch">Search</a></li>
+                            </ul>
+                        </li>
+                        <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="si si-pencil hor-icon"></i> Blog <i class="fa fa-angle-down horizontal-icon"></i></a>
+                            <ul class="sub-menu">
+                                <li aria-haspopup="true"><a href="<?php echo Config::Get('ACP'); ?>BlogShare">Share</a></li>
+                                <li aria-haspopup="true"><a href="<?php echo Config::Get('ACP'); ?>BlogEdit">Edit</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>

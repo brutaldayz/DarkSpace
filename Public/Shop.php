@@ -23,7 +23,11 @@
         <div class="col-md-12">
             <div class="row rb-panel ship">
 
-                <?php $Ships = $db->query("SELECT * FROM server_shop WHERE Category = 'Ship' AND Enabled = 1")->fetchAll(); foreach ($Ships as $value) { ?>
+                <?php 
+                $Ships = $db->query("SELECT * FROM server_shop WHERE Category = 'Ship' AND Enabled = 1")->fetchAll(); 
+
+                foreach ($Ships as $value) {
+            ?>
                 
                 <div class="m-2">
                     <div class="item">

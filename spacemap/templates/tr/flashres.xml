@@ -2189,7 +2189,8 @@ Radyasyonlu bölge büyümeye başladı. Artık son savaşın zamanı geldi!]]><
 Avantaj veya dezavantaj vermez.]]></item>
  <item name="ttip_btn_droneFormation_TURTLE"><![CDATA[Kalkan duvarı uçuş düzeni
 Kalkan değerini % 10 arttırır, ama diğer yandan lazer ve roket hasarını % 7,5 düşürür.]]></item>
- <item name="ttip_btn_droneFormation_ARROW"><![CDATA[Ok uçuş düzeni Roket hasarını %20 artırır, ancak lazer hasarını %3 azaltır.]]></item>
+ <item name="ttip_btn_droneFormation_ARROW"><![CDATA[Ok uçuş düzeni 
+Roket hasarını %20 artırır, ancak lazer hasarını %3 azaltır.]]></item>
  <item name="ttip_btn_droneFormation_LANCE"><![CDATA[Mızrak uçuş düzeni
 Mayın hasarını % 50 arttırır.]]></item>
  <item name="ttip_btn_droneFormation_STAR"><![CDATA[Yıldız uçuş düzeni
@@ -2200,8 +2201,10 @@ Lazer hasarını % 3 arttırır ve % 5 şöhret puanı bonusu verir, ama diğer 
 Rakibin kalkan emiliminin % 10'unu iptal eder ve hasarı doğrudan gemiye yönlendirir, ama diğer yandan kalkan değerini % 20 azaltır.]]></item>
  <item name="ttip_btn_droneFormation_DIAMOND"><![CDATA[Elmas uçuş düzeni
 Kalkanın saniyede maksimum kalkan değerinin % 1'ini yeniler (Saniyede maksimum 5.000). Ancak, darbe puanları % 30 azalır.]]></item>
- <item name="ttip_btn_droneFormation_CHEVRON"><![CDATA[İçiçe açı uçuş düzeni Roket hasarını %50 artırır, ancak geminin darbe puanlarını %20 azaltır.]]></item>
- <item name="ttip_btn_droneFormation_MOTH"><![CDATA[Güve Uçuş Düzeni Kalkan delmeyi %20 artırır. Darbe puanlarını da %20 artırır. Ama kalkan gücünü saniyede %5 zayıflatır.]]></item>
+ <item name="ttip_btn_droneFormation_CHEVRON"><![CDATA[İçiçe açı uçuş düzeni 
+Roket hasarını %50 artırır, ancak geminin darbe puanlarını %20 azaltır.]]></item>
+ <item name="ttip_btn_droneFormation_MOTH"><![CDATA[Güve Uçuş Düzeni 
+Kalkan delmeyi %20 artırır. Darbe puanlarını da %20 artırır. Ama kalkan gücünü saniyede %5 zayıflatır.]]></item>
  <item name="ttip_btn_droneFormation_CRAB"><![CDATA[Yengeç uçuş düzeni
 Kalkan emilimini % 20 arttırır, ama diğer yandan hızını da % 20 düşürür.]]></item>
  <item name="ttip_btn_droneFormation_HEART"><![CDATA[Kalp uçuş düzeni
@@ -2215,12 +2218,11 @@ Verilen hasarı artırır ve NPC'lerden kazanılan tecrübe puanlarını % 8 art
  <item name="ttip_btn_droneFormation_RING"><![CDATA[Halka Oluşumu 
 -%25 Lazer Hasarı 
 +%85 Kalkan]]></item>
- <item name="ttip_btn_droneFormation_DRILL"><![CDATA[Bohrer-Formation
+ <item name="ttip_btn_droneFormation_DRILL"><![CDATA[Burgu Oluşumu
 -50% Schildwert und Schild-Absorbation
 +50% Laserschaden]]></item>
- <item name="ttip_btn_droneFormation_VETERAN"><![CDATA[Veteran Formation
--20% Laserschaden, Schildwert und Hitpoints
-+50% Ehre]]></item>
+ <item name="ttip_btn_droneFormation_VETERAN"><![CDATA[Kıdemli Oluşumu
+Şöhret % 50 artar, ancak lazer hasarı, darbe puanları ve kalkan puanları % 20 azalır.]]></item>
  <item name="ttip_btn_droneFormation_DOME"><![CDATA[Kuppel Formation
 -25% Geschwindigkeit
 +10% Schildwert und dein Schild bekommt 100% Schadensabsorption]]></item>
@@ -2230,6 +2232,8 @@ Verilen hasarı artırır ve NPC'lerden kazanılan tecrübe puanlarını % 8 art
  <item name="ttip_btn_droneFormation_X"><![CDATA[X Formation
 -30% Hitpoints
 +100% Raketenschaden (für standard Raketen und Raketenwerfer Raketen)]]></item>
+<item name="ttip_btn_droneFormation_WHEEL"><![CDATA[Çark Oluşumu
+Hız % 5 artar, ancak lazer hasarı % 20 düşer ve bu oluşum, kalkanları saniyede % 5 azaltır.]]></item>
  <item name="ttip_btn_droneFormation_WAVY"><![CDATA[Wellen Formation
 Protze mit der Wellen Formation, diese Dronen wissen wie sie sich bewegen!)]]></item>
  <item name="ttip_btn_droneFormation_not_enough_drones"><![CDATA[Bu uçuş düzenini kullanabilmek için en az %COUNT% diroide ihtiyacın var!]]></item>

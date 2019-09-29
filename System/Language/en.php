@@ -309,7 +309,7 @@
         }
 
         public static function KillLog($Type, $name){ return ($Type == 1 ? "You have destroyed " : "You have been destroyed by ") . Functions::getShipName($name) . "."; }
-        public static function getOtherRank($Point, $Rank){ return "You need approx. {$Point} rank points to reach the next rank of <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".Rank($Rank)."</strong>."; }
+        public static function getOtherRank($Point, $Rank){ return "You need approx. {$Point} rank points to reach the next rank of <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".self::Rank($Rank)."</strong>."; }
         public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Terms & Conditions</a> read and accepted.</span>"; }
         public static function getRP($Data){ return "Research Points used: {$Data}/50."; }
 

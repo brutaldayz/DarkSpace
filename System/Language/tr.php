@@ -62,7 +62,7 @@
                 "NavEquipment" => "Ekipman",
                 "NavShop" => "Dükkan",
                 "NavEvoucher" => "Kuponlar",
-                "NavPayment" => "Payment",
+                "NavPayment" => "Ödeme",
                 "NavClan" => "Klan",
                 "NavJoin" => "Katıl",
                 "NavFound" => "Oluştur",
@@ -307,7 +307,7 @@
         }
 
         public static function KillLog($Type, $name){ return Functions::getShipName($name) . ($Type == 1 ? " isimli oyuncuyu yok ettin." : " isimli oyuncu tarafından yok edildin."); }
-        public static function getOtherRank($Point, $Rank){ return "Bir sonraki <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".Rank($Rank)."</strong> rütbesine ulaşmak için, şu anda {$Point} Rütbe Puanı'na ihtiyacın var."; }
+        public static function getOtherRank($Point, $Rank){ return "Bir sonraki <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".self::Rank($Rank)."</strong> rütbesine ulaşmak için, şu anda {$Point} Rütbe Puanı'na ihtiyacın var."; }
         public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Şartlar & Koşullar </a> okundu ve kabul edildi.</span>"; }
         public static function getRP($Data){ return "ArGe Puanı dağıtıldı: 50 vardı {$Data} kullanıldı."; }
 

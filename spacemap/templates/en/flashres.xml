@@ -2138,7 +2138,7 @@ Increases the damage you cause to NPCs by 8% and earns you 8% more XP, as well. 
  <item name="ttip_btn_droneFormation_RING"><![CDATA[Ring Formation
 -25% Laser damage
 +85% Shields]]></item>
- <item name="ttip_btn_droneFormation_DRILL"><![CDATA[Bohrer-Formation
+ <item name="ttip_btn_droneFormation_DRILL"><![CDATA[Drill Formation
 -50% Schildwert und Schild-Absorbation
 +50% Laserschaden]]></item>
  <item name="ttip_btn_droneFormation_VETERAN"><![CDATA[Veteran Formation
@@ -2150,6 +2150,8 @@ Increases the damage you cause to NPCs by 8% and earns you 8% more XP, as well. 
  <item name="ttip_btn_droneFormation_DOUBLE_WHEEL"><![CDATA[Doppel Rad Formation
 -15% Laserschaden
 +10% Geschwindigkeit]]></item>
+<item name="ttip_btn_droneFormation_WHEEL"><![CDATA[Wheel Formation
+Speed is increased by 5%; however, laser damage is reduced by 20%, and this formation drains shields by 5% per second.]]></item>
  <item name="ttip_btn_droneFormation_X"><![CDATA[X Formation
 -30% Hitpoints
 +100% Raketenschaden (für standard Raketen und Raketenwerfer Raketen)]]></item>

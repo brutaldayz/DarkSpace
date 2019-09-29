@@ -45,7 +45,6 @@
                     $UserID = $db->lastInsertId();
                     Functions::Register('player_equipment', 'userId', $UserID);
                     Functions::Register('player_settings', 'userId', $UserID);
-                    Functions::Register('player_log', 'UserID', $UserID);
                     Functions::Register('player_titles', 'userID', $UserID);
                     Functions::Register('player_skilltree', 'userID', $UserID);
                     $_SESSION['USERNAME']   = $Username;

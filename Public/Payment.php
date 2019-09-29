@@ -54,13 +54,21 @@
                 font-family: 'Comfortaa', cursive;
             }
 
-            .product-img{ border: 2px solid #bf304a; }
+            .product-img{ width: 100px; height: 100px; }
+
+            .uridium{
+                margin-top: 10px;
+            }
 
             .product-desc{
                 background: #383434;
                 height: 90px;
                 margin-top: 5px;
                 padding: 5px;
+            }
+
+            .rb-panel{
+                min-height: 100%;
             }
 
             .product-price{
@@ -72,7 +80,37 @@
         <div class="col-md-12">
             <div class="row rb-panel uridium">
                 <div onclick="Payment('1', '2', '3');" class="product">
-                    <div class="text-center"><img class="product-img" src="<?php echo Config::Get('DO_IMG'); ?>global/items/ammo_rsb-75_100x100.png"></div>
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/1.png"></div>
+                    <p class="product-title">250.000 Uridium</p>
+                    <p class="product-price">5€</p>
+                    <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
+                </div>
+                <div onclick="Payment('1', '2', '3');" class="product">
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/2.png"></div>
+                    <p class="product-title">250.000 Uridium</p>
+                    <p class="product-price">5€</p>
+                    <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
+                </div>
+                <div onclick="Payment('1', '2', '3');" class="product">
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/3.png"></div>
+                    <p class="product-title">250.000 Uridium</p>
+                    <p class="product-price">5€</p>
+                    <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
+                </div>
+                <div onclick="Payment('1', '2', '3');" class="product">
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/4.png"></div>
+                    <p class="product-title">250.000 Uridium</p>
+                    <p class="product-price">5€</p>
+                    <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
+                </div>
+                <div onclick="Payment('1', '2', '3');" class="product">
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/5.png"></div>
+                    <p class="product-title">250.000 Uridium</p>
+                    <p class="product-price">5€</p>
+                    <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
+                </div>
+                <div onclick="Payment('1', '2', '3');" class="product">
+                    <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/6.png"></div>
                     <p class="product-title">250.000 Uridium</p>
                     <p class="product-price">5€</p>
                     <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
@@ -126,7 +164,7 @@
             $(".extra").css('display', 'none');
             $(".design").css('display', 'none');
 
-            $("." + Data).css('display', 'flex');
+            $("." + Data).removeAttr('style');
         }
     </script>
 

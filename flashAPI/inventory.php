@@ -1,5 +1,5 @@
 <?php
-	require_once('../System/Init.php');
+require_once('../System/Init.php');
 
 $db = Database::Connection();
 $equipment = $db->query("SELECT * FROM player_equipment WHERE userId = {$Player->Data['userID']}")->fetch();
@@ -29,27 +29,6 @@ $spearheadDesigns = [70, 161, 162];
 $citadelDesigns = [69, 159, 160];
 $surgeonDesigns = [156, 473, 474];
 $gchampionDesigns = [445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472];
-
-$Control = $db->query("SELECT items FROM player_equipment WHERE userId = ".$Player->Data['userID']."")->fetch()['items'];
-$currentShips = json_decode($Control)->ships;
-array_push($currentShips, 8);
-array_push($currentShips, 10);
-array_push($currentShips, 56);
-array_push($currentShips, 16);
-array_push($currentShips, 17);
-array_push($currentShips, 53);
-array_push($currentShips, 58);
-array_push($currentShips, 59);
-array_push($currentShips, 60);
-array_push($currentShips, 61);
-array_push($currentShips, 62);
-array_push($currentShips, 63);
-array_push($currentShips, 64);
-array_push($currentShips, 65);
-array_push($currentShips, 66);
-array_push($currentShips, 67);
-array_push($currentShips, 68);
-array_push($currentShips, 110);
 */
 
 CreateDrone(2, 0, 8); //iris
@@ -74,46 +53,6 @@ if (!empty($_POST))
 
 			if($json_array['nr'] == 1)
 			{
-				$equipmentShips = json_decode($equipment['items'])->ships->{$currentShip['baseShipId']};
-				$i = 10;
-
-				$ships = '
-				'.GetShipInformation(9, $currentShip['shipID']).'
-				';
-
-				if ($currentShip['baseShipId'] == 8) {
-					$ships .= ',
-					'.GetShipInformation(10, 16).',
-					'.GetShipInformation(11, 17).',
-					'.GetShipInformation(12, 60).',
-					'.GetShipInformation(13, 58).',
-					'.GetShipInformation(14, 18).'
-					';
-					$i = 15;
-				} else if ($currentShip['baseShipId'] == 10) {
-					$ships .= ',
-					'.GetShipInformation(10, 63).',
-					'.GetShipInformation(11, 64).',
-					'.GetShipInformation(12, 65).',
-					'.GetShipInformation(13, 66).',
-					'.GetShipInformation(14, 67).',
-					'.GetShipInformation(15, 56).',
-					'.GetShipInformation(16, 59).',
-					'.GetShipInformation(17, 61).',
-					'.GetShipInformation(18, 62).'
-					';
-
-					if (count($equipmentShips) >= 1)
-						$ships .= ',';
-
-					$i = 19;
-				}
-
-				foreach ($equipmentShips as $key => $ship) {
-					$ships .= GetShipInformation($i, $ship) . (end($equipmentShips) != $ship ? ',' : '');
-					$i++;
-				}
-
 				$json = '{
 					"isError": 0,
 					"data": {
@@ -147,12 +86,10 @@ if (!empty($_POST))
 							"hangar_is_selected": true,
 							"general": {
 							"ship": {
-								"I": 10,
-								"HP": "256000",
-								"L": 9,
-								"SM": "'.$db->query('SELECT lootID FROM server_ships WHERE shipID = '.$Player->Data['shipID'].'')->fetch()['lootID'].'",
+								"L": '.GetCurrentShipId().',
+								"SM": "'.GetCurrentShipLootId().'",
 								"M": [
-								'.GetShipLootIds().'
+								'.GetDesignsLootIds().'
 								]
 							},
 							"drones": '.json_encode($drones).'
@@ -278,7 +215,34 @@ if (!empty($_POST))
 									'.GetCurrentItemLevelsInformation().'
 								]
 							},
-							'.$ships.'
+							'.GetShipInformation(9, 8).',
+							'.GetShipInformation(10, 10).',
+							'.GetShipInformation(11, 16).',
+							'.GetShipInformation(12, 17).',
+							'.GetShipInformation(13, 60).',
+							'.GetShipInformation(14, 58).',
+							'.GetShipInformation(15, 18).',
+							'.GetShipInformation(16, 63).',
+							'.GetShipInformation(17, 64).',
+							'.GetShipInformation(18, 65).',
+							'.GetShipInformation(19, 66).',
+							'.GetShipInformation(20, 67).',
+							'.GetShipInformation(21, 56).',
+							'.GetShipInformation(22, 59).',
+							'.GetShipInformation(23, 61).',
+							'.GetShipInformation(24, 62).',
+							'.GetShipInformation(25, 53).',
+							'.GetShipInformation(26, 68).',
+							'.GetShipInformation(27, 110).',
+							'.GetShipInformation(28, 49).',
+							'.GetShipInformation(29, 49).',
+							'.GetShipInformation(30, 49).',
+							'.GetShipInformation(31, 69).',
+							'.GetShipInformation(32, 69).',
+							'.GetShipInformation(33, 69).',
+							'.GetShipInformation(34, 70).',
+							'.GetShipInformation(35, 70).',
+							'.GetShipInformation(36, 70).'
 						],
 						"userInfo": {
 						"factionRelated": "mmo"
@@ -324,7 +288,34 @@ if (!empty($_POST))
 						"drone_designs_hercules",
 						"equipment_weapon_laser_lf-3",
 						"equipment_weapon_laser_lf-4",
-						'.GetShipLootIds().'
+						"ship_vengeance",
+						"ship_goliath",
+						"ship_vengeance_design_adept",
+						"ship_vengeance_design_corsair",
+						"ship_vengeance_design_avenger",
+						"ship_vengeance_design_revenge",
+						"ship_vengeance_design_lightning",
+						"ship_goliath_design_solace",
+						"ship_goliath_design_diminisher",
+						"ship_goliath_design_spectrum",
+						"ship_goliath_design_sentinel",
+						"ship_goliath_design_venom",
+						"ship_goliath_design_enforcer",
+						"ship_goliath_design_bastion",
+						"ship_goliath_design_veteran",
+						"ship_goliath_design_exalted",
+						"ship_goliath_design_crimson",
+						"ship_goliath_design_ignite",
+						"ship_goliath_design_centaur",
+						"ship_aegis-mmo",
+						"ship_aegis-eic",
+						"ship_aegis-vru",
+						"ship_citadel-mmo",
+						"ship_citadel-eic",
+						"ship_citadel-vru",
+						"ship_spearhead-mmo",
+						"ship_spearhead-eic",
+						"ship_spearhead-vru"
 						]
 					}
 					}
@@ -350,9 +341,28 @@ if (!empty($_POST))
 	else if($_POST['action'] == 'changeShipModel') {
 		$decoded = base64_decode($_POST['params']);
 		$json_array = json_decode($decoded, true);
+
+		switch ($json_array['lootId']) {
+			case 'ship_aegis-mmo':
+			case 'ship_aegis-eic':
+			case 'ship_aegis-vru':
+				$json_array['lootId'] = 'ship_aegis';
+				break;
+			case 'ship_citadel-mmo':
+			case 'ship_citadel-eic':
+			case 'ship_citadel-vru':
+				$json_array['lootId'] = 'ship_citadel';
+				break;
+			case 'ship_spearhead-mmo':
+			case 'ship_spearhead-eic':
+			case 'ship_spearhead-vru':
+				$json_array['lootId'] = 'ship_spearhead';
+				break;
+		}
+
 		$ship = $db->query('SELECT * FROM server_ships WHERE lootID = "'.$json_array['lootId'].'"')->fetch();
 
-		if ($db->query('SELECT shipID FROM server_ships WHERE shipID = '.$ship['baseShipId'].'')->fetch() == $db->query('SELECT shipID FROM server_ships WHERE shipID = '.$currentShip['baseShipId'].'')->fetch()) {
+		if ($ship['baseShipId'] == $currentShip['baseShipId']) {
 			if ($onlineOrOnlineAndInEquipZone) {
 				$db->query('UPDATE player_accounts SET shipID = '.$ship['shipID'].' WHERE userID = '.$Player->Data['userID'].'');
 
@@ -681,11 +691,11 @@ function CreateDrone($item_id, $fromId, $amount)
 	}
 }
 
-function GetShipLootIds()
+function GetDesignsLootIds()
 {
 	global $db, $equipment, $currentShip;
 
-	$ships = [$currentShip['lootID']];
+	$ships = [GetCurrentShipLootId()];
 
 	if ($currentShip['baseShipId'] == 8) {
 		$currentDesigns = [
@@ -705,13 +715,21 @@ function GetShipLootIds()
 		"ship_goliath_design_enforcer",
 		"ship_goliath_design_bastion",
 		"ship_goliath_design_veteran",
-		"ship_goliath_design_exalted"];
+		"ship_goliath_design_exalted",
+		"ship_goliath_design_crimson",
+		"ship_goliath_design_ignite",
+		"ship_goliath_design_centaur"];
 		$ships = array_merge($ships, $currentDesigns);
 	}
 
-	foreach (json_decode($equipment['items'])->ships->{$currentShip['baseShipId']} as $ship) {
-		$lootId = $db->query('SELECT lootID FROM server_ships WHERE shipID = '.$ship.'')->fetch()['lootID'];
-		array_push($ships, $lootId);
+	$designs =json_decode($equipment['items'])->designs;
+
+	if (property_exists($designs, $currentShip['baseShipId']))
+	{
+		foreach ($designs->{$currentShip['baseShipId']} as $ship) {
+			$lootId = $db->query('SELECT lootID FROM server_ships WHERE shipID = '.$ship.'')->fetch()['lootID'];
+			array_push($ships, $lootId);
+		}
 	}
 
 	return str_replace(str_split('[]'), '', json_encode($ships));
@@ -742,6 +760,42 @@ function GetConfigDrones($configId)
 	}
 
 	return $drones;
+}
+
+function GetCurrentShipId()
+{
+	global $currentShip;
+	$baseShipId = $currentShip['baseShipId'];
+
+	//TODO for all base ships
+	switch ($baseShipId) {
+		case 8:
+			return 9;
+		case 10:
+			return 10;
+		case 49:
+			return 28;
+		case 69:
+			return 31;
+		case 70:
+			return 34;
+		default:
+			return 0;
+	}
+}
+
+function GetCurrentShipLootId()
+{
+	global $db, $Player;
+
+	$lootId = $db->query('SELECT lootID FROM server_ships WHERE shipID = '.$Player->Data['shipID'].'')->fetch()['lootID'];
+
+	if ($lootId == 'ship_aegis' || $lootId == 'ship_citadel' || $lootId == 'ship_spearhead') {
+		$lootId .= '-';
+		$lootId .= $Player->Data['factionID'] == 1 ? 'mmo' : ($Player->Data['factionID'] == 2 ? 'eic' : 'vru');
+	}
+
+	return $lootId;
 }
 
 function GetShipInformation($itemId, $shipId) {

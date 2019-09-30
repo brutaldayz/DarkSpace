@@ -29,6 +29,7 @@ $spearheadDesigns = [70, 161, 162];
 $citadelDesigns = [69, 159, 160];
 $surgeonDesigns = [156, 473, 474];
 $gchampionDesigns = [445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472];
+$cyborgDesigns = [480, 481, 482]
 */
 
 CreateDrone(2, 0, 8); //iris
@@ -215,34 +216,9 @@ if (!empty($_POST))
 									'.GetCurrentItemLevelsInformation().'
 								]
 							},
-							'.GetShipInformation(9, 8).',
-							'.GetShipInformation(10, 10).',
-							'.GetShipInformation(11, 16).',
-							'.GetShipInformation(12, 17).',
-							'.GetShipInformation(13, 60).',
-							'.GetShipInformation(14, 58).',
-							'.GetShipInformation(15, 18).',
-							'.GetShipInformation(16, 63).',
-							'.GetShipInformation(17, 64).',
-							'.GetShipInformation(18, 65).',
-							'.GetShipInformation(19, 66).',
-							'.GetShipInformation(20, 67).',
-							'.GetShipInformation(21, 56).',
-							'.GetShipInformation(22, 59).',
-							'.GetShipInformation(23, 61).',
-							'.GetShipInformation(24, 62).',
-							'.GetShipInformation(25, 53).',
-							'.GetShipInformation(26, 68).',
-							'.GetShipInformation(27, 110).',
-							'.GetShipInformation(28, 49).',
-							'.GetShipInformation(29, 49).',
-							'.GetShipInformation(30, 49).',
-							'.GetShipInformation(31, 69).',
-							'.GetShipInformation(32, 69).',
-							'.GetShipInformation(33, 69).',
-							'.GetShipInformation(34, 70).',
-							'.GetShipInformation(35, 70).',
-							'.GetShipInformation(36, 70).'
+
+							'.prepareAllShip().'
+							
 						],
 						"userInfo": {
 						"factionRelated": "mmo"
@@ -288,39 +264,12 @@ if (!empty($_POST))
 						"drone_designs_hercules",
 						"equipment_weapon_laser_lf-3",
 						"equipment_weapon_laser_lf-4",
-						"ship_vengeance",
-						"ship_goliath",
-						"ship_vengeance_design_adept",
-						"ship_vengeance_design_corsair",
-						"ship_vengeance_design_avenger",
-						"ship_vengeance_design_revenge",
-						"ship_vengeance_design_lightning",
-						"ship_goliath_design_solace",
-						"ship_goliath_design_diminisher",
-						"ship_goliath_design_spectrum",
-						"ship_goliath_design_sentinel",
-						"ship_goliath_design_venom",
-						"ship_goliath_design_enforcer",
-						"ship_goliath_design_bastion",
-						"ship_goliath_design_veteran",
-						"ship_goliath_design_exalted",
-						"ship_goliath_design_crimson",
-						"ship_goliath_design_ignite",
-						"ship_goliath_design_centaur",
-						"ship_aegis-mmo",
-						"ship_aegis-eic",
-						"ship_aegis-vru",
-						"ship_citadel-mmo",
-						"ship_citadel-eic",
-						"ship_citadel-vru",
-						"ship_spearhead-mmo",
-						"ship_spearhead-eic",
-						"ship_spearhead-vru"
+						'.getAllLootIds().'
 						]
 					}
 					}
 				}';
-
+				
 				$json = preg_replace('/(\v|\s)+/', '', $json);
 				echo base64_encode($json);
 			}
@@ -770,15 +719,15 @@ function GetCurrentShipId()
 	//TODO for all base ships
 	switch ($baseShipId) {
 		case 8:
-			return 9;
+			return 16;
 		case 10:
-			return 10;
+			return 18;
 		case 49:
-			return 28;
+			return 36;
 		case 69:
-			return 31;
+			return 39;
 		case 70:
-			return 34;
+			return 42;
 		default:
 			return 0;
 	}
@@ -796,6 +745,37 @@ function GetCurrentShipLootId()
 	}
 
 	return $lootId;
+}
+
+function prepareAllShip(){
+	global $db;
+
+	$getShips = $db->query("SELECT shipID FROM server_ships")->fetchAll();
+	$i = 9;
+
+	$numItems = count($getShips);
+	$ships = "";
+
+	foreach ($getShips as $key => $value) {
+		$ships .= GetShipInformation($i++, $value['shipID']) . ((++$key === $numItems) ? '' : ',');
+	}
+
+	return $ships;
+}
+
+function getAllLootIds(){
+	global $db;
+
+	$getLootIds = $db->query("SELECT lootID FROM server_ships")->fetchAll();
+
+	$numItems = count($getLootIds);
+	$loot = "";
+
+	foreach ($getLootIds as $key => $value) {
+		$loot .= '"' . $value['lootID'] . '"'.((++$key === $numItems) ? '' : ',').'';
+	}
+
+	return $loot;
 }
 
 function GetShipInformation($itemId, $shipId) {

@@ -87,7 +87,7 @@ if (!empty($_POST))
 							"hangar_is_selected": true,
 							"general": {
 							"ship": {
-								"L": '.GetCurrentShipId().',
+								"L": '.(17 + $currentShip['id']).',
 								"SM": "'.GetCurrentShipLootId().'",
 								"M": [
 								'.GetDesignsLootIds().'
@@ -216,9 +216,16 @@ if (!empty($_POST))
 									'.GetCurrentItemLevelsInformation().'
 								]
 							},
-
-							'.prepareAllShip().'
-							
+							'.GetShipInformation(9, 49).',
+							'.GetShipInformation(10, 49).',
+							'.GetShipInformation(11, 49).',
+							'.GetShipInformation(12, 69).',
+							'.GetShipInformation(13, 69).',
+							'.GetShipInformation(14, 69).',
+							'.GetShipInformation(15, 70).',
+							'.GetShipInformation(16, 70).',
+							'.GetShipInformation(17, 70).',
+							'.GetAllShipInformations().'
 						],
 						"userInfo": {
 						"factionRelated": "mmo"
@@ -264,12 +271,21 @@ if (!empty($_POST))
 						"drone_designs_hercules",
 						"equipment_weapon_laser_lf-3",
 						"equipment_weapon_laser_lf-4",
-						'.getAllLootIds().'
+						"ship_aegis-mmo",
+						"ship_aegis-eic",
+						"ship_aegis-vru",
+						"ship_citadel-mmo",
+						"ship_citadel-eic",
+						"ship_citadel-vru",
+						"ship_spearhead-mmo",
+						"ship_spearhead-eic",
+						"ship_spearhead-vru",
+						'.GetAllShipLootIds().'
 						]
 					}
 					}
 				}';
-				
+
 				$json = preg_replace('/(\v|\s)+/', '', $json);
 				echo base64_encode($json);
 			}
@@ -711,28 +727,6 @@ function GetConfigDrones($configId)
 	return $drones;
 }
 
-function GetCurrentShipId()
-{
-	global $currentShip;
-	$baseShipId = $currentShip['baseShipId'];
-
-	//TODO for all base ships
-	switch ($baseShipId) {
-		case 8:
-			return 16;
-		case 10:
-			return 18;
-		case 49:
-			return 36;
-		case 69:
-			return 39;
-		case 70:
-			return 42;
-		default:
-			return 0;
-	}
-}
-
 function GetCurrentShipLootId()
 {
 	global $db, $Player;
@@ -747,35 +741,31 @@ function GetCurrentShipLootId()
 	return $lootId;
 }
 
-function prepareAllShip(){
+function GetAllShipInformations() {
 	global $db;
 
-	$getShips = $db->query("SELECT shipID FROM server_ships")->fetchAll();
-	$i = 9;
+	$ships = '';
+	$i = 18;
 
-	$numItems = count($getShips);
-	$ships = "";
-
-	foreach ($getShips as $key => $value) {
-		$ships .= GetShipInformation($i++, $value['shipID']) . ((++$key === $numItems) ? '' : ',');
+	$array = $db->query('SELECT shipID FROM server_ships')->fetchAll();
+	foreach ($array as $key => $ship) {
+		$ships .= GetShipInformation($i++, $ship['shipID']) . ($key != count($array) - 1 ? ',' : '');
 	}
 
 	return $ships;
 }
 
-function getAllLootIds(){
+function GetAllShipLootIds() {
 	global $db;
 
-	$getLootIds = $db->query("SELECT lootID FROM server_ships")->fetchAll();
+	$lootIds = '';
 
-	$numItems = count($getLootIds);
-	$loot = "";
-
-	foreach ($getLootIds as $key => $value) {
-		$loot .= '"' . $value['lootID'] . '"'.((++$key === $numItems) ? '' : ',').'';
+	$array = $db->query('SELECT lootID FROM server_ships')->fetchAll();
+	foreach ($array as $key => $ship) {
+		$lootIds .= '"'.$ship['lootID'].'"'. ($key != count($array) - 1 ? ',' : '');
 	}
 
-	return $loot;
+	return $lootIds;
 }
 
 function GetShipInformation($itemId, $shipId) {

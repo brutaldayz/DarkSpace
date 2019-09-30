@@ -45,6 +45,62 @@
 	<location path="items/ship/cyborg/design/" id="items_ship_cyborg_design"/>
 	<location path="items/ship/hammerclaw/" id="items_ship_hammerclaw"/>
 	<location path="items/ship/hammerclaw/design/" id="items_ship_hammerclaw_design"/>
+    <location id="items_ship_diminisher" path="items/ship/diminisher/"/>
+    <location id="items_ship_diminisher_design" path="items/ship/diminisher/design/"/>
+    <location id="items_ship_a-elite" path="items/ship/a-elite/"/>
+    <location id="items_ship_a-elite_design" path="items/ship/a-elite/design/"/>
+    <file debugView="false" hash="670c6c76f9e7b172683ce3ca88e62100" id="a-elite-blaze" location="items_ship_a-elite_design" name="a-elite-blaze" type="flv" version="1"/>
+    <file debugView="false" hash="e9fd1e020fc546b27212508ff551e400" id="a-elite-blaze_100x100" location="items_ship_a-elite_design" name="a-elite-blaze_100x100" type="png" version="1"/>
+    <file debugView="false" hash="224f957f5f7a7189751a98dd390cd100" id="a-elite-blaze_30x30" location="items_ship_a-elite_design" name="a-elite-blaze_30x30" type="png" version="1"/>
+    <file debugView="false" hash="2ef57d060016dd3ad2a3c1b00bb74600" id="a-elite-blaze_top" location="items_ship_a-elite_design" name="a-elite-blaze_top" type="png" version="1"/>
+    <file debugView="false" hash="7c90ad78b09158c9ee45bba206704200" id="a-elite-eic" location="items_ship" name="a-elite-eic" type="flv" version="1"/>
+    <file debugView="false" hash="9e89111d171f08a80575fc58668a1300" id="a-elite-eic_100x100" location="items_ship" name="a-elite-eic_100x100" type="png" version="1"/>
+    <file debugView="false" hash="a526d34b1fe01938ae476fae1afe5900" id="a-elite-eic_30x30" location="items_ship" name="a-elite-eic_30x30" type="png" version="1"/>
+    <file debugView="false" hash="aeb85e5b4b36924e97933c28e5ec8600" id="a-elite-eic_top" location="items_ship" name="a-elite-eic_top" type="png" version="1"/>
+    <file debugView="false" hash="6be1b8fb8884f3287644b0a05b7ed900" id="a-elite-frost" location="items_ship_a-elite_design" name="a-elite-frost" type="flv" version="1"/>
+    <file debugView="false" hash="f01b682049e3daa34dfc4f0f2de42b00" id="a-elite-frost_100x100" location="items_ship_a-elite_design" name="a-elite-frost_100x100" type="png" version="1"/>
+    <file debugView="false" hash="7bde4478dfe5677f398e4de5027f5900" id="a-elite-frost_30x30" location="items_ship_a-elite_design" name="a-elite-frost_30x30" type="png" version="1"/>
+    <file debugView="false" hash="e96e96c4532431b89a89f65382e0f300" id="a-elite-frost_top" location="items_ship_a-elite_design" name="a-elite-frost_top" type="png" version="1"/>
+    <file debugView="false" hash="ae0a3687cc0bef9d51c9ecd49a56d500" id="a-elite-lava" location="items_ship_a-elite_design" name="a-elite-lava" type="flv" version="1"/>
+    <file debugView="false" hash="dcb89c981166ba60f1e1a6eb4d50be00" id="a-elite-lava_100x100" location="items_ship_a-elite_design" name="a-elite-lava_100x100" type="png" version="1"/>
+    <file debugView="false" hash="9298b6b1dbbd61e9ac79890947c6e900" id="a-elite-lava_30x30" location="items_ship_a-elite_design" name="a-elite-lava_30x30" type="png" version="1"/>
+    <file debugView="false" hash="ca3c5d4af71651abf1533ded0941ba00" id="a-elite-lava_top" location="items_ship_a-elite_design" name="a-elite-lava_top" type="png" version="1"/>
+    <file debugView="false" hash="ac7ee2ccf2e9c704458130716386c300" id="a-elite-legend" location="items_ship_a-elite_design" name="a-elite-legend" type="flv" version="1"/>
+    <file debugView="false" hash="2f32c56ac038178b4401a5ff582b8c00" id="a-elite-legend_100x100" location="items_ship_a-elite_design" name="a-elite-legend_100x100" type="png" version="1"/>
+    <file debugView="false" hash="47f8c9899cacad26ea9853b2315adb00" id="a-elite-legend_30x30" location="items_ship_a-elite_design" name="a-elite-legend_30x30" type="png" version="1"/>
+    <file debugView="false" hash="1d8b7f485a8303019bbe1bf71f00de00" id="a-elite-legend_top" location="items_ship_a-elite_design" name="a-elite-legend_top" type="png" version="1"/>
+    <file debugView="false" hash="4c9be1f83900abfb12496c379d8cd700" id="a-elite-mmo" location="items_ship" name="a-elite-mmo" type="flv" version="1"/>
+    <file debugView="false" hash="258a04f073ddabdb8f8e2548a6a5d200" id="a-elite-mmo_100x100" location="items_ship" name="a-elite-mmo_100x100" type="png" version="1"/>
+    <file debugView="false" hash="124109268eb848dbee3a541fb79e9900" id="a-elite-mmo_30x30" location="items_ship" name="a-elite-mmo_30x30" type="png" version="1"/>
+    <file debugView="false" hash="4aaae09338ce22f3f175262ddb739d00" id="a-elite-mmo_top" location="items_ship" name="a-elite-mmo_top" type="png" version="1"/>
+    <file debugView="false" hash="abff8c629c1cff867cffc2b0a1690a00" id="a-elite-ocean" location="items_ship_a-elite_design" name="a-elite-ocean" type="flv" version="1"/>
+    <file debugView="false" hash="0be9f537e7ea89a3ebc6c3d554c1de00" id="a-elite-ocean_100x100" location="items_ship_a-elite_design" name="a-elite-ocean_100x100" type="png" version="1"/>
+    <file debugView="false" hash="3ccd21a8ce5b9e799a298a7adc953300" id="a-elite-ocean_30x30" location="items_ship_a-elite_design" name="a-elite-ocean_30x30" type="png" version="1"/>
+    <file debugView="false" hash="9af21c235b56a0c462476bd23ad48b00" id="a-elite-ocean_top" location="items_ship_a-elite_design" name="a-elite-ocean_top" type="png" version="1"/>
+    <file debugView="false" hash="f7f36004e80abf1d31f7920f7d326700" id="a-elite-poison" location="items_ship_a-elite_design" name="a-elite-poison" type="flv" version="1"/>
+    <file debugView="false" hash="5c6871233d480207c9a4c81733dfd200" id="a-elite-poison_100x100" location="items_ship_a-elite_design" name="a-elite-poison_100x100" type="png" version="1"/>
+    <file debugView="false" hash="fadd03294b2d53632b8776ab139c1a00" id="a-elite-poison_30x30" location="items_ship_a-elite_design" name="a-elite-poison_30x30" type="png" version="1"/>
+    <file debugView="false" hash="34d6e71934c6bc23c655576944e8fd00" id="a-elite-poison_top" location="items_ship_a-elite_design" name="a-elite-poison_top" type="png" version="1"/>
+    <file debugView="false" hash="663391a26140a7ae0988fd95da6ec600" id="a-elite-sandstorm" location="items_ship_a-elite_design" name="a-elite-sandstorm" type="flv" version="1"/>
+    <file debugView="false" hash="45e3bf4e08e9c94d0332289574259700" id="a-elite-sandstorm_100x100" location="items_ship_a-elite_design" name="a-elite-sandstorm_100x100" type="png" version="1"/>
+    <file debugView="false" hash="8ef5972154e1e433f667c0e9cf410d00" id="a-elite-sandstorm_30x30" location="items_ship_a-elite_design" name="a-elite-sandstorm_30x30" type="png" version="1"/>
+    <file debugView="false" hash="185b1d57ccf8a8594d33350f55a19700" id="a-elite-sandstorm_top" location="items_ship_a-elite_design" name="a-elite-sandstorm_top" type="png" version="1"/>
+    <file debugView="false" hash="623563309c94757c87cdfb57c0eb7800" id="a-elite-vru" location="items_ship" name="a-elite-vru" type="flv" version="1"/>
+    <file debugView="false" hash="e215392632c6bdd70722a6b76eda4100" id="a-elite-vru_100x100" location="items_ship" name="a-elite-vru_100x100" type="png" version="1"/>
+    <file debugView="false" hash="d8f2ade00b3a71ea15fcaffaceba1b00" id="a-elite-vru_30x30" location="items_ship" name="a-elite-vru_30x30" type="png" version="1"/>
+    <file debugView="false" hash="70f4a4608cf0c768dd7994ad03585700" id="a-elite-vru_top" location="items_ship" name="a-elite-vru_top" type="png" version="1"/>
+    <file debugView="false" hash="7c2137c17ad1437645b8da59b95f0f00" id="a-veteran-eic" location="items_ship" name="a-veteran-eic" type="flv" version="1"/>
+    <file debugView="false" hash="74aca609f25a2461ee6de25306635000" id="a-veteran-eic_100x100" location="items_ship" name="a-veteran-eic_100x100" type="png" version="1"/>
+    <file debugView="false" hash="72c5acd75c97b9e99e325aa763155a00" id="a-veteran-eic_30x30" location="items_ship" name="a-veteran-eic_30x30" type="png" version="1"/>
+    <file debugView="false" hash="32e4a9310b0341325e13736e68047200" id="a-veteran-eic_top" location="items_ship" name="a-veteran-eic_top" type="png" version="1"/>
+    <file debugView="false" hash="1fbb53c14538e743ce4f3cd313fa9e00" id="a-veteran-mmo" location="items_ship" name="a-veteran-mmo" type="flv" version="1"/>
+    <file debugView="false" hash="5b274b881f093be46ee1088a738b4500" id="a-veteran-mmo_100x100" location="items_ship" name="a-veteran-mmo_100x100" type="png" version="1"/>
+    <file debugView="false" hash="68f7af3171d00365d7833000de1fce00" id="a-veteran-mmo_30x30" location="items_ship" name="a-veteran-mmo_30x30" type="png" version="1"/>
+    <file debugView="false" hash="b3f0b59013eac0db7df3a6b28708a200" id="a-veteran-mmo_top" location="items_ship" name="a-veteran-mmo_top" type="png" version="1"/>
+    <file debugView="false" hash="a5089bed3898be66e364caff7ed37800" id="a-veteran-vru" location="items_ship" name="a-veteran-vru" type="flv" version="1"/>
+    <file debugView="false" hash="739278e741ac40a880b70fd6862e7b00" id="a-veteran-vru_100x100" location="items_ship" name="a-veteran-vru_100x100" type="png" version="1"/>
+    <file debugView="false" hash="5019b513809e980c08714a9ddb360300" id="a-veteran-vru_30x30" location="items_ship" name="a-veteran-vru_30x30" type="png" version="1"/>
+    <file debugView="false" hash="123bbf000bc02cd6826cf1a653b65300" id="a-veteran-vru_top" location="items_ship" name="a-veteran-vru_top" type="png" version="1"/>
     <file version="1" type="png" name="havoc-1_63x63" location="items_drone_designs" id="havoc-1_63x63" hash="9328098cf6f61f9a15c186cda93bb400" debugView="false"/>
     <file version="1" type="png" name="cbo-100_30x30" location="items_ammunition_laser" id="cbo-100_30x30" hash="db93d3453bc121ed8ce8347aad962d00" debugView="false"/>
     <file version="1" type="png" name="havoc_30x30" location="items_drone_designs" id="havoc_30x30" hash="3d777293c382668bf651ce89c3523f00" debugView="false"/>
@@ -135,6 +191,18 @@
     <file version="1" type="png" name="empm-01_30x30" location="items_ammunition_mine" id="empm-01_30x30" hash="b5bbdd393160dea5072c9c29925fb600" debugView="false"/>
     <file version="1" type="png" name="apis-0_top" location="items_drone" id="apis-0_top" hash="f3bfce2ad389d3f2439b0619f9884800" debugView="false"/>
     <file version="1" type="png" name="nostromo_top" location="items_ship" id="nostromo_top" hash="ff51eab9cb12377314f48ca78cffc500" debugView="false"/>
+    <file debugView="false" hash="d4eacee5a9e9be25bd0d8618c8d48700" id="sentinel-argon" location="items_ship_sentinel_design" name="sentinel-argon" type="flv" version="1"/>
+    <file debugView="false" hash="5118f159d8ee19adfe0b43b9ee41ad00" id="sentinel-argon_100x100" location="items_ship_sentinel_design" name="sentinel-argon_100x100" type="png" version="1"/>
+    <file debugView="false" hash="4d1fa1556745e85bba4ae18edf506e00" id="sentinel-argon_30x30" location="items_ship_sentinel_design" name="sentinel-argon_30x30" type="png" version="1"/>
+    <file debugView="false" hash="300841df70fd5429c9ae8eb09b61d800" id="sentinel-argon_top" location="items_ship_sentinel_design" name="sentinel-argon_top" type="png" version="1"/>
+    <file debugView="false" hash="1c4a5e56e015a7ce28d7d1aebad61f00" id="sentinel-lava" location="items_ship_sentinel_design" name="sentinel-lava" type="flv" version="1"/>
+    <file debugView="false" hash="cb0962d5e44ab77f4bfb9784a4bced00" id="sentinel-lava_100x100" location="items_ship_sentinel_design" name="sentinel-lava_100x100" type="png" version="1"/>
+    <file debugView="false" hash="3e69b4a6ad65f463b06ef982b4a82300" id="sentinel-lava_30x30" location="items_ship_sentinel_design" name="sentinel-lava_30x30" type="png" version="1"/>
+    <file debugView="false" hash="f451637339c632f8c36e73db5c69f300" id="sentinel-lava_top" location="items_ship_sentinel_design" name="sentinel-lava_top" type="png" version="1"/>
+    <file debugView="false" hash="6927b432133f09113c1a66bd545bc800" id="sentinel-legend" location="items_ship_sentinel_design" name="sentinel-legend" type="flv" version="1"/>
+    <file debugView="false" hash="9d9504edbad4e8191ec73a346699d400" id="sentinel-legend_100x100" location="items_ship_sentinel_design" name="sentinel-legend_100x100" type="png" version="1"/>
+    <file debugView="false" hash="8a802e940ec21683e0deb8a09a5d9200" id="sentinel-legend_30x30" location="items_ship_sentinel_design" name="sentinel-legend_30x30" type="png" version="1"/>
+    <file debugView="false" hash="d4ab4a820367035c8a97f0e010151200" id="sentinel-legend_top" location="items_ship_sentinel_design" name="sentinel-legend_top" type="png" version="1"/>
     <file version="1" type="png" name="sentinel_30x30" location="items_ship_goliath_design" id="sentinel_30x30" hash="aebc8c1ee1d83f778a61e7c75f258800" debugView="false"/>
     <file version="1" type="png" name="havoc-2_63x63" location="items_drone_designs" id="havoc-2_63x63" hash="6e5545393ae996b3d88176e082881f00" debugView="false"/>
     <file version="1" type="png" name="goal_top" location="items_ship_goliath_design" id="goal_top" hash="95cc2e4d7028f5edd9d426420315ea00" debugView="false"/>
@@ -272,11 +340,6 @@
 	<file version="1" type="png" name="sovereign_63x63" location="items_ship_goliath_design" id="sovereign_63x63" hash="c87ee15e93461ae67bc0c84855d3f000" debugView="false"/>
 	<file version="1" type="png" name="sovereign_30x30" location="items_ship_goliath_design" id="sovereign_30x30" hash="c87ee15e93461ae67bc0c84855d3f000" debugView="false"/>
 	
-	<file version="1" type="png" name="spectrum-frost_100x100" location="items_ship_spectrum_design" id="spectrum-frost_100x100" hash="7bd669dc600560e7becf2eb133bc7b00" debugView="false"/>
-	<file version="1" type="png" name="spectrum-frost_30x30" location="items_ship_spectrum_design" id="spectrum-frost_30x30" hash="93e9ae28a6952a8c0bd9c7bd2ce75900" debugView="false"/>
-	<file version="1" type="png" name="spectrum-frost_63x63" location="items_ship_spectrum_design" id="spectrum-frost_63x63" hash="0e458694cae54ff354b1e0bb4c09e000" debugView="false"/>
-	<file version="1" type="png" name="spectrum-frost_top" location="items_ship_spectrum_design" id="spectrum-frost_top" hash="ddd8e7a63bb5969787ae1364f312ba00" debugView="false"/>
-
 	<file version="1" type="png" name="sentinel-frost_100x100" location="items_ship_sentinel_design" id="sentinel-frost_100x100" hash="24f2518628b60a09989f665be6bb3900" debugView="false"/>
 	<file version="1" type="png" name="sentinel-frost_30x30" location="items_ship_sentinel_design" id="sentinel-frost_30x30" hash="77555ce94780cc55f967d4b8c9eaf800" debugView="false"/>
 	<file version="1" type="png" name="sentinel-frost_63x63" location="items_ship_sentinel_design" id="sentinel-frost_63x63" hash="7fd570d921b2d343513ecc3339bed000" debugView="false"/>
@@ -292,11 +355,6 @@
 	<file version="1" type="png" name="sentinel-legend_63x63" location="items_ship_sentinel_design" id="sentinel-legend_63x63" hash="8878cfbb69c7536a64345febfdeae900" debugView="false"/>
 	<file version="1" type="png" name="sentinel-legend_top" location="items_ship_sentinel_design" id="sentinel-legend_top" hash="d4ab4a820367035c8a97f0e010151200" debugView="false"/>
 
-	<file version="1" type="png" name="spectrum-legend_100x100" location="items_ship_spectrum_design" id="spectrum-legend_100x100" hash="23daafcf4b466b92cb016df8bc1bf400" debugView="false"/>
-	<file version="1" type="png" name="spectrum-legend_30x30" location="items_ship_spectrum_design" id="spectrum-legend_30x30" hash="070e1333214cfca1a83410bb76ec8000" debugView="false"/>
-	<file version="1" type="png" name="spectrum-legend_63x63" location="items_ship_spectrum_design" id="spectrum-legend_63x63" hash="c56c64ffccaa32f8baaf3d7809ec2900" debugView="false"/>
-	<file version="1" type="png" name="spectrum-legend_top" location="items_ship_spectrum_design" id="spectrum-legend_top" hash="0e6a71d7a423a74f4fb09c54932acc00" debugView="false"/>
-
 	<file version="1" type="png" name="cyborg_100x100" location="items_ship" id="cyborg_100x100" hash="ba423f0460116184a637fd5d4f07be00" debugView="false"/>
 	<file version="1" type="png" name="cyborg_30x30" location="items_ship" id="cyborg_30x30" hash="c47877581df0f9499f8c0b0658d2cf00" debugView="false"/>
 	<file version="1" type="png" name="cyborg_63x63" location="items_ship" id="cyborg_63x63" hash="94d4f722e30802525d003f69083c2200" debugView="false"/>
@@ -306,6 +364,66 @@
 	<file version="1" type="png" name="cyborg-lava_30x30" location="items_ship_cyborg_design" id="cyborg-lava_30x30" hash="d69fffa54b51456afbb7dbcf6d310300" debugView="false"/>
 	<file version="1" type="png" name="cyborg-lava_63x63" location="items_ship_cyborg_design" id="cyborg-lava_63x63" hash="ab8230b091aa5d452a23ead35cf90900" debugView="false"/>
 	<file version="1" type="png" name="cyborg-lava_top" location="items_ship_cyborg_design" id="cyborg-lava_top" hash="0d92170e89ad68ed73c3d6843d72a500" debugView="false"/>
+
+    <file debugView="false" hash="c1774941f545d4e5f4ad68015dc36e00" id="diminisher-argon" location="items_ship_diminisher_design" name="diminisher-argon" type="flv" version="1"/>
+    <file debugView="false" hash="f4bfaddc93d4455d2c874a4f1b988400" id="diminisher-argon_100x100" location="items_ship_diminisher_design" name="diminisher-argon_100x100" type="png" version="1"/>
+    <file debugView="false" hash="94f45025b957edcc2e1bb3e7f020e700" id="diminisher-argon_30x30" location="items_ship_diminisher_design" name="diminisher-argon_30x30" type="png" version="1"/>
+    <file debugView="false" hash="8d5501d63fe76413017d630655ac0600" id="diminisher-argon_top" location="items_ship_diminisher_design" name="diminisher-argon_top" type="png" version="1"/>
+    <file debugView="false" hash="7e7e51de2beb7b671e56830cabd77800" id="diminisher-lava" location="items_ship_diminisher_design" name="diminisher-lava" type="flv" version="1"/>
+    <file debugView="false" hash="80a57638fb7bff49bb4d690ed6ba5600" id="diminisher-lava_100x100" location="items_ship_diminisher_design" name="diminisher-lava_100x100" type="png" version="1"/>
+    <file debugView="false" hash="ae3f0a744c15b33fb8fdc96fed6e5a00" id="diminisher-lava_30x30" location="items_ship_diminisher_design" name="diminisher-lava_30x30" type="png" version="1"/>
+    <file debugView="false" hash="8d4b4a904392872a37fe6820f0216e00" id="diminisher-lava_top" location="items_ship_diminisher_design" name="diminisher-lava_top" type="png" version="1"/>
+    <file debugView="false" hash="2455b8af444776e0d195548d0bc9b800" id="diminisher-legend" location="items_ship_diminisher_design" name="diminisher-legend" type="flv" version="1"/>
+    <file debugView="false" hash="965d4996c040fec140c32351ef062700" id="diminisher-legend_100x100" location="items_ship_diminisher_design" name="diminisher-legend_100x100" type="png" version="1"/>
+    <file debugView="false" hash="9b592f379c832c582efb2f4840cbf400" id="diminisher-legend_30x30" location="items_ship_diminisher_design" name="diminisher-legend_30x30" type="png" version="1"/>
+    <file debugView="false" hash="99e2c7a8fd40fb59fbcc2df619eda200" id="diminisher-legend_top" location="items_ship_diminisher_design" name="diminisher-legend_top" type="png" version="1"/>
+
+    <file debugView="false" hash="e5585dbff581155dcb716fc4b8216f00" id="spectrum-blaze" location="items_ship_spectrum_design" name="spectrum-blaze" type="flv" version="1"/>
+    <file debugView="false" hash="dac7d8967456585f7530b0c8232b9600" id="spectrum-blaze_100x100" location="items_ship_spectrum_design" name="spectrum-blaze_100x100" type="png" version="1"/>
+    <file debugView="false" hash="bac31c31d8a119e9a7cee1b223c8ba00" id="spectrum-blaze_30x30" location="items_ship_spectrum_design" name="spectrum-blaze_30x30" type="png" version="1"/>
+    <file debugView="false" hash="7a0aa81ee7564636062ef8ebd88ebe00" id="spectrum-blaze_top" location="items_ship_spectrum_design" name="spectrum-blaze_top" type="png" version="1"/>
+    <file debugView="false" hash="3134d5dc6199bcc3cc2ac4b50ffcef00" id="spectrum-dusklight" location="items_ship_spectrum_design" name="spectrum-dusklight" type="flv" version="1"/>
+    <file debugView="false" hash="3b5e53779abbc990ed9395c4b9220800" id="spectrum-dusklight_100x100" location="items_ship_spectrum_design" name="spectrum-dusklight_100x100" type="png" version="1"/>
+    <file debugView="false" hash="dfe677e025d7effac44267397403ea00" id="spectrum-dusklight_30x30" location="items_ship_spectrum_design" name="spectrum-dusklight_30x30" type="png" version="1"/>
+    <file debugView="false" hash="dbfb516e3d60094cf5bc66c4879e4900" id="spectrum-dusklight_top" location="items_ship_spectrum_design" name="spectrum-dusklight_top" type="png" version="1"/>
+    <file debugView="false" hash="38f5deb7cbb5003e60cc8912573c3a00" id="spectrum-frost" location="items_ship_spectrum_design" name="spectrum-frost" type="flv" version="1"/>
+    <file debugView="false" hash="7c93ae11e0bb24749347ef77f05a1000" id="spectrum-frost_100x100" location="items_ship_spectrum_design" name="spectrum-frost_100x100" type="png" version="1"/>
+    <file debugView="false" hash="93e9ae28a6952a8c0bd9c7bd2ce75900" id="spectrum-frost_30x30" location="items_ship_spectrum_design" name="spectrum-frost_30x30" type="png" version="1"/>
+    <file debugView="false" hash="ddd8e7a63bb5969787ae1364f312ba00" id="spectrum-frost_top" location="items_ship_spectrum_design" name="spectrum-frost_top" type="png" version="1"/>
+    <file debugView="false" hash="26e6191a50f209c34ea56ffb6da1d700" id="spectrum-inferno" location="items_ship_spectrum_design" name="spectrum-inferno" type="flv" version="1"/>
+    <file debugView="false" hash="e9bdb2f0434674826e3a3cebe6a8f000" id="spectrum-inferno_100x100" location="items_ship_spectrum_design" name="spectrum-inferno_100x100" type="png" version="1"/>
+    <file debugView="false" hash="d88665fd90f2edbbac7396476e018800" id="spectrum-inferno_30x30" location="items_ship_spectrum_design" name="spectrum-inferno_30x30" type="png" version="1"/>
+    <file debugView="false" hash="41541ca7a82a6e42a4e141c01dae5a00" id="spectrum-inferno_top" location="items_ship_spectrum_design" name="spectrum-inferno_top" type="png" version="1"/>
+    <file debugView="false" hash="ed4203ac4dd16d1300be91ab7e78be00" id="spectrum-lava" location="items_ship_spectrum_design" name="spectrum-lava" type="flv" version="1"/>
+    <file debugView="false" hash="84ca6c110c590886bc0c7a5281155900" id="spectrum-lava_100x100" location="items_ship_spectrum_design" name="spectrum-lava_100x100" type="png" version="1"/>
+    <file debugView="false" hash="1731c533d8996a09cce58ece8c495c00" id="spectrum-lava_30x30" location="items_ship_spectrum_design" name="spectrum-lava_30x30" type="png" version="1"/>
+    <file debugView="false" hash="d8a16b75ac519cb3063c62f725ade600" id="spectrum-lava_top" location="items_ship_spectrum_design" name="spectrum-lava_top" type="png" version="1"/>
+    <file debugView="false" hash="1a97aa4676a77194766c5b52d50bf200" id="spectrum-legend" location="items_ship_spectrum_design" name="spectrum-legend" type="flv" version="1"/>
+    <file debugView="false" hash="3580aabf61e6d4c52eefd4caef770100" id="spectrum-legend_100x100" location="items_ship_spectrum_design" name="spectrum-legend_100x100" type="png" version="1"/>
+    <file debugView="false" hash="070e1333214cfca1a83410bb76ec8000" id="spectrum-legend_30x30" location="items_ship_spectrum_design" name="spectrum-legend_30x30" type="png" version="1"/>
+    <file debugView="false" hash="0e6a71d7a423a74f4fb09c54932acc00" id="spectrum-legend_top" location="items_ship_spectrum_design" name="spectrum-legend_top" type="png" version="1"/>
+    <file debugView="false" hash="c5355486279aa1dbb8fba84b83f51000" id="spectrum-ocean" location="items_ship_spectrum_design" name="spectrum-ocean" type="flv" version="1"/>
+    <file debugView="false" hash="dae3271fe7fa490264f28ee5f70e2900" id="spectrum-ocean_100x100" location="items_ship_spectrum_design" name="spectrum-ocean_100x100" type="png" version="1"/>
+    <file debugView="false" hash="879ec592ba41e1c3b193cc1d98949600" id="spectrum-ocean_30x30" location="items_ship_spectrum_design" name="spectrum-ocean_30x30" type="png" version="1"/>
+    <file debugView="false" hash="6036a65462febb3273e08a09bb6a7f00" id="spectrum-ocean_top" location="items_ship_spectrum_design" name="spectrum-ocean_top" type="png" version="1"/>
+    <file debugView="false" hash="c9e95d2f26c44ff8a9aa66dbbdcbfd00" id="spectrum-poison" location="items_ship_spectrum_design" name="spectrum-poison" type="flv" version="1"/>
+    <file debugView="false" hash="639899477be62e30790175c8811b5300" id="spectrum-poison_100x100" location="items_ship_spectrum_design" name="spectrum-poison_100x100" type="png" version="1"/>
+    <file debugView="false" hash="c29f329bb6b14b9147419c477fa86c00" id="spectrum-poison_30x30" location="items_ship_spectrum_design" name="spectrum-poison_30x30" type="png" version="1"/>
+    <file debugView="false" hash="c5baf33df119ab79557821b5437f7500" id="spectrum-poison_top" location="items_ship_spectrum_design" name="spectrum-poison_top" type="png" version="1"/>
+    <file debugView="false" hash="7b99f6106e208b7397cff6f0b4154600" id="spectrum-sandstorm" location="items_ship_spectrum_design" name="spectrum-sandstorm" type="flv" version="1"/>
+    <file debugView="false" hash="ffe4ae6e557332402dfa694d2f67d600" id="spectrum-sandstorm_100x100" location="items_ship_spectrum_design" name="spectrum-sandstorm_100x100" type="png" version="1"/>
+    <file debugView="false" hash="6964f1c009c662fcb7c63833c860d000" id="spectrum-sandstorm_30x30" location="items_ship_spectrum_design" name="spectrum-sandstorm_30x30" type="png" version="1"/>
+    <file debugView="false" hash="cc5e1e856eca1507d84dc2b6bde86600" id="spectrum-sandstorm_top" location="items_ship_spectrum_design" name="spectrum-sandstorm_top" type="png" version="1"/>
+
+    <file debugView="false" hash="cbdd88ea0547daa1753f6a7e04644600" id="cyborg-blaze" location="items_ship_cyborg_design" name="cyborg-blaze" type="flv" version="1"/>
+    <file debugView="false" hash="a758d5b0a518f225f111fab164a54700" id="cyborg-blaze_100x100" location="items_ship_cyborg_design" name="cyborg-blaze_100x100" type="png" version="1"/>
+    <file debugView="false" hash="e6a215efee65148617f2c0d925563f00" id="cyborg-blaze_30x30" location="items_ship_cyborg_design" name="cyborg-blaze_30x30" type="png" version="1"/>
+    <file debugView="false" hash="bc1acd5883472d44f0e54801333c1f00" id="cyborg-blaze_top" location="items_ship_cyborg_design" name="cyborg-blaze_top" type="png" version="1"/>
+
+    <file version="1" type="png" name="cyborg-carbonite_100x100" location="items_ship_cyborg_design" id="cyborg-carbonite_100x100" hash="d93f42452b6306573233df87fe676000" debugView="false"/>
+	<file version="1" type="png" name="cyborg-carbonite_30x30" location="items_ship_cyborg_design" id="cyborg-carbonite_30x30" hash="d69fffa54b51456afbb7dbcf6d310300" debugView="false"/>
+	<file version="1" type="png" name="cyborg-carbonite_63x63" location="items_ship_cyborg_design" id="cyborg-carbonite_63x63" hash="ab8230b091aa5d452a23ead35cf90900" debugView="false"/>
+	<file version="1" type="png" name="cyborg-carbonite_top" location="items_ship_cyborg_design" id="cyborg-carbonite_top" hash="0d92170e89ad68ed73c3d6843d72a500" debugView="false"/>
 
 	<file version="1" type="png" name="hammerclaw_100x100" location="items_ship" id="hammerclaw_100x100" hash="d51e41b2ce33a8ba35f5d2aafaae0d00" debugView="false"/>
 	<file version="1" type="png" name="hammerclaw_30x30" location="items_ship" id="hammerclaw_30x30" hash="efe26335b9a61afcbce4fac50d8dbe00" debugView="false"/>

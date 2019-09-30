@@ -24,6 +24,7 @@
 
                   foreach ($equipmentShips as $shipId) {
                     $ship = $db->query("SELECT * FROM server_ships WHERE shipID = '$shipId'")->fetch();
+                    if($ship['name'] == "Cyborg Carbonite") $ship['name'] = "cyborg_carbonite";
                     echo '<div class="shipBox text-center p-4 mb-2 '.($db->query('SELECT baseShipId FROM server_ships WHERE shipID = '.$Player->Data['shipID'].'')->fetch()['baseShipId'] == $ship['shipID'] ? 'selectedBaseShip' : '').'" data-id="'.$ship['shipID'].'"><img src="'.Config::Get('IMG').'Shop/Ship/'.mb_strtolower(in_array($ship['shipID'], [49,69,70]) ? $ship['name'] . '-' . $Player->Data['factionID'] : $ship['name']).'_top.png" alt="'.$ship['name'].'"></div>';
                   }
                 ?>

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 30 Eyl 2019, 12:37:31
+-- Üretim Zamanı: 30 Eyl 2019, 21:51:29
 -- Sunucu sürümü: 10.4.6-MariaDB
--- PHP Sürümü: 7.3.8
+-- PHP Sürümü: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -55,15 +55,6 @@ CREATE TABLE `log_account` (
   `Amount` int(11) NOT NULL DEFAULT 0,
   `Date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Tablo döküm verisi `log_account`
---
-
-INSERT INTO `log_account` (`LogID`, `UserID`, `IP`, `Content`, `Amount`, `Date`) VALUES
-(1, 1, '127.0.0.1', '1', 0, '2019-09-29 16:39:55'),
-(2, 1, '127.0.0.1', '1', 0, '2019-09-29 18:33:16'),
-(3, 1, '127.0.0.1', '1', 0, '2019-09-30 10:00:14');
 
 -- --------------------------------------------------------
 
@@ -127,15 +118,6 @@ CREATE TABLE `player_accounts` (
   `Version` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Tablo döküm verisi `player_accounts`
---
-
-INSERT INTO `player_accounts` (`userID`, `sessionID`, `Data`, `Info`, `username`, `shipName`, `petName`, `password`, `email`, `level`, `shipID`, `premium`, `title`, `profileID`, `factionID`, `clanID`, `rankID`, `rankPoints`, `rank`, `pilotProfile`, `extraEnergy`, `nanohull`, `verified`, `oldShipNames`, `Version`) VALUES
-(1, 'iPTFrKb0mig0kqh1yAu0OAd8aEJ9eOda', '{\"uridium\":0,\"credits\":0,\"honor\":0,\"experience\":0,\"jackpot\":0}', '{\"LastLoginIP\":\"127.0.0.1\",\"RegisterIP\":\"127.0.0.1\",\"MapID\":1,\"CreatedDate\":\"29.09.2019 19:39:03\",\"Profile\":\"Avatar.png\"}', 'Legionary', 'Legionary', 'P.E.T 15', '$2y$10$2oRcOpPa/sFpH1.Z7jac4OnXoWsxDAaYdAUM6DuAo4mXVyKammWvC', 'yusufsahinhamza@gmail.com', 1, 495, 0, '', 'QNjtBZ', 3, 0, 1, 100, 0, '{\"Info\":0,\"Clan\":0,\"Equipment\":0,\"SkillTree\":0,\"title\":\"\",\"statusMessage\":\"\",\"friendRequest\":true,\"friends\":{}}', 0, 0, 0, '[]', 1),
-(2, 'K4ToEsJvqGIn8gGHwU7hY2ERMPIWuzqF', '{\"uridium\":0,\"credits\":0,\"honor\":0,\"experience\":0,\"jackpot\":0}', '{\"LastLoginIP\": \"127.0.0.1\", \"RegisterIP\": \"127.0.0.1\", \"MapID\":0, \"CreatedDate\": \"29.09.2019 19:39:20\",\"Profile\": \"Avatar.png\"}', 'Legionary1', 'Legionary1', 'P.E.T 15', '$2y$10$rOTnrmPdHnQ1hnrOs3AH6e.lV3OEduy/aHnj6G8tGNJvNI.XFvd/6', 'yusufsahinhamza1@gmail.com', 1, 10, 0, '', 'CpxkEu', 0, 0, 1, 100, 0, '{\"Info\":0,\"Clan\":0,\"Equipment\":0,\"SkillTree\":0,\"title\":\"\",\"statusMessage\":\"\",\"friendRequest\":true,\"friends\":{}}', 0, 0, 0, '[]', 1),
-(3, 'NNJqs789eBZR3RYxEdCMTwvblzS3nhsG', '{\"uridium\":0,\"credits\":0,\"honor\":0,\"experience\":0,\"jackpot\":0}', '{\"LastLoginIP\": \"127.0.0.1\", \"RegisterIP\": \"127.0.0.1\", \"MapID\":0, \"CreatedDate\": \"29.09.2019 19:39:28\",\"Profile\": \"Avatar.png\"}', 'Legionary12', 'Legionary12', 'P.E.T 15', '$2y$10$0HKWCBsuwwhsxf4kM5P99uJ.lqh3Z4DsD9Fil6pmmndMC.C08WBvq', 'yusufsahinhamza12@gmail.com', 1, 10, 0, '', 'OIFoT4', 0, 0, 1, 100, 0, '{\"Info\":0,\"Clan\":0,\"Equipment\":0,\"SkillTree\":0,\"title\":\"\",\"statusMessage\":\"\",\"friendRequest\":true,\"friends\":{}}', 0, 0, 0, '[]', 1);
-
 -- --------------------------------------------------------
 
 --
@@ -150,20 +132,11 @@ CREATE TABLE `player_equipment` (
   `config2_lasers` text COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `config2_generators` text COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `config2_drones` text COLLATE utf8_bin NOT NULL DEFAULT '[{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]}]',
-  `items` text COLLATE utf8_bin NOT NULL DEFAULT '\'{"lf4Count":0,"havocCount":0,"herculesCount":0,"apis":false,"zeus":false, "pet": false, "ships": []}\'',
+  `items` text COLLATE utf8_bin NOT NULL DEFAULT '{"lf4Count":0,"havocCount":0,"herculesCount":0,"apis":false,"zeus":false, "pet": false, "ships": [],"designs":{}}',
   `modules` longtext COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `boosters` longtext COLLATE utf8_bin NOT NULL DEFAULT '{}',
   `configs` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Tablo döküm verisi `player_equipment`
---
-
-INSERT INTO `player_equipment` (`userId`, `config1_lasers`, `config1_generators`, `config1_drones`, `config2_lasers`, `config2_generators`, `config2_drones`, `items`, `modules`, `boosters`, `configs`) VALUES
-(1, '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '{\"lf4Count\":0,\"havocCount\":0,\"herculesCount\":0,\"apis\":false,\"zeus\":false, \"pet\": false, \"ships\": [49,69,70],\"designs\":{\"10\":[495]}}', '[]', '{\"2\":[{\"Type\":0,\"Seconds\":36000}]}', '{\"Config1Hitpoints\":316000,\"Config1Damage\":0,\"Config1Shield\":0,\"Config1Speed\":360,\"Config2Hitpoints\":316000,\"Config2Damage\":0,\"Config2Shield\":0,\"Config2Speed\":360}'),
-(2, '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '\'{\"lf4Count\":0,\"havocCount\":0,\"herculesCount\":0,\"apis\":false,\"zeus\":false, \"pet\": false, \"ships\": []}\'', '[]', '{}', ''),
-(3, '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '[]', '[]', '[{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]},{\"items\":[],\"designs\":[]}]', '\'{\"lf4Count\":0,\"havocCount\":0,\"herculesCount\":0,\"apis\":false,\"zeus\":false, \"pet\": false, \"ships\": []}\'', '[]', '{}', '');
 
 -- --------------------------------------------------------
 
@@ -202,15 +175,6 @@ CREATE TABLE `player_settings` (
   `premiumSlotbarItems` text COLLATE utf8_bin NOT NULL,
   `proActionBarItems` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Tablo döküm verisi `player_settings`
---
-
-INSERT INTO `player_settings` (`userId`, `audio`, `quality`, `classY2T`, `display`, `gameplay`, `window`, `boundKeys`, `inGameSettings`, `cooldowns`, `slotbarItems`, `premiumSlotbarItems`, `proActionBarItems`) VALUES
-(1, '{\"notSet\":false,\"playCombatMusic\":false,\"music\":1,\"sound\":1,\"voice\":1}', '{\"notSet\":false,\"qualityAttack\":0,\"qualityBackground\":0,\"qualityPresetting\":2,\"qualityCustomized\":true,\"qualityPoizone\":2,\"qualityShip\":0,\"qualityEngine\":0,\"qualityExplosion\":0,\"qualityCollectable\":0,\"qualityEffect\":0}', '{\"questsAvailableFilter\":false,\"questsUnavailableFilter\":false,\"questsCompletedFilter\":false,\"var_1151\":false,\"var_2239\":false,\"questsLevelOrderDescending\":false}', '{\"notSet\":false,\"displayPlayerNames\":true,\"displayResources\":true,\"showPremiumQuickslotBar\":true,\"allowAutoQuality\":true,\"preloadUserShips\":true,\"displayHitpointBubbles\":true,\"showNotOwnedItems\":true,\"displayChat\":true,\"displayWindowsBackground\":true,\"displayNotFreeCargoBoxes\":true,\"dragWindowsAlways\":true,\"displayNotifications\":true,\"hoverShips\":true,\"displayDrones\":true,\"displayBonusBoxes\":true,\"displayFreeCargoBoxes\":true,\"var12P\":true,\"varb3N\":false,\"displaySetting3DqualityAntialias\":3,\"varp3M\":1,\"displaySetting3DqualityEffects\":3,\"displaySetting3DqualityLights\":3,\"displaySetting3DqualityTextures\":3,\"var03r\":3,\"displaySetting3DsizeTextures\":3,\"displaySetting3DtextureFiltering\":-1,\"proActionBarEnabled\":true,\"proActionBarKeyboardInputEnabled\":true,\"proActionBarAutohideEnabled\":true,\"proActionBarOpened\":false}', '{\"notSet\":false,\"autoRefinement\":false,\"quickSlotStopAttack\":true,\"autoBoost\":false,\"autoBuyBootyKeys\":false,\"doubleclickAttackEnabled\":true,\"autochangeAmmo\":true,\"autoStartEnabled\":true,\"varE3N\":true}', '{\"hideAllWindows\":false,\"scale\":6,\"barState\":\"24,1|23,1|100,1|25,1|35,0|34,0|39,0|\",\"gameFeatureBarPosition\":\"0.062421972534332085,0\",\"gameFeatureBarLayoutType\":\"0\",\"genericFeatureBarPosition\":\"98.29931972789116,0\",\"genericFeatureBarLayoutType\":\"0\",\"categoryBarPosition\":\"50,85\",\"standartSlotBarPosition\":\"50,85|0,40\",\"standartSlotBarLayoutType\":\"0\",\"premiumSlotBarPosition\":\"50,85|0,80\",\"premiumSlotBarLayoutType\":\"0\",\"proActionBarPosition\":\"\",\"proActionBarLayoutType\":\"\",\"windows\":{\"user\":{\"x\":30,\"y\":30,\"width\":212,\"height\":88,\"maximixed\":false},\"ship\":{\"x\":30,\"y\":30,\"width\":212,\"height\":88,\"maximixed\":false},\"ship_warp\":{\"x\":50,\"y\":50,\"width\":300,\"height\":210,\"maximixed\":false},\"chat\":{\"x\":10,\"y\":9,\"width\":300,\"height\":150,\"maximixed\":false},\"group\":{\"x\":50,\"y\":50,\"width\":196,\"height\":200,\"maximixed\":false},\"minimap\":{\"x\":21,\"y\":45,\"width\":375,\"height\":263,\"maximixed\":true},\"spacemap\":{\"x\":10,\"y\":10,\"width\":650,\"height\":475,\"maximixed\":false},\"log\":{\"x\":30,\"y\":30,\"width\":240,\"height\":150,\"maximixed\":false},\"pet\":{\"x\":50,\"y\":50,\"width\":260,\"height\":130,\"maximixed\":false},\"spaceball\":{\"x\":10,\"y\":10,\"width\":170,\"height\":70,\"maximixed\":false},\"booster\":{\"x\":10,\"y\":10,\"width\":110,\"height\":150,\"maximixed\":false},\"traininggrounds\":{\"x\":10,\"y\":10,\"width\":320,\"height\":320,\"maximixed\":false},\"settings\":{\"x\":73,\"y\":41,\"width\":400,\"height\":470,\"maximixed\":false},\"help\":{\"x\":10,\"y\":10,\"width\":219,\"height\":121,\"maximixed\":false},\"logout\":{\"x\":50,\"y\":50,\"width\":200,\"height\":200,\"maximixed\":false}}}', '[{\"actionType\":7,\"charCode\":0,\"parameter\":0,\"keyCodes\":[49]},{\"actionType\":7,\"charCode\":0,\"parameter\":1,\"keyCodes\":[50]},{\"actionType\":7,\"charCode\":0,\"parameter\":2,\"keyCodes\":[51]},{\"actionType\":7,\"charCode\":0,\"parameter\":3,\"keyCodes\":[52]},{\"actionType\":7,\"charCode\":0,\"parameter\":4,\"keyCodes\":[53]},{\"actionType\":7,\"charCode\":0,\"parameter\":5,\"keyCodes\":[54]},{\"actionType\":7,\"charCode\":0,\"parameter\":6,\"keyCodes\":[55]},{\"actionType\":7,\"charCode\":0,\"parameter\":7,\"keyCodes\":[56]},{\"actionType\":7,\"charCode\":0,\"parameter\":8,\"keyCodes\":[57]},{\"actionType\":7,\"charCode\":0,\"parameter\":9,\"keyCodes\":[48]},{\"actionType\":8,\"charCode\":0,\"parameter\":0,\"keyCodes\":[112]},{\"actionType\":8,\"charCode\":0,\"parameter\":1,\"keyCodes\":[113]},{\"actionType\":8,\"charCode\":0,\"parameter\":2,\"keyCodes\":[114]},{\"actionType\":8,\"charCode\":0,\"parameter\":3,\"keyCodes\":[115]},{\"actionType\":8,\"charCode\":0,\"parameter\":4,\"keyCodes\":[116]},{\"actionType\":8,\"charCode\":0,\"parameter\":5,\"keyCodes\":[117]},{\"actionType\":8,\"charCode\":0,\"parameter\":6,\"keyCodes\":[118]},{\"actionType\":8,\"charCode\":0,\"parameter\":7,\"keyCodes\":[119]},{\"actionType\":8,\"charCode\":0,\"parameter\":8,\"keyCodes\":[120]},{\"actionType\":0,\"charCode\":0,\"parameter\":0,\"keyCodes\":[74]},{\"actionType\":1,\"charCode\":0,\"parameter\":0,\"keyCodes\":[67]},{\"actionType\":2,\"charCode\":0,\"parameter\":0,\"keyCodes\":[17]},{\"actionType\":3,\"charCode\":0,\"parameter\":0,\"keyCodes\":[32]},{\"actionType\":4,\"charCode\":0,\"parameter\":0,\"keyCodes\":[69]},{\"actionType\":5,\"charCode\":0,\"parameter\":0,\"keyCodes\":[82]},{\"actionType\":13,\"charCode\":0,\"parameter\":0,\"keyCodes\":[68]},{\"actionType\":6,\"charCode\":0,\"parameter\":0,\"keyCodes\":[76]},{\"actionType\":9,\"charCode\":0,\"parameter\":0,\"keyCodes\":[72]},{\"actionType\":10,\"charCode\":0,\"parameter\":0,\"keyCodes\":[70]},{\"actionType\":11,\"charCode\":0,\"parameter\":0,\"keyCodes\":[107]},{\"actionType\":12,\"charCode\":0,\"parameter\":0,\"keyCodes\":[109]},{\"actionType\":14,\"charCode\":0,\"parameter\":0,\"keyCodes\":[13]},{\"actionType\":15,\"charCode\":0,\"parameter\":0,\"keyCodes\":[9]},{\"actionType\":8,\"charCode\":0,\"parameter\":9,\"keyCodes\":[121]},{\"actionType\":16,\"charCode\":0,\"parameter\":0,\"keyCodes\":[16]}]', '{\"blockedGroupInvites\":false,\"selectedLaser\":\"ammunition_laser_lcb-10\",\"selectedRocket\":\"ammunition_rocket_r-310\",\"selectedRocketLauncher\":\"ammunition_rocketlauncher_hstrm-01\",\"selectedFormation\":\"drone_formation_default\",\"currentConfig\":1,\"selectedCpus\":[\"equipment_extra_cpu_arol-x\",\"equipment_extra_cpu_rllb-x\"]}', '{\"ammunition_mine_smb-01\":\"1.01.0001 00:00:00\",\"equipment_extra_cpu_ish-01\":\"1.01.0001 00:00:00\",\"ammunition_specialammo_emp-01\":\"1.01.0001 00:00:00\",\"ammunition_mine\":\"1.01.0001 00:00:00\",\"ammunition_specialammo_dcr-250\":\"1.01.0001 00:00:00\",\"ammunition_specialammo_pld-8\":\"1.01.0001 00:00:00\",\"ammunition_specialammo_r-ic3\":\"1.01.0001 00:00:00\",\"tech_energy-leech\":\"\",\"tech_chain-impulse\":\"\",\"tech_precision-targeter\":\"\",\"tech_backup-shields\":\"\",\"tech_battle-repair-bot\":\"\",\"ability_lightning\":\"1.01.0001 00:00:00\"}', '{\"1\":\"ammunition_laser_ucb-100\"}', '{\"1\":\"drone_formation_default\"}', '{}'),
-(2, '', '', '', '', '', '', '', '', '', '', '', ''),
-(3, '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -560,8 +524,8 @@ INSERT INTO `server_ships` (`id`, `shipID`, `baseShipId`, `lootID`, `name`, `hea
 (59, 158, 49, 'ship_aegis_design_aegis-superelite', 'Aegis Super Elite', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (60, 159, 69, 'ship_citadel_design_citadel-elite', 'Citadel Veteran', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (61, 160, 69, 'ship_citadel_design_citadel-superelite', 'Citadel Super Elite', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(62, 161, 70, 'ship_spearhead_design_spearhead-elite', 'Spearhead Veteran', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(63, 162, 70, 'ship_spearhead_design_spearhead-superelite', 'Spearhead Super Elite', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
+(62, 161, 70, 'ship_aegis_design_aegis-elite', 'Spearhead Veteran', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
+(63, 162, 70, 'ship_aegis_design_aegis-superelite', 'Spearhead Super Elite', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (64, 442, 0, 'spaceball_summer', '..::{Spaceball}::..', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (65, 443, 0, 'spaceball_winter', '..::{Spaceball}::..', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (66, 444, 0, 'spaceball_soccer', '..::{Spaceball}::..', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
@@ -595,14 +559,14 @@ INSERT INTO `server_ships` (`id`, `shipID`, `baseShipId`, `lootID`, `name`, `hea
 (94, 472, 445, 'ship_g-champion_design_g-champion_wales', 'Wales', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (95, 473, 156, 'ship_g-surgeon_design_g-surgeon-cicada', 'Cicada', 256000, 0, 300, 15, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (96, 474, 156, 'ship_g-surgeon_design_g-surgeon-locust', 'Locust', 256000, 0, 300, 15, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(97, 475, 49, 'ship_a_elite_design_a_elite_poison', 'Aegis Elite', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
+(97, 475, 49, 'ship_a-elite_design_a_elite_poison', 'Aegis Elite', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (98, 476, 49, 'ship_a-elite_design_a_elite_sandstorm', 'Aegis Sandstorm', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (99, 477, 49, 'ship_a-elite_design_a_elite_lava', 'Aegis Lava', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (100, 478, 49, 'ship_a-elite_design_a_elite_ocean', 'Aegis Ocean', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (101, 479, 49, 'ship_a-elite_design_a_elite_blaze', 'Aegis Blaze', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (102, 480, 480, 'ship_cyborg_design_cyborg-carbonite', 'Cyborg Carbonite', 265000, 0, 300, 16, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(103, 481, 481, 'ship_cyborg_design_cyborg-blaze', 'Cyborg Blaze', 265000, 0, 300, 16, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(104, 482, 482, 'ship_cyborg_design_cyborg-lava', 'Cyborg Lava', 265000, 0, 300, 16, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
+(103, 481, 480, 'ship_cyborg_design_cyborg-blaze', 'Cyborg Blaze', 265000, 0, 300, 16, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
+(104, 482, 480, 'ship_cyborg_design_cyborg-lava', 'Cyborg Lava', 265000, 0, 300, 16, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (105, 483, 10, 'ship_sentinel_design_sentinel-lava', 'sentinel-lava', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (106, 484, 10, 'ship_sentinel_design_sentinel-argon', 'sentinel-argon', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (107, 485, 10, 'ship_sentinel_design_sentinel-legend', 'sentinel-legend', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
@@ -833,7 +797,7 @@ ALTER TABLE `chat_permissions`
 -- Tablo için AUTO_INCREMENT değeri `log_account`
 --
 ALTER TABLE `log_account`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `log_event_jpb`
@@ -851,13 +815,13 @@ ALTER TABLE `log_player_kills`
 -- Tablo için AUTO_INCREMENT değeri `player_accounts`
 --
 ALTER TABLE `player_accounts`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `player_equipment`
 --
 ALTER TABLE `player_equipment`
-  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `userId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `player_galaxygates`

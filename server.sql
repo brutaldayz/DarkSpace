@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 30 Eyl 2019, 21:51:29
+-- Üretim Zamanı: 01 Eki 2019, 20:59:28
 -- Sunucu sürümü: 10.4.6-MariaDB
 -- PHP Sürümü: 7.3.9
 
@@ -40,21 +40,6 @@ CREATE TABLE `chat_permissions` (
 
 INSERT INTO `chat_permissions` (`id`, `userId`, `type`) VALUES
 (1, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `log_account`
---
-
-CREATE TABLE `log_account` (
-  `LogID` int(11) NOT NULL,
-  `UserID` int(11) NOT NULL,
-  `IP` varchar(16) COLLATE utf8_bin NOT NULL,
-  `Content` text COLLATE utf8_bin NOT NULL,
-  `Amount` int(11) NOT NULL DEFAULT 0,
-  `Date` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -132,7 +117,7 @@ CREATE TABLE `player_equipment` (
   `config2_lasers` text COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `config2_generators` text COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `config2_drones` text COLLATE utf8_bin NOT NULL DEFAULT '[{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]},{"items":[],"designs":[]}]',
-  `items` text COLLATE utf8_bin NOT NULL DEFAULT '{"lf4Count":0,"havocCount":0,"herculesCount":0,"apis":false,"zeus":false, "pet": false, "ships": [],"designs":{}}',
+  `items` text COLLATE utf8_bin NOT NULL DEFAULT '{"lf4Count":0,"havocCount":0,"herculesCount":0,"apis":false,"zeus":false, "pet": false,"petModules":[], "ships": [],"designs":{}}',
   `modules` longtext COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `boosters` longtext COLLATE utf8_bin NOT NULL DEFAULT '{}',
   `configs` text COLLATE utf8_bin NOT NULL
@@ -152,6 +137,24 @@ CREATE TABLE `player_galaxygates` (
   `multiplier` int(11) NOT NULL DEFAULT 0,
   `lives` int(11) NOT NULL DEFAULT -1,
   `prepared` tinyint(4) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `player_log`
+--
+
+CREATE TABLE `player_log` (
+  `LogID` int(11) NOT NULL,
+  `UserID` int(11) NOT NULL,
+  `UserIP` varchar(64) COLLATE utf8_bin NOT NULL,
+  `Type` int(2) NOT NULL DEFAULT 0,
+  `PaymentType` int(2) NOT NULL DEFAULT 0,
+  `PaymentAmount` int(11) NOT NULL DEFAULT 0,
+  `Amount` int(11) NOT NULL DEFAULT 0,
+  `Content` int(11) NOT NULL DEFAULT 0,
+  `Date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -473,22 +476,22 @@ INSERT INTO `server_ships` (`id`, `shipID`, `baseShipId`, `lootID`, `name`, `hea
 (8, 8, 8, 'ship_vengeance', 'Vengeance', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
 (9, 9, 0, 'ship_bigboy', 'Bigboy', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (10, 10, 10, 'ship_goliath', 'Goliath', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(11, 12, 0, 'pet', 'P.E.T. Level 1-3', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(12, 13, 0, 'pet', 'P.E.T. Red', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(13, 14, 0, 'pet', 'P.E.T. Green', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(14, 15, 0, 'pet', 'P.E.T. Frozen', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
+(11, 12, 0, 'pet', 'P.E.T. Level 1-3', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":25000,\"Honor\":150,\"Credits\":0,\"Uridium\":0}'),
+(12, 13, 0, 'pet', 'P.E.T. Red', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":25000,\"Honor\":150,\"Credits\":0,\"Uridium\":0}'),
+(13, 14, 0, 'pet', 'P.E.T. Green', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":25000,\"Honor\":150,\"Credits\":0,\"Uridium\":0}'),
+(14, 15, 0, 'pet', 'P.E.T. Frozen', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":25000,\"Honor\":150,\"Credits\":0,\"Uridium\":0}'),
 (15, 16, 8, 'ship_vengeance_design_adept', 'Adept', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
 (16, 17, 8, 'ship_vengeance_design_corsair', 'Corsair', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
 (17, 18, 8, 'ship_vengeance_design_lightning', 'Lightning', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
 (18, 19, 10, 'ship_goliath_design_jade', 'Jade', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (19, 20, 0, 'ship_admin', 'Ufo', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(20, 22, 0, 'pet', 'P.E.T. Normal', 0, 50000, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
+(20, 22, 0, 'pet', 'P.E.T. Normal', 0, 50000, 0, 0, 0, 0, 0, '{\"Experience\":25000,\"Honor\":150,\"Credits\":0,\"Uridium\":0}'),
 (21, 49, 49, 'ship_aegis', 'Aegis', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (22, 52, 10, 'ship_goliath_design_amber', 'Amber', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (23, 53, 10, 'ship_goliath_design_crimson', 'Crimson', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (24, 54, 10, 'ship_goliath_design_sapphire', 'Sapphire', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (25, 56, 10, 'ship_goliath_design_enforcer', 'Enforcer', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(26, 57, 10, 'ship_goliath_design_independence', 'Independence', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
+(26, 57, 445, 'ship_goliath_design_independence', 'Independence', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (27, 58, 8, 'ship_vengeance_design_revenge', 'Revenge', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
 (28, 59, 10, 'ship_goliath_design_bastion', 'Bastion', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (29, 60, 8, 'ship_vengeance_design_avenger', 'Avenger', 180000, 0, 380, 10, 10, 0, 0, '{\"Experience\":25600,\"Honor\":256,\"Credits\":0,\"Uridium\":256}'),
@@ -509,7 +512,6 @@ INSERT INTO `server_ships` (`id`, `shipID`, `baseShipId`, `lootID`, `name`, `hea
 (44, 98, 0, 'ship_police', 'PoliceShip', 0, 0, 0, 35, 35, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (45, 109, 10, 'ship_goliath_design_saturn', 'Saturn', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (46, 110, 10, 'ship_goliath_design_centaur', 'Centaur', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
-(47, 120, 10, 'ship_goliath_design_turkish', 'Hezarfen', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (48, 140, 10, 'ship_goliath_design_vanquisher', 'Vanquisher', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (49, 141, 10, 'ship_goliath_design_sovereign', 'Sovereign', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (50, 142, 10, 'ship_goliath_design_peacemaker', 'Peacemaker', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
@@ -518,7 +520,7 @@ INSERT INTO `server_ships` (`id`, `shipID`, `baseShipId`, `lootID`, `name`, `hea
 (53, 152, 0, 'ship_nostromo_design_ambassador', 'Nostromo Ambassador', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
 (54, 153, 10, 'ship_goliath_design_goliath-razer', 'Razer', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (55, 154, 0, 'ship_nostromo_design_nostromo-razer', 'Nostromo Razer', 0, 0, 0, 0, 0, 0, 0, '{\"Experience\":0,\"Honor\":0,\"Credits\":0,\"Uridium\":0}'),
-(56, 155, 10, 'ship_goliath_design_turkish', 'Hezarfen', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
+(56, 155, 445, 'ship_goliath_design_turkish', 'Hezarfen', 256000, 0, 300, 15, 15, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (57, 156, 156, 'ship_g-surgeon', 'Surgeon', 256000, 0, 300, 15, 16, 0, 0, '{\"Experience\":51200,\"Honor\":512,\"Credits\":0,\"Uridium\":512}'),
 (58, 157, 49, 'ship_aegis_design_aegis-elite', 'Aegis Veteran', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
 (59, 158, 49, 'ship_aegis_design_aegis-superelite', 'Aegis Super Elite', 275000, 0, 300, 10, 15, 0, 0, '{\"Experience\":25000,\"Honor\":250,\"Credits\":0,\"Uridium\":250}'),
@@ -602,23 +604,23 @@ CREATE TABLE `server_shop` (
 --
 
 INSERT INTO `server_shop` (`ItemID`, `Category`, `Item`, `ItemHash`, `Cost`, `Type`, `Enabled`) VALUES
-(1, 'Drone', 'Apis', 'VlZab1EyTkhUak5RVkRBOQ==', 250000, 1, 1),
-(2, 'Drone', 'Zeus', 'VmpJeFYwMVhUak5RVkRBOQ==', 250000, 1, 1),
+(1, 'Drone', 'Apis', 'VlZab1EyTkhUak5RVkRBOQ==', 125000, 1, 1),
+(2, 'Drone', 'Zeus', 'VmpJeFYwMVhUak5RVkRBOQ==', 125000, 1, 1),
 (3, 'Ship', 'Vengeance', 'Vm0weFYyUldiM2xXYldocFlsVTFjdz09', 30000, 1, 0),
 (4, 'Ship', 'Goliath', 'VldwSk5XTXlSbGhTYWtKb1VWUXdPUT09', 80000, 1, 0),
 (5, 'Ship', 'Champion', 'VlZSS2IyRkhTbGxSYmtKcFRXcFJPUT09', 500000, 1, 0),
 (7, 'Ship', 'Hammerclaw', 'VlRCa1IyUkhTbGhXYm14YVRXNW9iMXBJWXpsUVVUMDk=', 500000, 1, 0),
-(12, 'Pet', 'Pet', 'VmxWa1YwMUJQVDA9', 0, 1, 1),
+(12, 'Pet', 'Pet', 'VmxWa1YwMUJQVDA9', 50000, 1, 1),
 (13, 'Design', 'Peacemaker', 'VmxWa1YyRkdhM2xXYmxKYVZqTlNjMWt5WXpsUVVUMDk=', 0, 1, 1),
 (14, 'Design', 'Sovereign', 'VmxSSk5VMXNjRmxUYlhob1ZqSlNNUT09', 0, 1, 1),
 (15, 'Design', 'Vanquisher', 'Vm0weFIyUlhUbGxXYmtKcVRXMW9jMWt5WXpsUVVUMDk=', 0, 1, 1),
 (16, 'Design', 'Kick', 'VlhwS2MyRnRSak5RVkRBOQ==', 0, 1, 1),
 (17, 'Design', 'Goal', 'VldwSk5XRkhTa0pRVkRBOQ==', 0, 1, 1),
 (18, 'Design', 'Referee', 'VmxjeFYySldjRmxUYlhoaFZWUXdPUT09', 0, 1, 1),
-(19, 'Design', 'Crimson', 'VlZST1MyTkhTbGxVYmxwcFdub3dPUT09', 0, 1, 1),
-(20, 'Design', 'Centaur', 'VlZSS1YyUlhVa2hTYWtacVdub3dPUT09', 0, 1, 1),
+(19, 'Design', 'Crimson', 'VlZST1MyTkhTbGxVYmxwcFdub3dPUT09', 0, 1, 0),
+(20, 'Design', 'Centaur', 'VlZSS1YyUlhVa2hTYWtacVdub3dPUT09', 0, 1, 0),
 (21, 'Design', 'Saturn', 'VmxSS1IwMUhVbGxUYmxVOQ==', 0, 1, 0),
-(22, 'Design', 'Ignite', 'VlRGa2EyUlhSbGxWYlhjOQ==', 0, 1, 1),
+(22, 'Design', 'Ignite', 'VlRGa2EyUlhSbGxWYlhjOQ==', 0, 1, 0),
 (31, 'Design', 'Spearhead_Veteran', 'VmxST1EySkdiRmxUYlRsaFZqQmFjbGRFUm1GaVIxSklWbTVzV2xaNlVUaz0=', 0, 1, 0),
 (32, 'Design', 'Aegis_Veteran', 'VlZaa1YySnRSbGxVYlZwWFlsWlpkMWRzYUV0aFIwcHVVRlF3UFE9PQ==', 0, 1, 0),
 (33, 'Design', 'Citadel_Veteran', 'VlZSS2MwMUdiRmhWYlhocFVtcHNXRmRzYUZOaVIwNTBVbTVWUFE9PQ==', 0, 1, 0),
@@ -650,7 +652,11 @@ INSERT INTO `server_shop` (`ItemID`, `Category`, `Item`, `ItemHash`, `Cost`, `Ty
 (81, 'Ship', 'Pusat', 'VmxWb1YyVnNiRmxWVkRBOQ==', 250000, 1, 1),
 (156, 'Ship', 'Surgeon', 'VmxST1YyVldiM2xXYmxwcFdub3dPUT09', 250000, 1, 1),
 (583, 'Extra', 'LogFile', 'VmtWak5XSnNTblJpU0U1aFZWUXdPUT09', 0, 1, 1),
-(584, 'Extra', 'GreenKey', 'VldwT1MySkdjRmhPVlhoaFYwZHpPUT09', 0, 1, 1);
+(584, 'Extra', 'GreenKey', 'VldwT1MySkdjRmhPVlhoaFYwZHpPUT09', 0, 1, 1),
+(585, 'Pet', 'AL', 'VlZaV00xQlJQVDA9', 37500, 1, 1),
+(586, 'Pet', 'KK', 'VlhwQ2VsQlJQVDA9', 65000, 1, 1),
+(587, 'Pet', 'REP', 'VmxkMFYxVlJQVDA9', 12500, 1, 1),
+(588, 'Pet', 'CSR', 'VlZSR1QxVjNQVDA9', 55000, 1, 1);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -661,12 +667,6 @@ INSERT INTO `server_shop` (`ItemID`, `Category`, `Item`, `ItemHash`, `Cost`, `Ty
 --
 ALTER TABLE `chat_permissions`
   ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `log_account`
---
-ALTER TABLE `log_account`
-  ADD PRIMARY KEY (`LogID`);
 
 --
 -- Tablo için indeksler `log_event_jpb`
@@ -697,6 +697,12 @@ ALTER TABLE `player_equipment`
 --
 ALTER TABLE `player_galaxygates`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Tablo için indeksler `player_log`
+--
+ALTER TABLE `player_log`
+  ADD PRIMARY KEY (`LogID`);
 
 --
 -- Tablo için indeksler `player_settings`
@@ -794,12 +800,6 @@ ALTER TABLE `chat_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Tablo için AUTO_INCREMENT değeri `log_account`
---
-ALTER TABLE `log_account`
-  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- Tablo için AUTO_INCREMENT değeri `log_event_jpb`
 --
 ALTER TABLE `log_event_jpb`
@@ -828,6 +828,12 @@ ALTER TABLE `player_equipment`
 --
 ALTER TABLE `player_galaxygates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Tablo için AUTO_INCREMENT değeri `player_log`
+--
+ALTER TABLE `player_log`
+  MODIFY `LogID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `server_bans`
@@ -899,7 +905,7 @@ ALTER TABLE `server_ships`
 -- Tablo için AUTO_INCREMENT değeri `server_shop`
 --
 ALTER TABLE `server_shop`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=585;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=589;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

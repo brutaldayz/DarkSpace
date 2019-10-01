@@ -31,7 +31,7 @@
         $_SESSION['EMAIL'] = $User['email'];
         $_SESSION['SESSION_ID'] = $Session;
 
-        Logger::addLoginLog($LastLoginIP, $User['userID']);
+        Logger::addLoginLog($User['userID'], $LastLoginIP);
 
         die(json_encode(["error" => false]));
     }else Functions::router('Home');

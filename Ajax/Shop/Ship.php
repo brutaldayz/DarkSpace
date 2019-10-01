@@ -38,8 +38,7 @@
         $ss = $db->prepare("UPDATE player_equipment SET items = ? WHERE userID = {$Player->Data['userID']}");
         $ss->execute(array($items_array));
 
-        Logger::addLog(Functions::getUserIP(), $Player->Data['userID'], $get_ship['ItemID'], 0);
-        Logger::addLog(Functions::getUserIP(), $Player->Data['userID'], 2, $get_ship['Cost']);
+        Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $get_ship['Cost'], 1, $get_ship['ItemID']);
 
         die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $get_ship['Cost'])."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
     }else Functions::router('Home');

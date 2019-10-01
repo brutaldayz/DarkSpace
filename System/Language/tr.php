@@ -310,19 +310,38 @@
         public static function getOtherRank($Point, $Rank){ return "Bir sonraki <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".self::Rank($Rank)."</strong> rütbesine ulaşmak için, şu anda {$Point} Rütbe Puanı'na ihtiyacın var."; }
         public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Şartlar & Koşullar </a> okundu ve kabul edildi.</span>"; }
         public static function getRP($Data){ return "ArGe Puanı dağıtıldı: 50 vardı {$Data} kullanıldı."; }
+        public static function convertPT($Data){ return ($Data == 1) ? 'Uridium' : 'Kredi'; }
 
-        public static function LogMessages($Data){
+        public static function shopLogMessages($Data, $PaymentType, $PaymentAmount, $Amount){
             $Lang = array(
-                "1" => "Giriş yapıldı.",
-                "2" => " uridium harcandı.",
-                "3" => " kredi harcandı.",
-                "4" => "Apis droidi satın alındı.",
-                "5" => "Zeus droidi satın alındı.",
-                "156" => "Cerrah satın alındı.",
-                "81" => "Pusat satın alındı.",
+                "1" => "Apis droidi satın alındı.",
+                "2" => "Zeus droidi satın alındı.",
+                "12" => "Pet satın alındı.",
                 "49" => "Aegis satın alındı.",
                 "69" => "Citadel satın alındı.",
-                "70" => "Spearhead satın alındı."
+                "70" => "Spearhead satın alındı.",
+                "81" => "Pusat satın alındı.",
+                "156" => "Cerrah satın alındı.",
+                "445" => "Champion satın alındı.",
+                "480" => "Cyborg satın alındı.",
+                "585" => "Otomatik Toplayıcı modülü satın alındı.",
+                "586" => "Kamikaze modülü satın alındı.",
+                "587" => "Tamir modülü satın alındı.",
+                "588" => "Kombo Gemi Tamir modülü satın alındı."
+            );
+            return $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
+        }
+
+        public static function skillTreeLogMessages($Data){
+            $Lang = array(
+                "" => ""
+            );
+            return $Lang[$Data];
+        }
+
+        public static function accountLogMessages($Data){
+            $Lang = array(
+                "1" => "Giriş yapıldı."
             );
             return $Lang[$Data];
         }
@@ -389,7 +408,11 @@
                 "Surgeon" => "Bir neşter kadar hassas ve ölümcül! Ar-Ge departmanınızdan çıkan en son yenilikle kendinizi donatın. Bu uzay gemisi şu yeteneklere sahip: %6 ekstra hasar, %6 daha çok şeref puanı, %6 daha çok TP ve fazladan bir Jeneratör Yeri.",
                 "Spearhead" => "Acımasız, soğuk kanlı yalnız bir kurt için ideal, çevik bir keşif gemisi. Spearheads bir kaşif olarak düşman bölgesinin derinlerine ulaşabilir, düşman gemilerinin yeteneklerini devre dışı bırakabilir ve hatta onları müttefikler için işaretleyebilir.",
                 "Aegis" => "Aegis, içine girdiği tüm çatışmalarda dengeleri değiştirir. Bu çok yönlü mühendislik ürünü uzay gemisinin sağladığı destek ve onarım yetenekleri kazanmak ile kaybetmek arasındaki farkı belirler. Bu yüzden o savaş gemisini kendi yanında görmeyi isteyeceksin.",
-                "Citadel" => "Citadel, mürettebatı arasında \'Ağır Tank\' ya da sadece Tank olarak tanınır. Dev bir Ağır Kruvazör olan bu uzay gemisi, iki roket atar yuvası ve farklı yetenekleriyle düşmanlara karşı tam bir hareketli kalkan oluşturur. Şimdi, uzay gemilerinin bu dev koruyucusuna sen de sahip olabilirsin!"
+                "Citadel" => "Citadel, mürettebatı arasında \'Ağır Tank\' ya da sadece Tank olarak tanınır. Dev bir Ağır Kruvazör olan bu uzay gemisi, iki roket atar yuvası ve farklı yetenekleriyle düşmanlara karşı tam bir hareketli kalkan oluşturur. Şimdi, uzay gemilerinin bu dev koruyucusuna sen de sahip olabilirsin!",
+                "KK" => "P.E.T.\'in veya gemin imha edilmek üzereyken, kamikaze modülü etkin hale gelir ve P.E.T.\'in düşmanlarını yok etmek üzere son kez kamikaze saldırısına geçer. <br><br> Etki: Patladığında 75,000 alan hasarına yol açar. <br> Yarıçap: 450",
+                "AL" => "Bu modülü etkinleştirdiğin takdirde, P.E.T\'in yakınlardaki bütün avantaj kutularını ve kargo kutularını otomatik olarak toplar. <br><br> Menzil: 2,500",
+                "REP" => "Tamir modülü P.E.T hasarını saniyede 12,000 oranında tamir eder. <br><br> Etki: Saniyede 12,000 DP tamir eder. <br> Süre: 30 saniye",
+                "CSR" => "Uzay gemini uçuş sırasında tamir eder. Her tamirat için fazladan yakıt tüketir. <br> <br>Etki: Saniyede 25,000 DP tamir eder. <br> Süre: 5 Saniye <br> Tüketim: 512 Uridium"
             );
             return $Lang[$Data];
         }

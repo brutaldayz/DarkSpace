@@ -66,25 +66,27 @@
         </div>
 
         <script>
+            var P1 = "";
             function changeCompany(Param1){
+                P1 = Param1;
                 $("#companyModal").modal();
-                $("#changeCompany").click(function(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Company/ChangeCompany.php',
-                        data: {"Param1": Param1},
-                        success: function(resultData){
-                            if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                            else{
-                                swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
-                                .then((value) => {
-                                    window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>Home";
-                                });
-                            }
-                        }
-                    }); 
-                });
             }
+            $("#changeCompany").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Company/ChangeCompany.php',
+                    data: {"Param1": P1},
+                    success: function(resultData){
+                        if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                        else{
+                            swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
+                            .then((value) => {
+                                window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>Home";
+                            });
+                        }
+                    }
+                }); 
+            });
         </script>
     </div>
 

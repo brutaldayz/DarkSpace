@@ -124,44 +124,48 @@
                     }
                 });
             });
+            var Kick = "";
             function kickUser(Param1){
+                Kick = Param1;
                 $("#kickUserModal").modal();
-                $("#kickUserConfirm").click(function(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Clan/KickUser.php',
-                        data: {"Param1": Param1},
-                        success: function(resultData){
-                            if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                            else{
-                                swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
-                                .then((value) => {
-                                    location.reload();
-                                });
-                            }
-                        }
-                    });
-                });
             }
+            $("#kickUserConfirm").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Clan/KickUser.php',
+                    data: {"Param1": Kick},
+                    success: function(resultData){
+                        if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                        else{
+                            swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
+                            .then((value) => {
+                                location.reload();
+                            });
+                        }
+                    }
+                });
+            });
+            var Leader = "";
             function changeLeader(Param1){
+                Leader = Param1;
                 $("#changeLeaderModal").modal();
-                $("#changeLeaderConfirm").click(function(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Clan/ChangeLeader.php',
-                        data: {"Param1": Param1},
-                        success: function(resultData){
-                            if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                            else{
-                                swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
-                                .then((value) => {
-                                    location.reload();
-                                });
-                            }
-                        }
-                    });
-                });
             }
+            $("#changeLeaderConfirm").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Clan/ChangeLeader.php',
+                    data: {"Param1": Leader},
+                    success: function(resultData){
+                        if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                        else{
+                            swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
+                            .then((value) => {
+                                location.reload();
+                            });
+                        }
+                    }
+                });
+            });
         </script>
 
         <?php $appCount = $db->query("SELECT * FROM server_clan_applications WHERE clanID = {$Clan['clanID']}"); if($appCount->rowCount() != 0){ ?>

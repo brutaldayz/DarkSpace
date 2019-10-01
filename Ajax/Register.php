@@ -47,6 +47,7 @@
                     Functions::Register('player_settings', 'userId', $UserID);
                     Functions::Register('player_titles', 'userID', $UserID);
                     Functions::Register('player_skilltree', 'userID', $UserID);
+                    Logger::addLoginLog($UserID, $IP);
                     $_SESSION['USERNAME']   = $Username;
                     $_SESSION['EMAIL']      = $Email;
                     $_SESSION['SESSION_ID'] = $SessionID;

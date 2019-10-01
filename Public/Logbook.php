@@ -21,9 +21,32 @@
                         <?php }}else{ echo Lang::Get('ArentLog'); } ?>
                     </div>
                     <div class="accountLog" style="display: none;">
-                        <?php $AccountLog = $db->query("SELECT * FROM log_account WHERE UserID = {$Player->Data['userID']} ORDER BY LogID DESC"); if($AccountLog->rowCount() != 0){ foreach ($AccountLog as $value) { ?>
-                        <div>[<?php echo Functions::ConvertTimeDate($value['Date']); ?>] - <?php echo ($value['Amount'] != 0) ? number_format($value['Amount']) : ''; echo Lang::LogMessages($value['Content']); ?></div>
-                        <?php }}else{ echo Lang::Get('ArentLog'); } ?>
+                        <?php
+                            $getAccLog = $db->query("SELECT * FROM player_log WHERE UserID = {$Player->Data['userID']} ORDER BY LogID DESC");
+
+                            if($getAccLog->rowCount() == 0) echo Lang::Get('ArentLog');
+                            else{ foreach ($getAccLog as $value) {
+                        ?>
+
+                        <div>[<?php echo Functions::ConvertTimeDate($value['Date']); ?>] - 
+                        <?php 
+                            switch ($value['Type']) {
+                                case 1:
+                                    echo Lang::shopLogMessages($value['Content'],$value['PaymentType'],$value['PaymentAmount'],$value['Amount']);
+                                    break;
+                                case 2:
+                                    echo Lang::skillTreeLogMessages($value['Content']);
+                                    break;
+                                case 3:
+                                    echo Lang::accountLogMessages($value['Content']);
+                                    break;
+                            }
+                        
+                        ?>
+                        
+                        </div>
+
+                        <?php }} ?>
                     </div>
                 </div>
 

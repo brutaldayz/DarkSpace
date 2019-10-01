@@ -123,26 +123,30 @@
         </div>
 
         <script>
+            var P1 = "";
+            var P2 = "";
             function shopModal(Param1, Param2, Param3, Param4){
-                $(".buyButton").attr('id', Param1);
+                P1 = Param1;
+                P2 = Param2;
                 $(".shopContent").html('<?php echo Lang::Get('BuyMessage'); ?>' + '<?php echo Lang::Get('Price'); ?>: ' + Param3 + ' <?php echo ($value['Type'] == 1) ? 'U' : 'C'; ?>.' + '<br><br> <?php echo Lang::Shop('Description'); ?> ' + Param4 + '<br><br>');
                 $("#shopModal").modal();
-                $("#" + Param1).click(function(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Shop/'+Param1+'.php',
-                        data: {"Param1": Param2},
-                        success: function(resultData){
-                            if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                            else{
-                                swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success');
-                                $(".UridiumTab").html("U. : " + resultData.Param3);
-                                $(".CrediTab").html("C. : " + resultData.Param4);
-                            }
-                        }
-                    });
-                });
             }
+
+            $("#BuyButton").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Shop/'+P1+'.php',
+                    data: {"Param1": P2},
+                    success: function(resultData){
+                        if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                        else{
+                            swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success');
+                            $(".UridiumTab").html("U. : " + resultData.Param3);
+                            $(".CrediTab").html("C. : " + resultData.Param4);
+                        }
+                    }
+                });
+            });
 
             function changeTab(Param1){
                 $(".ship").css('display', 'none');

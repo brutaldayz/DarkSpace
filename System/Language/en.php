@@ -312,19 +312,38 @@
         public static function getOtherRank($Point, $Rank){ return "You need approx. {$Point} rank points to reach the next rank of <img src='".Config::Get('SERVER_URL')."do_img/global/ranks/rank_{$Rank}.png'> <strong>".self::Rank($Rank)."</strong>."; }
         public static function getTerms(){ return "<span><a href='javascript:;' id='terms'>Terms & Conditions</a> read and accepted.</span>"; }
         public static function getRP($Data){ return "Research Points used: {$Data}/50."; }
+        public static function convertPT($Data){ return ($Data == 1) ? 'Uridium' : 'Kredi'; }
 
-        public static function LogMessages($Data){
+        public static function shopLogMessages($Data, $PaymentType, $PaymentAmount, $Amount){
             $Lang = array(
-                "1" => "Logged in.",
-                "2" => " uridium was spent.",
-                "3" => " credits was spent.",
-                "4" => "The Apis drone was purchased.",
-                "5" => "The Zeus drone was purchased.",
-                "156" => "Surgeon was purchased.",
-                "81" => "Pusat was purchased.",
+                "1" => "The Apis drone was purchased.",
+                "2" => "The Zeus drone was purchased.",
+                "12" => "Pet was purchased.",
                 "49" => "Aegis was purchased.",
                 "69" => "Citadel was purchased.",
-                "70" => "Spearhead was purchased."
+                "70" => "Spearhead was purchased.",
+                "81" => "Pusat was purchased.",
+                "156" => "Surgeon was purchased.",
+                "445" => "Champion was purchased.",
+                "480" => "Cyborg was purchased.",
+                "585" => "The module Auto-looter has been purchased.",
+                "586" => "The module Kamikaze has been purchased.",
+                "587" => "The module Repair has been purchased.",
+                "588" => "The module Combo Ship Repair has been purchased."
+            );
+            return $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
+        }
+
+        public static function skillTreeLogMessages($Data){
+            $Lang = array(
+                "" => ""
+            );
+            return $Lang[$Data];
+        }
+
+        public static function accountLogMessages($Data){
+            $Lang = array(
+                "1" => "Logged in."
             );
             return $Lang[$Data];
         }
@@ -391,7 +410,11 @@
                 "Surgeon" => "As precise and potentially deadly as a scalpel! Equip yourself with the very latest innovation to come out of our R&D department. This ship has the following abilities: 6% extra damage, 6% more honor point earned, %6 more XP earned, and an additional Generator Slot.",
                 "Spearhead" => "An agile reconnaissance ship, ideal for the ruthless, cold-blooded lone wolf. Spearheads can penetrate unseen deep into enemy territory as scouts, disable enemy ships\' skills, or even mark them for her allies.",
                 "Aegis" => "The Aegis tips the scales one way or the other in every battle she\'s flown in. This versatile engineering ship\'s support and repair abilities have often made the difference between defeat and victory - so make sure she\'s on your side!",
-                "Citadel" => "A Citadel is often affectionately called a \'Clank Tank\' - or just The Tank - by her crew. She\'s a hulking Heavy Cruiser with two rocket launcher slots and various abilities that make her a mobile shield for her allies. Now this bulwark among spaceships can be yours!"
+                "Citadel" => "A Citadel is often affectionately called a \'Clank Tank\' - or just The Tank - by her crew. She\'s a hulking Heavy Cruiser with two rocket launcher slots and various abilities that make her a mobile shield for her allies. Now this bulwark among spaceships can be yours!",
+                "KK" => "When your P.E.T. or ship is close to being destroyed, the Kamikaze Detonator will start the self-destruct sequence and explode, thereby taking out all enemies in the immediate vicinity. <br><br> Effect: Causes 75,000 splash damage upon exploding. <br> Radius: 450",
+                "AL" => "Once you activate this P.E.T gear, your P.E.T. will automatically collect bonus boxes and cargo boxes within close range. <br><br> Range: 2,500",
+                "REP" => "The P.E.T. repairer will fix your P.E.T. by 12,000 per second. <br><br> Effect: Repairs 12,000 HP per second. <br> Duration: 30 seconds",
+                "CSR" => "Repairs your ship during flight. Uses extra fuel for each repair. <br><br> Effect: Repairs 25,000 HP per second. <br> Duration: 5 Seconds <br> Consumption: 512 Uridium"
             );
             return $Lang[$Data];
         }

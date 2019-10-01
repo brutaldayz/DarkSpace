@@ -64,21 +64,23 @@
         </div>
 
         <script>
+            var P1 = "";
             function selectCompany(Param1){
+                P1 = Param1;
                 $("#selectCompanyModal").modal();
-
-                $("#selectCompanyButton").click(function(){
-                    $.ajax({
-                        type: 'POST',
-                        url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Company/SelectCompany.php',
-                        data: {"Param1": Param1},
-                        success: function(resultData){
-                            if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                            else window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>Home";
-                        }
-                    });
-                });
             }
+
+            $("#selectCompanyButton").click(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Company/SelectCompany.php',
+                    data: {"Param1": P1},
+                    success: function(resultData){
+                        if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                        else window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>Home";
+                    }
+                });
+            });
         </script>
     </div>
 

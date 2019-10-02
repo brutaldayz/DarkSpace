@@ -24,13 +24,13 @@
                     "shd-b01" => array('BoosterID' => "3", "BoosterType" => "15"),
                     "shd-b02" => array('BoosterID' => "3", "BoosterType" => "16")
                 );
-                
+
                 $db = Database::Connection();
-                $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");  
+                $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");
                 $Get->execute(array($Param1));
                 $Get = $Get->fetch();
                 $Cost = Functions::GetPercentage($Get['Cost']);
-        
+
                 if($Cost > $Player->GetData('Data', 'uridium')) die(json_encode(["error" => true, "msg" => Lang::Get('Uridium')]));
 
                 Functions::prepareBuySocket($Cost, $Get['Type'], "booster");
@@ -39,31 +39,27 @@
 
                 $Boosters = json_decode($statement->fetch()['boosters']);
 
-                if(isset($Boosters->{$Booster[$Param1]['BoosterID']})){
-                        $count = 0;
-                        foreach ($Boosters->{$Booster[$Param1]['BoosterID']} as $key => $value) {
-                                if($value->Type == $Booster[$Param1]['BoosterType']) $count++;
-                        }
-                        if($count == 0){
-                                array_push($Boosters->{$Booster[$Param1]['BoosterID']}, array('Type' => $Booster[$Param1]['BoosterType'], "Seconds" => 36000));
-                        }else{
-                                foreach ($Boosters->{$Booster[$Param1]['BoosterID']} as $key => $value) {
-                                        if($value->Type == $Booster[$Param1]['BoosterType']){
-                                                $Boosters->{$Booster[$Param1]['BoosterID']}[$key]->Seconds += 36000;
-                                        }
-                                }
-                        }
-                }else{
-                        $Boosters->{$Booster[$Param1]['BoosterID']} = array(array("Type" => $Booster[$Param1]['BoosterType'], "Seconds" => 36000));
+                if (!isset($Booster[$Param1]['BoosterID'], $Booster[$Param1]['BoosterType'])) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+
+                if (isset($Boosters->{$Booster[$Param1]['BoosterID']})) {
+                  $index = array_search($Booster[$Param1]['BoosterType'], array_column($Boosters->{$Booster[$Param1]['BoosterID']}, 'Type'));
+
+                  if (is_int($index)) {
+                    $Boosters->{$Booster[$Param1]['BoosterID']}[$index]->Seconds += 36000;
+                  } else {
+                    array_push($Boosters->{$Booster[$Param1]['BoosterID']}, ['Type' => $Booster[$Param1]['BoosterType'], "Seconds" => 36000]);
+                  }
+                } else {
+                  $Boosters->{$Booster[$Param1]['BoosterID']} = [['Type' => $Booster[$Param1]['BoosterType'], 'Seconds' => 36000]];
                 }
-           
+
                 $Boosters = json_encode($Boosters, JSON_UNESCAPED_UNICODE);
-                
+
                 $ss = $db->prepare("UPDATE player_equipment SET boosters = ? WHERE userID = {$Player->Data['userID']}");
                 $ss->execute(array($Boosters));
-                
+
                 Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $Cost, 1, $Get['ItemID']);
-                
+
                 die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $Cost)."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
         }else Functions::router('Home');
         /*

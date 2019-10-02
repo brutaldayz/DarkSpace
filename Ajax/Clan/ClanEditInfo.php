@@ -51,7 +51,7 @@
             $Complete = $Query->execute(array($ClanCompany, $Clan['clanID']));
         }
 		
-        Socket::Send('ChangeClanData', array('ClanId' => $Clan['clanID'], 'Company' => $ClanCompany, 'Tag' => $Tag, 'Name' => $Name));
+        Socket::Send('ChangeClanData', array('ClanId' => $Clan['clanID'], 'FactionId' => $ClanCompany, 'Tag' => $Tag, 'Name' => $Name));
 
         die(json_encode(["error" => false, "Param1" => ": " . $Name . " [" . $Tag . "]", "Param2" => $Description, "msg" => Lang::Get('ClanInfoUpdated')]));       
     }else Functions::router('Home');

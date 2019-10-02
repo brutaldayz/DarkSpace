@@ -684,7 +684,8 @@ function GetDesignsLootIds()
 		"ship_goliath_design_exalted",
 		"ship_goliath_design_crimson",
 		"ship_goliath_design_ignite",
-		"ship_goliath_design_centaur"];
+		"ship_goliath_design_centaur",
+		"ship_goliath_design_goliath-razer"];
 		$ships = array_merge($ships, $currentDesigns);
 	}
 

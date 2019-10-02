@@ -79,7 +79,7 @@
 
         <div class="col-md-12">
             <div class="row rb-panel uridium">
-                <div onclick="Payment('1', '2', '3');" class="product">
+                <!--<div onclick="Payment('1', '2', '3');" class="product">
                     <div class="text-center product-img"><img class="uridium" src="<?php echo Config::Get('IMG'); ?>Payment/Uridium/1.png"></div>
                     <p class="product-title">250.000 Uridium</p>
                     <p class="product-price">5€</p>
@@ -114,7 +114,7 @@
                     <p class="product-title">250.000 Uridium</p>
                     <p class="product-price">5€</p>
                     <button class="btn btn rb-button waves-effect waves-light full-width">BUY</button>
-                </div>
+                </div>-->
             </div>
 
             <div class="row rb-panel subscription" style="display: none;">

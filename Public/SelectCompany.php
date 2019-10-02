@@ -29,18 +29,35 @@
                     height: 200px; 
                 } 
             }
+            @media(max-width: 360px) { 
+                .companyImage { 
+                    height: 150px; 
+                } 
+            }
+            .mmo:hover{
+                opacity: 0.8;
+                border: 1px solid #fff;
+            }
+            .eic:hover{
+                opacity: 0.8;
+                border: 1px solid #fff;
+            }
+            .vru:hover{
+                opacity: 0.8;
+                border: 1px solid #fff;
+            }
         </style>
 
         <div class="col-md-12">
             <div class="row rb-panel">
                 <div class="mb-2 mt-2 text-center">
-                    <img class="companyImage" src="<?php echo Config::Get('IMG'); ?>Company/character_mmo.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(1)))); ?>');">
+                    <img class="companyImage mmo" src="<?php echo Config::Get('IMG'); ?>Company/character_mmo.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(1)))); ?>');">
                 </div>
                 <div class="mb-2 mt-2 text-center">
-                    <img class="companyImage" src="<?php echo Config::Get('IMG'); ?>Company/character_eic.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(2)))); ?>');">
+                    <img class="companyImage eic" src="<?php echo Config::Get('IMG'); ?>Company/character_eic.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(2)))); ?>');">
                 </div>
                 <div class="mb-2 mt-2 text-center">
-                    <img class="companyImage" src="<?php echo Config::Get('IMG'); ?>Company/character_vru.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(3)))); ?>');">
+                    <img class="companyImage vru" src="<?php echo Config::Get('IMG'); ?>Company/character_vru.jpg" onclick="selectCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode(3)))); ?>');">
                 </div>
             </div>
         </div>

@@ -15,8 +15,13 @@
 
         $db = Database::Connection();
 
-        $Query = $db->prepare("UPDATE player_accounts SET shipName = ? WHERE userID = ?");
-        $Complete = $Query->execute(array($Param1, $Player->Data['userID']));
+        $get = $db->query("SELECT oldShipNames FROM player_accounts WHERE userID = {$Player->Data['userID']}")->fetch()['oldShipNames'];
+        $oldShipNames = json_decode($get);
+        array_push($oldShipNames, $Player->Data['shipName']);
+        $oldShipNames = json_encode($oldShipNames, JSON_UNESCAPED_UNICODE);
+
+        $Query = $db->prepare("UPDATE player_accounts SET shipName = ?, oldShipNames = ? WHERE userID = ?");
+        $Complete = $Query->execute(array($Param1, $oldShipNames, $Player->Data['userID']));
 
         die(json_encode(["error" => false, "msg" => Lang::Get('UsernameChanged')]));
     }else Functions::router('Home');

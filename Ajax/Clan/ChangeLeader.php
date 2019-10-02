@@ -26,6 +26,8 @@
 
         $Query = $db->prepare("UPDATE server_clan SET news = ? WHERE clanID = ?");
         $Complete = $Query->execute(array($array, $Player->Data['clanID']));
+
+        //TODO: İstasyon yapıldığında yeni klan başkanı soketi yapılacak. İstasyon kurulumunda bug olmaması için.
         
         die(json_encode(["error" => false, "msg" => Lang::Get('Successful')]));
     }else Functions::router('Home');

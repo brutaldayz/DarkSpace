@@ -137,6 +137,13 @@
             return $text;
         }
 
+        public static function GetPercentage($a, $b = 0){
+            global $Player;
+            if($Player->Data['premium'] == 1) $b += 5;
+            if($Player->Data['discount'] == 1) $b += 25;
+            return ($b == 0) ? $a : (ceil($a - (($a*$b) / 100)));
+        }
+
         public static function getShipName($PlayerID){ return Database::Connection()->query("SELECT shipName FROM player_accounts WHERE userID = {$PlayerID}")->fetch()['shipName']; }
         
         public static function checkRow($Table, $Where, $Value){
@@ -220,6 +227,31 @@
             self::clearSession('SESSION_ID');
             Header('Location: ' . Config::Get('SERVER_URL'));
             exit;
+        }
+
+        public static function prepareBuySocket($Cost, $DataType, $ItemType = ""){
+            global $Player;
+
+            $array = json_decode($Player->Data['Data']);
+            $array->uridium = $Player->GetData('Data', 'uridium') - $Cost;
+            $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+
+            $Query = Database::Connection()->prepare("UPDATE player_accounts SET Data = ? WHERE userID = ?");
+            $Complete = $Query->execute(array($array, $Player->Data['userID']));
+            
+            if (Socket::Get('IsOnline', array('UserId' => $Player->Data['userID'], 'Return' => false))) {
+                Socket::Send('BuyItem', array('UserId' => $Player->Data['userID'], 'ItemType' => $ItemType, 'DataType' => $DataType-1, 'Amount' => $Cost));
+            }
+
+            /*
+                DataType{
+                    URIDIUM,
+                    CREDITS,
+                    HONOR,
+                    EXPERIENCE,
+                    JACKPOT
+                }
+            */
         }
 
         public static function getRequiredLogdisk($Level){

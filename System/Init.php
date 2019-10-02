@@ -5,7 +5,10 @@
 
     define("Main", ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") && (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] == 443) ? "https" : "http") . "://" . $_SERVER['SERVER_NAME'] . "/");
 
-
+    ini_set('log_errors', 1);
+    ini_set('error_log', './Logs/' . DIRECTORY_SEPARATOR . 'php_error_log');
+    ini_set('display_errors', 0);
+    ini_set('error_reporting', E_ALL);
 
     /* Require Class */
     require_once('Classes/Class.Config.php');

@@ -230,6 +230,7 @@ td a:hover{
 
 .logbook_area{
     max-height: 500px;
+    min-height: 500px;
     overflow: auto;
 }
 .item {

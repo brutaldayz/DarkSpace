@@ -317,19 +317,43 @@
                 "1" => "Apis droidi satın alındı.",
                 "2" => "Zeus droidi satın alındı.",
                 "12" => "Pet satın alındı.",
+                "37" => "CD-B01 satın alındı.",
+                "38" => "CD-B02 satın alındı.",
+                "39" => "DMG-B01 satın alındı.",
+                "40" => "DMG-B02 satın alındı.",
+                "41" => "EP-B01 satın alındı.",
+                "42" => "EP-B02 satın alındı.",
+                "43" => "HON-B01 satın alındı.",
+                "44" => "HON-B02 satın alındı.",
+                "45" => "HP-B01 satın alındı.",
+                "46" => "HP-B02 satın alındı.",
+                "47" => "REP-B01 satın alındı.",
+                "48" => "REP-B02 satın alındı.",
                 "49" => "Aegis satın alındı.",
+                "50" => "REP-S01 satın alındı.",
+                "51" => "RES-B01 satın alındı.",
+                "52" => "RES-B02 satın alındı.",
+                "53" => "SHD-B01 satın alındı.",
+                "54" => "SHD-B02 satın alındı.",
+                "55" => "SREG-B01 satın alındı.",
+                "56" => "SREG-B02 satın alındı.",
                 "69" => "Citadel satın alındı.",
                 "70" => "Spearhead satın alındı.",
                 "81" => "Pusat satın alındı.",
                 "156" => "Cerrah satın alındı.",
                 "445" => "Champion satın alındı.",
                 "480" => "Cyborg satın alındı.",
+                "583" => "Günlük Dosya satın alındı.",
+                "584" => "Yeşil Ganimet Anahtarı satın alındı.",
                 "585" => "Otomatik Toplayıcı modülü satın alındı.",
                 "586" => "Kamikaze modülü satın alındı.",
                 "587" => "Tamir modülü satın alındı.",
-                "588" => "Kombo Gemi Tamir modülü satın alındı."
+                "588" => "Kombo Gemi Tamir modülü satın alındı.",
+                "589" => "Kırmızı Ganimet Anahtarı satın alındı.",
+                "590" => "Mavi Ganimet Anahtarı satın alındı."
             );
-            return $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
+
+            return (($Amount > 1) ? "({$Amount}) " : '') . $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
         }
 
         public static function skillTreeLogMessages($Data){
@@ -373,6 +397,8 @@
                 "Apis" => "2 slotlu Epic diroidi.",
                 "Zeus" => "2 slotlu Epic diroidi.",
                 "LogFile" => "ArGe Puanı elde etmek için gerekli.",
+                "RedKey" => "Değerli kırmızı korsan ganimetlerini açabilmek ve üstün nitelikli hazinelere sahip olabilmek için gereklidir.",
+                "BlueKey" => "Değerli mavi korsan ganimetlerini açabilmek ve üstün nitelikli hazinelere sahip olabilmek için gereklidir.",
                 "GreenKey" => "Değerli korsan ganimetlerini açabilmek ve üstün nitelikli hazinelere sahip olabilmek için gereklidir.",
                 "Pet" => "P.E.T. senin sadık muhafızındır. Seni uzaydaki maceran sırasında pek çok konuda destekler. Motorlar ve YZ Protokolleri ile onu değişik kabiliyetlerle donatabilirsin. Senin için Tecrübe Puanı toplar ve seviyeni yükseltmeni sağlar.",
                 "cd-b01" => "10 saat boyunca bütün gemi yeteneklerinin yükleme süresini % 20 kısaltır.",

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 01 Eki 2019, 20:59:28
+-- Üretim Zamanı: 02 Eki 2019, 20:32:57
 -- Sunucu sürümü: 10.4.6-MariaDB
 -- PHP Sürümü: 7.3.9
 
@@ -78,7 +78,8 @@ CREATE TABLE `log_player_kills` (
 CREATE TABLE `player_accounts` (
   `userID` int(11) NOT NULL,
   `sessionID` varchar(32) COLLATE utf8_bin NOT NULL,
-  `Data` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '{"uridium":0,"credits":0,"honor":0,"experience":0,"jackpot":0}',
+  `Data` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '{"uridium":50000,"credits":500000,"honor":0,"experience":0,"jackpot":0}',
+  `BootyKeys` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '{"GreenKey": 5, "RedKey": 0, "BlueKey": 0}',
   `Info` varchar(255) COLLATE utf8_bin NOT NULL,
   `username` varchar(20) COLLATE utf8_bin NOT NULL,
   `shipName` varchar(20) COLLATE utf8_bin NOT NULL,
@@ -88,6 +89,11 @@ CREATE TABLE `player_accounts` (
   `level` tinyint(3) NOT NULL DEFAULT 1,
   `shipID` int(3) NOT NULL DEFAULT 10,
   `premium` tinyint(1) NOT NULL DEFAULT 0,
+  `premiumDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `discount` int(1) NOT NULL DEFAULT 0,
+  `discountDate` timestamp NOT NULL DEFAULT current_timestamp(),
+  `doubler` int(1) NOT NULL DEFAULT 0,
+  `doublerDate` timestamp NOT NULL DEFAULT current_timestamp(),
   `title` varchar(128) COLLATE utf8_bin NOT NULL,
   `profileID` varchar(6) COLLATE utf8_bin NOT NULL,
   `factionID` int(1) NOT NULL DEFAULT 0,
@@ -284,8 +290,8 @@ CREATE TABLE `server_blog` (
 
 CREATE TABLE `server_clan` (
   `clanID` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
-  `tag` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `name` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `tag` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `description` varchar(2048) COLLATE utf8_bin NOT NULL DEFAULT '',
   `factionID` int(1) NOT NULL DEFAULT 0,
   `recruiting` tinyint(2) NOT NULL DEFAULT 1,
@@ -298,6 +304,13 @@ CREATE TABLE `server_clan` (
   `profile` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'default.jpg',
   `randomID` varchar(6) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Tablo döküm verisi `server_clan`
+--
+
+INSERT INTO `server_clan` (`clanID`, `name`, `tag`, `description`, `factionID`, `recruiting`, `leaderID`, `news`, `members`, `rankPoints`, `rank`, `date`, `profile`, `randomID`) VALUES
+(1, 'ASFASSFAASF', 'ASAS', 'ASFASFASF', 3, 1, 1, '[]', '[{\"userID\":1,\"date\":\"02.10.2019 16:37:39\"}]', 106, 1, '2019-10-02 13:37:39', 'default.jpg', 'GXYGzD');
 
 -- --------------------------------------------------------
 
@@ -611,12 +624,6 @@ INSERT INTO `server_shop` (`ItemID`, `Category`, `Item`, `ItemHash`, `Cost`, `Ty
 (5, 'Ship', 'Champion', 'VlZSS2IyRkhTbGxSYmtKcFRXcFJPUT09', 500000, 1, 0),
 (7, 'Ship', 'Hammerclaw', 'VlRCa1IyUkhTbGhXYm14YVRXNW9iMXBJWXpsUVVUMDk=', 500000, 1, 0),
 (12, 'Pet', 'Pet', 'VmxWa1YwMUJQVDA9', 50000, 1, 1),
-(13, 'Design', 'Peacemaker', 'VmxWa1YyRkdhM2xXYmxKYVZqTlNjMWt5WXpsUVVUMDk=', 0, 1, 1),
-(14, 'Design', 'Sovereign', 'VmxSSk5VMXNjRmxUYlhob1ZqSlNNUT09', 0, 1, 1),
-(15, 'Design', 'Vanquisher', 'Vm0weFIyUlhUbGxXYmtKcVRXMW9jMWt5WXpsUVVUMDk=', 0, 1, 1),
-(16, 'Design', 'Kick', 'VlhwS2MyRnRSak5RVkRBOQ==', 0, 1, 1),
-(17, 'Design', 'Goal', 'VldwSk5XRkhTa0pRVkRBOQ==', 0, 1, 1),
-(18, 'Design', 'Referee', 'VmxjeFYySldjRmxUYlhoaFZWUXdPUT09', 0, 1, 1),
 (19, 'Design', 'Crimson', 'VlZST1MyTkhTbGxVYmxwcFdub3dPUT09', 0, 1, 0),
 (20, 'Design', 'Centaur', 'VlZSS1YyUlhVa2hTYWtacVdub3dPUT09', 0, 1, 0),
 (21, 'Design', 'Saturn', 'VmxSS1IwMUhVbGxUYmxVOQ==', 0, 1, 0),
@@ -650,13 +657,21 @@ INSERT INTO `server_shop` (`ItemID`, `Category`, `Item`, `ItemHash`, `Cost`, `Ty
 (69, 'Ship', 'Citadel', 'VlZSS2MwMUdiRmhWYlhocFVWUXdPUT09', 400000, 1, 1),
 (70, 'Ship', 'Spearhead', 'VmxST1EySkdiRmxUYlRsaFZqQmFjZz09', 150000, 1, 1),
 (81, 'Ship', 'Pusat', 'VmxWb1YyVnNiRmxWVkRBOQ==', 250000, 1, 1),
+(86, 'Design', 'Kick', 'VlhwS2MyRnRSak5RVkRBOQ==', 100000, 1, 1),
+(87, 'Design', 'Referee', 'VmxjeFYySldjRmxUYlhoaFZWUXdPUT09', 100000, 1, 1),
+(88, 'Design', 'Goal', 'VldwSk5XRkhTa0pRVkRBOQ==', 100000, 1, 1),
+(140, 'Design', 'Vanquisher', 'Vm0weFIyUlhUbGxXYmtKcVRXMW9jMWt5WXpsUVVUMDk=', 100000, 1, 1),
+(141, 'Design', 'Sovereign', 'VmxSSk5VMXNjRmxUYlhob1ZqSlNNUT09', 100000, 1, 1),
+(142, 'Design', 'Peacemaker', 'VmxWa1YyRkdhM2xXYmxKYVZqTlNjMWt5WXpsUVVUMDk=', 100000, 1, 1),
 (156, 'Ship', 'Surgeon', 'VmxST1YyVldiM2xXYmxwcFdub3dPUT09', 250000, 1, 1),
-(583, 'Extra', 'LogFile', 'VmtWak5XSnNTblJpU0U1aFZWUXdPUT09', 0, 1, 1),
-(584, 'Extra', 'GreenKey', 'VldwT1MySkdjRmhPVlhoaFYwZHpPUT09', 0, 1, 1),
+(583, 'Extra', 'LogFile', 'VmtWak5XSnNTblJpU0U1aFZWUXdPUT09', 256, 1, 1),
+(584, 'Extra', 'GreenKey', 'VldwT1MySkdjRmhPVlhoaFYwZHpPUT09', 1500, 1, 1),
 (585, 'Pet', 'AL', 'VlZaV00xQlJQVDA9', 37500, 1, 1),
 (586, 'Pet', 'KK', 'VlhwQ2VsQlJQVDA9', 65000, 1, 1),
 (587, 'Pet', 'REP', 'VmxkMFYxVlJQVDA9', 12500, 1, 1),
-(588, 'Pet', 'CSR', 'VlZSR1QxVjNQVDA9', 55000, 1, 1);
+(588, 'Pet', 'CSR', 'VlZSR1QxVjNQVDA9', 55000, 1, 1),
+(589, 'Extra', 'RedKey', 'VmxjeFYyRXhUWGxXYWxVOQ==', 0, 1, 0),
+(590, 'Extra', 'BlueKey', 'VlZjeE5FMVdjRlprUjNoc1ZWUXdPUT09', 0, 1, 0);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -857,7 +872,7 @@ ALTER TABLE `server_blog`
 -- Tablo için AUTO_INCREMENT değeri `server_clan`
 --
 ALTER TABLE `server_clan`
-  MODIFY `clanID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `clanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `server_clan_applications`
@@ -905,7 +920,7 @@ ALTER TABLE `server_ships`
 -- Tablo için AUTO_INCREMENT değeri `server_shop`
 --
 ALTER TABLE `server_shop`
-  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=589;
+  MODIFY `ItemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=591;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

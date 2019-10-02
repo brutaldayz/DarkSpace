@@ -297,11 +297,8 @@
             url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Agreement.php',
             data: $('#agreement').serialize(),
             success: function(resultData){
-                if(resultData.error){
-                    swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
-                }else{
-                    location.reload();
-                }
+                if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                else location.reload();
             }
         });
     });

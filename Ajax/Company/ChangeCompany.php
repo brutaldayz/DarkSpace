@@ -35,20 +35,20 @@
         $Uri = ceil($Uri);
 
         if ($onlineOrOnlineAndInEquipZone) {
+            $array = json_decode($Player->Data['Data']);
+            $array->honor = $Honor;
+            $array->uridium = $Uri;
+            $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+
+            $info = json_decode($Player->Data['Info']);
+            $info->MapID = $MapID;
+            $info = json_encode($info, JSON_UNESCAPED_UNICODE);
+
+            $Query = $db->prepare("UPDATE player_accounts SET factionID = ?, Data = ?, Info = ? WHERE userID = ?");
+            $Complete = $Query->execute(array($Param1, $array, $info, $UserID));
+
             if(Socket::Get('IsOnline', array('UserId' => $Player->Data['userID'], 'Return' => false))){
                 Socket::Send('ChangeCompany', array("UserId" => $UserID, "FactionId" => $Param1, "UridiumPrice" => 5000, "HonorPrice" => $Honor));
-            }else{
-                $array = json_decode($Player->Data['Data']);
-                $array->honor = $Honor;
-                $array->uridium = $Uri;
-                $array = json_encode($array, JSON_UNESCAPED_UNICODE);
-
-                $info = json_decode($Player->Data['Info']);
-                $info->MapID = $MapID;
-                $info = json_encode($info, JSON_UNESCAPED_UNICODE);
-
-                $Query = $db->prepare("UPDATE player_accounts SET factionID = ?, Data = ?, Info = ? WHERE userID = ?");
-                $Complete = $Query->execute(array($Param1, $array, $info, $UserID));
             }
 
             die(json_encode(["error" => false, "msg" => Lang::Get('ChangeFirmOk')]));

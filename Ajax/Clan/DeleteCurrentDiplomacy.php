@@ -22,8 +22,6 @@
         else $Param2 = $get['senderClan'];
 
         if($get['diplomacyType'] == 3){
-            // Savaş ise bitirme isteği gönderiyoruz
-            
             $Control = $db->query("SELECT appID FROM server_clan_diplomacy_applications WHERE appID = $Param1");
 
             if($Control->rowCount() == 0){

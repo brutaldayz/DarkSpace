@@ -12,35 +12,30 @@
 
         $db = Database::Connection();
 
-        $get_ship = $db->query("SELECT * FROM server_shop WHERE Item = '$Param1'")->fetch();
+        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");  
+        $Get->execute(array($Param1));
+        $Get = $Get->fetch();
+        
+        $Cost = Functions::GetPercentage($Get['Cost']);
 
-        if($get_ship['Cost'] > $Player->GetData('Data', 'uridium')) die(json_encode(["error" => true, "msg" => Lang::Get('Uridium')]));
+        if($Cost > $Player->GetData('Data', 'uridium')) die(json_encode(["error" => true, "msg" => Lang::Get('Uridium')]));
 
         $Control = $db->query("SELECT items FROM player_equipment WHERE userId = ".$Player->Data['userID']."")->fetch()['items'];
         $items_array = json_decode($Control);
 
-        if(in_array($get_ship['ItemID'], $items_array->ships)) die(json_encode(["error" => true, "msg" => $Param1 . " " . Lang::Get('AlreadyExist')]));
+        if(in_array($Get['ItemID'], $items_array->ships)) die(json_encode(["error" => true, "msg" => $Param1 . " " . Lang::Get('AlreadyExist')]));
 
-        if (Socket::Get('IsOnline', array('UserId' => $Player->Data['userID'], 'Return' => false))) {
-            Socket::Send('BuyItem', array('UserId' => $Player->Data['userID'], 'ItemType' => 'ship', 'DataType' => 0, 'Amount' => $get_ship['Cost']));
-        }else{
-            $array = json_decode($Player->Data['Data']);
-            $array->uridium = $Player->GetData('Data', 'uridium') - $get_ship['Cost'];
-            $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+        Functions::prepareBuySocket($Cost, $Get['Type']);
 
-            $Query = $db->prepare("UPDATE player_accounts SET Data = ? WHERE userID = ?");
-            $Complete = $Query->execute(array($array, $Player->Data['userID']));
-        }
-
-        array_push($items_array->ships, $get_ship['ItemID']);
+        array_push($items_array->ships, $Get['ItemID']);
         $items_array = json_encode($items_array, JSON_UNESCAPED_UNICODE);
 
         $ss = $db->prepare("UPDATE player_equipment SET items = ? WHERE userID = {$Player->Data['userID']}");
         $ss->execute(array($items_array));
 
-        Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $get_ship['Cost'], 1, $get_ship['ItemID']);
+        Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $Cost, 1, $Get['ItemID']);
 
-        die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $get_ship['Cost'])."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
+        die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $Cost)."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
     }else Functions::router('Home');
 
 ?>

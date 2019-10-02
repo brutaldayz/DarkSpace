@@ -319,19 +319,42 @@
                 "1" => "The Apis drone was purchased.",
                 "2" => "The Zeus drone was purchased.",
                 "12" => "Pet was purchased.",
+                "37" => "CD-B01 was purchased.",
+                "38" => "CD-B02 was purchased.",
+                "39" => "DMG-B01 was purchased.",
+                "40" => "DMG-B02 was purchased.",
+                "41" => "EP-B01 was purchased.",
+                "42" => "EP-B02 was purchased.",
+                "43" => "HON-B01 was purchased.",
+                "44" => "HON-B02 was purchased.",
+                "45" => "HP-B01 was purchased.",
+                "46" => "HP-B02 was purchased.",
+                "47" => "REP-B01 was purchased.",
+                "48" => "REP-B02 was purchased.",
                 "49" => "Aegis was purchased.",
+                "50" => "REP-S01 was purchased.",
+                "51" => "RES-B01 was purchased.",
+                "52" => "RES-B02 was purchased.",
+                "53" => "SHD-B01 was purchased.",
+                "54" => "SHD-B02 was purchased.",
+                "55" => "SREG-B01 was purchased.",
+                "56" => "SREG-B02 was purchased.",
                 "69" => "Citadel was purchased.",
                 "70" => "Spearhead was purchased.",
                 "81" => "Pusat was purchased.",
                 "156" => "Surgeon was purchased.",
                 "445" => "Champion was purchased.",
                 "480" => "Cyborg was purchased.",
+                "583" => "Log-Disk was purchased.",
+                "584" => "Green Booty Key was purchased.",
                 "585" => "The module Auto-looter has been purchased.",
                 "586" => "The module Kamikaze has been purchased.",
                 "587" => "The module Repair has been purchased.",
-                "588" => "The module Combo Ship Repair has been purchased."
+                "588" => "The module Combo Ship Repair has been purchased.",
+                "589" => "Red Booty Key was purchased.",
+                "590" => "Blue Booty Key was purchased."
             );
-            return $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
+            return (($Amount > 1) ? "({$Amount}) " : '') . $Lang[$Data] . " (". number_format($PaymentAmount) . " " . self::convertPT($PaymentType) . ")";
         }
 
         public static function skillTreeLogMessages($Data){
@@ -375,6 +398,8 @@
                 "Apis" => "Epic drone with two slots.",
                 "Zeus" => "Epic drone with two slots.",
                 "LogFile" => "Log-disks can be exchanged for Research Points.",
+                "RedKey" => "Used to open red pirate booty and collect the valuable treasure contained within.",
+                "BlueKey" => "Used to open blue pirate booty and collect the valuable treasure contained within.",
                 "GreenKey" => "Used to open pirate booty and collect the valuable treasure contained within.",
                 "Pet" => "The P.E.T. 10 is designed to accompany your ship and assist when it can. You can upgrade it with gear and AI protocols to enhance its effectiveness. It also collects experience and can level-up, becoming a powerful companion.",
                 "cd-b01" => "20% quicker cooldown times for all ship skills for 10 h.",

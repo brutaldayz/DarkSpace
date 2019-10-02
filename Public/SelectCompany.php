@@ -2,7 +2,7 @@
     <div class="spacer-40"></div>
 
     <link rel="stylesheet" type="text/css" href="<?php echo Config::Get('CSS'); ?>Clan.min.css" />
-    
+
     <div class="container">
 
         <?php require_once('GLOBAL/Data.php'); ?>
@@ -14,38 +14,31 @@
                 height: 500px;
                 cursor: pointer;
             }
-            @media(max-width: 1200px) { 
-                .companyImage { 
-                    height: 400px; 
-                } 
+            @media(max-width: 1200px) {
+                .companyImage {
+                    height: 400px;
+                }
             }
-            @media(max-width: 800px) { 
-                .companyImage { 
-                    height: 300px; 
-                } 
+            @media(max-width: 800px) {
+                .companyImage {
+                    height: 300px;
+                }
             }
-            @media(max-width: 500px) { 
-                .companyImage { 
-                    height: 200px; 
-                } 
+            @media(max-width: 500px) {
+                .companyImage {
+                    height: 200px;
+                }
             }
-            @media(max-width: 360px) { 
-                .companyImage { 
-                    height: 150px; 
-                } 
+            @media(max-width: 360px) {
+                .companyImage {
+                    height: 150px;
+                }
             }
-            .mmo:hover{
-                opacity: 0.8;
-                border: 1px solid #fff;
-            }
-            .eic:hover{
-                opacity: 0.8;
-                border: 1px solid #fff;
-            }
-            .vru:hover{
-                opacity: 0.8;
-                border: 1px solid #fff;
-            }
+
+            .mmo, .eic, .vru { transition: all 0.3s ease; }
+            .mmo:hover { box-shadow: 0px 0px 20px 0px #6c3d23; }
+            .eic:hover { box-shadow: 0px 0px 20px 0px #5a7a9c; }
+            .vru:hover { box-shadow: 0px 0px 20px 0px #409349; }
         </style>
 
         <div class="col-md-12">

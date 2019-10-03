@@ -254,7 +254,7 @@
                 "NavDsc" => "Buy DSC",
                 "Amount" => "Miktar",
                 "NeedVerify" => "You must verify your email address before you can log in to your account.",
-                "VerifyEmail" => "An activation link has been sent to your email address to verify your account.",
+                "VerifyEmail" => "An activation link has been sent to your email address to verify your account. Don't forget to check the spam folder.",
                 "ErrorEmail" => "Failed to send email. Please try registering again.",
                 "RegisterError" => "An error occurred during registration, please contact the administrators.",
                 "WaitRegister" => "Your registration is being processed, please wait ...",

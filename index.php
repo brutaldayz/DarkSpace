@@ -107,9 +107,43 @@
                 <div class="mt-4 text-center"><a id="show-login" href="javascript:;"><?php echo Lang::Get('LoginAlready'); ?></a></div>
             </div>
         </div>
+
+        <div class="col-md-12">
+            <span><?php echo Lang::Get('Language'); ?></span>
+            <select id="language" class="form-control rb-select mb-4">
+                <option value="en" <?php echo (Cookie::getLanguage() == "en") ? 'selected' : ''; ?>>English</option>
+                <option value="tr" <?php echo (Cookie::getLanguage() == "tr") ? 'selected' : ''; ?>>Türkçe</option>
+            </select>
+        </div>
     </div>
 
+    <style>
+        .epvp {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        .epvp a{
+            color: #fff;
+        }
+    </style>
+
+    <div class="epvp"><a href="http://elitepvpers.com/" target="_blank">elitepvpers</a></div>
+
     <script type="text/javascript">
+        $("#language").change(function(){
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Account/LanguageChange.php',
+                data: {"Param1": $("#language").val()},
+                success: function(resultData){
+                    if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
+                    else swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success');
+                }
+            });
+        });
+
         $("#login-button").click(function(){
             $.ajax({
                 type: 'POST',

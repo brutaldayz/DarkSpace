@@ -47,7 +47,8 @@
                 $Hash = Functions::generateCode(16);
                 $Profile = Functions::generateCode(6);
                 $db = Database::Connection();
-                
+
+                $db->beginTransaction();
                 $Mail = new PHPMailer(true);
 
                 try {
@@ -58,14 +59,14 @@
                     $Mail->Password   = '147258369Ds';
                     $Mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
                     $Mail->Port       = 587;
-                
+
                     $Mail->setFrom('darkspace.verify@gmail.com', 'DarkSpace');
                     $Mail->addAddress($Email, 'DarkSpace | ' . $Username);
-                
+
                     $Mail->isHTML(true);
                     $Mail->Subject = 'DarkSpace | E-mail verification';
                     $Mail->Body    = "Click this link to activate your account: <a href=\"http://darkspace.ovh/VerifyAccount.php?Hash={$Hash}&Profile={$Profile}\">Activate</a>";
-                
+
                     $Mail->send();
 
                     try {
@@ -85,13 +86,16 @@
 
                         $Query = Database::Connection()->prepare("UPDATE player_accounts SET verification = ? WHERE userID = ?");
                         $Complete = $Query->execute(array($array, $UserID));
-                        
+
+                        $db->commit();
                         die(json_encode(["error" => false, "msg" => Lang::Get('VerifyEmail')]));
                     } catch (PDOExecption $e) {
+                        $db->rollback();
                         die(json_encode(["error" => true, "msg" => Lang::Get('RegisterError')]));
                     }
 
                 } catch (Exception $e) {
+                    $db->rollback();
                     die(json_encode(["error" => true, "msg" => Lang::Get('ErrorMail')]));
                 }
             }

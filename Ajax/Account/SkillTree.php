@@ -4,7 +4,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('../../System/Init.php');
-        
+
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $SkillID = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
@@ -29,7 +29,7 @@
             'skill_6' => 5,
             'skill_23a' => 2,
             'skill_21a' => 2,
-            'skill_5b' => 2,
+            'skill_5b' => 3,
             'skill_21b' => 3,
             'skill_23b' => 3,
             'skill_1' => 5

@@ -31,6 +31,7 @@
                             <a class="dropdown-item waves-effect" href="<?php echo Config::Get('SERVER_URL'); ?>Shop"><?php echo Lang::Get('NavShop'); ?></a>
                             <a class="dropdown-item waves-effect" href="<?php echo Config::Get('SERVER_URL'); ?>Evoucher"><?php echo Lang::Get('NavEvoucher'); ?></a>
                             <a class="dropdown-item waves-effect" href="<?php echo Config::Get('SERVER_URL'); ?>Payment"><?php echo Lang::Get('NavPayment'); ?></a>
+                            <a class="dropdown-item waves-effect" href="<?php echo Config::Get('SERVER_URL'); ?>Dsc"><?php echo Lang::Get('NavDsc'); ?></a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">

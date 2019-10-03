@@ -32,6 +32,10 @@
                     height: 250px; 
                 } 
             }
+            .mmo, .eic, .vru { transition: all 0.3s ease; }
+            .mmo:hover { box-shadow: 0px 0px 20px 0px #6c3d23; }
+            .eic:hover { box-shadow: 0px 0px 20px 0px #5a7a9c; }
+            .vru:hover { box-shadow: 0px 0px 20px 0px #409349; }
         </style>
 
         <div class="col-md-12">
@@ -40,10 +44,10 @@
                     <span><?php echo Lang::Get('CompanyCost'); ?></span>
                 </div>
                 <div class="mb-2 text-center">
-                    <img class="companyImage" onclick="changeCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode($F1)))); ?>');" src="<?php echo Config::Get('IMG'); ?>Company/character_<?php echo $F1; ?>.jpg">
+                    <img class="companyImage <?php echo $F1; ?>" onclick="changeCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode($F1)))); ?>');" src="<?php echo Config::Get('IMG'); ?>Company/character_<?php echo $F1; ?>.jpg">
                 </div>
                 <div class="mb-2 text-center">
-                    <img class="companyImage" onclick="changeCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode($F2)))); ?>');" src="<?php echo Config::Get('IMG'); ?>Company/character_<?php echo $F2; ?>.jpg">
+                    <img class="companyImage <?php echo $F2; ?>" onclick="changeCompany('<?php echo base64_encode(base64_encode(base64_encode(base64_encode($F2)))); ?>');" src="<?php echo Config::Get('IMG'); ?>Company/character_<?php echo $F2; ?>.jpg">
                 </div>
             </div>
         </div>

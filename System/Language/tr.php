@@ -249,7 +249,9 @@
                 "ResearchPoints" => "ArGe Puanı:",
                 "LogDisk" => "GÜNLÜK DOSYASI:",
                 "RequiredDisk" => "GEREKLİ OLAN:",
-                "Exchange" => "DEĞİŞTİR"
+                "Exchange" => "DEĞİŞTİR",
+                "Soon" => "Yakında...",
+                "NavDsc" => "DSC Satın Al"
             );
 
             return $Lang[$Data];

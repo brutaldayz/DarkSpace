@@ -20,7 +20,7 @@
                 </div>
                 <?php if(Config::Get('SERVER_HOST') != "127.0.0.1"){ ?>
                 <div class="full-width text-center mb-2">
-                    <div class="g-recaptcha" data-sitekey="6LcK_5EUAAAAAL4CgovsLv9AHUJhB8JAN3xadZeY"></div>
+                    <div class="g-recaptcha" data-sitekey="6LeDvLoUAAAAANkEr3QGP5esfAWIEMHkXh-u2k9S"></div>
                 </div>
                 <?php } ?>
                 <button type="button" id="useEvoucher" class="btn rb-button col-md-6 waves-effect waves-light text-center"><?php echo Lang::Get('UseCode'); ?></button>

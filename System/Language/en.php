@@ -249,7 +249,9 @@
                 "ResearchPoints" => "Research Points:",
                 "LogDisk" => "LOG-DISKS:",
                 "RequiredDisk" => "REQUIRED:",
-                "Exchange" => "EXCHANGE"
+                "Exchange" => "EXCHANGE",
+                "Soon" => "Soon...",
+                "NavDsc" => "Buy DSC"
             );
 
             return $Lang[$Data];

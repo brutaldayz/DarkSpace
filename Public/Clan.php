@@ -108,11 +108,14 @@
                     <label for="Param2"><?php echo Lang::Get('ClanTag'); ?></label>
                     <input name="Param2" id="Param2" type="text" class="modalInput full-width mb-4" placeholder="<?php echo $Clan['tag']; ?>" value="<?php echo $Clan['tag']; ?>">
                     <label for="Param3"><?php echo Lang::Get('ClanCompany'); ?></label>
-                    <select name="Param4" id="Param4" class="modalInput full-width mb-4">
+                    <?php
+                        //TODO: Fix
+                    ?>
+                    <!--<select name="Param4" id="Param4" class="modalInput full-width mb-4">
                         <option <?php if($Clan['factionID'] == 1) echo "selected disabled"; ?> value="1">MMO</option>
                         <option <?php if($Clan['factionID'] == 2) echo "selected disabled"; ?> value="2">EIC</option>
                         <option <?php if($Clan['factionID'] == 3) echo "selected disabled"; ?> value="3">VRU</option>
-                    </select>
+                    </select>-->
                     <label for="Param3"><?php echo Lang::Get('ClanDescription'); ?></label>
                     <textarea name="Param3" id="Param3" cols="30" rows="10" class="modalTextarea full-width" placeholder="<?php echo $Clan['description']; ?>"><?php echo $Clan['description']; ?></textarea>
                 </form>

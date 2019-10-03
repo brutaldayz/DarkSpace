@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 Eki 2019, 20:32:57
+-- Üretim Zamanı: 03 Eki 2019, 19:42:36
 -- Sunucu sürümü: 10.4.6-MariaDB
 -- PHP Sürümü: 7.3.9
 
@@ -104,7 +104,7 @@ CREATE TABLE `player_accounts` (
   `pilotProfile` varchar(2500) COLLATE utf8_bin NOT NULL DEFAULT '{"Info":0,"Clan":0,"Equipment":0,"SkillTree":0,"title":"","statusMessage":"","friendRequest":true,"friends":{}}',
   `extraEnergy` int(11) NOT NULL,
   `nanohull` int(11) NOT NULL,
-  `verified` int(1) NOT NULL DEFAULT 0,
+  `verification` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '{"Verified": 0, "Hash": ""}',
   `oldShipNames` text COLLATE utf8_bin NOT NULL DEFAULT '[]',
   `Version` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -304,13 +304,6 @@ CREATE TABLE `server_clan` (
   `profile` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT 'default.jpg',
   `randomID` varchar(6) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-
---
--- Tablo döküm verisi `server_clan`
---
-
-INSERT INTO `server_clan` (`clanID`, `name`, `tag`, `description`, `factionID`, `recruiting`, `leaderID`, `news`, `members`, `rankPoints`, `rank`, `date`, `profile`, `randomID`) VALUES
-(1, 'ASFASSFAASF', 'ASAS', 'ASFASFASF', 3, 1, 1, '[]', '[{\"userID\":1,\"date\":\"02.10.2019 16:37:39\"}]', 106, 1, '2019-10-02 13:37:39', 'default.jpg', 'GXYGzD');
 
 -- --------------------------------------------------------
 
@@ -872,7 +865,7 @@ ALTER TABLE `server_blog`
 -- Tablo için AUTO_INCREMENT değeri `server_clan`
 --
 ALTER TABLE `server_clan`
-  MODIFY `clanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `clanID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `server_clan_applications`

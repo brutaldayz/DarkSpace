@@ -87,7 +87,7 @@
                         <label><?php echo Lang::Get('LoginEmail'); ?></label>
                     </div>
 
-                    <div class="flexbox mb-5 mt-4">
+                    <div class="flexbox mb-5 mt-4" id="checkboxArea">
                         <label class="checkbox checkbox-primary">
                             <input type="checkbox" name="terms" value="1">
                             <?php echo Lang::getTerms(); ?>
@@ -126,16 +126,27 @@
         });
 
         $("#register-button").click(function(){
+            swal('<?php echo Lang::Get('Successful'); ?>!', "<?php echo Lang::Get('WaitRegister'); ?>", 'success');
+            $("#checkboxArea").css('display', 'none');
+            $("#register-button").css('display', 'none');
+            $("#show-login").css('display', 'none');
             $.ajax({
                 type: 'POST',
                 url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Register.php',
                 data: $('#register-form').serialize(),
                 success: function(resultData){
+                    $("#checkboxArea").css('display', 'block');
+                    $("#register-button").css('display', 'block');
+                    $("#show-login").css('display', 'block');
+                    
                     if(resultData.error){
                         swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
                         grecaptcha.reset();
                     }else{
-                        window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>SelectCompany";
+                        swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success')
+                        .then((value) => {
+                            window.location.href = "<?php echo Config::Get('SERVER_URL'); ?>";
+                        });
                     }
                 }
             });

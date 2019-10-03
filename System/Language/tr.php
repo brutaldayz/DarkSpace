@@ -251,7 +251,14 @@
                 "RequiredDisk" => "GEREKLİ OLAN:",
                 "Exchange" => "DEĞİŞTİR",
                 "Soon" => "Yakında...",
-                "NavDsc" => "DSC Satın Al"
+                "NavDsc" => "DSC Satın Al",
+                "Amount" => "Miktar",
+                "NeedVerify" => "Hesabınıza giriş yapabilmek için e-posta adresinizi doğrulamalısınız.",
+                "VerifyEmail" => "Hesabınızı doğrulamak için e-posta adresinize bir etkinleştirme bağlantısı gönderildi.",
+                "ErrorMail" => "E-posta gönderilemedi. Lütfen tekrar kayıt olmayı deneyin.",
+                "RegisterError" => "Kayıt sırasında bir hata oluştu lütfen yetkililerle iletişime geçin.",
+                "WaitRegister" => "Kayıt işleminiz yapılıyor lütfen bekleyin...",
+                "RegisterVerified" => "Kaydınız tamamlandı. Hesabınıza giriş yapabilirsiniz."
             );
 
             return $Lang[$Data];

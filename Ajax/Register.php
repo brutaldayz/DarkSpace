@@ -2,6 +2,13 @@
 
     header('Content-Type: application/json');
 
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+
+    require '../System/PHPMailer/src/Exception.php';
+    require '../System/PHPMailer/src/PHPMailer.php';
+    require '../System/PHPMailer/src/SMTP.php';
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('../System/Init.php');
         if(isset($_POST['terms'])){
@@ -37,23 +44,55 @@
                 Functions::checkRow("player_accounts", "email", $Email);
                 $IP        = Functions::getUserIP();
                 $SessionID = Functions::generateCode(32);
+                $Hash = Functions::generateCode(16);
+                $Profile = Functions::generateCode(6);
                 $db = Database::Connection();
+                
+                $Mail = new PHPMailer(true);
 
                 try {
-                    $Sql = $db->prepare('INSERT INTO player_accounts (sessionID, username, shipName, password, email, profileID, Info) VALUES (?,?,?,?,?,?,?)');
-                    $Sql->execute(array($SessionID, $Username, $Username, password_hash($Password, PASSWORD_DEFAULT), $Email, Functions::generateCode(6), '{"LastLoginIP": "'.$IP.'", "RegisterIP": "'.$IP.'", "MapID":0, "CreatedDate": "'.date('d.m.Y H:i:s').'","Profile": "Avatar.png"}'));
-                    $UserID = $db->lastInsertId();
-                    Functions::Register('player_equipment', 'userId', $UserID);
-                    Functions::Register('player_settings', 'userId', $UserID);
-                    Functions::Register('player_titles', 'userID', $UserID);
-                    Functions::Register('player_skilltree', 'userID', $UserID);
-                    Logger::addLoginLog($UserID, $IP);
-                    $_SESSION['USERNAME']   = $Username;
-                    $_SESSION['EMAIL']      = $Email;
-                    $_SESSION['SESSION_ID'] = $SessionID;
-                    die(json_encode(["error" => false]));
-                } catch (PDOExecption $e) {
-                    die(json_encode(["error" => true, "msg" => "Error: " . $e->getMessage()]));
+                    $Mail->isSMTP();
+                    $Mail->Host       = 'smtp.gmail.com';
+                    $Mail->SMTPAuth   = true;
+                    $Mail->Username   = 'darkspace.verify@gmail.com';
+                    $Mail->Password   = '147258369Ds';
+                    $Mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                    $Mail->Port       = 587;
+                
+                    $Mail->setFrom('darkspace.verify@gmail.com', 'DarkSpace');
+                    $Mail->addAddress($Email, 'DarkSpace | ' . $Username);
+                
+                    $Mail->isHTML(true);
+                    $Mail->Subject = 'DarkSpace | E-mail verification';
+                    $Mail->Body    = "Click this link to activate your account: <a href=\"http://darkspace.ovh/VerifyAccount.php?Hash={$Hash}&Profile={$Profile}\">Activate</a>";
+                
+                    $Mail->send();
+
+                    try {
+                        $Sql = $db->prepare('INSERT INTO player_accounts (sessionID, username, shipName, password, email, profileID, Info) VALUES (?,?,?,?,?,?,?)');
+                        $Sql->execute(array($SessionID, $Username, $Username, password_hash($Password, PASSWORD_DEFAULT), $Email, $Profile, '{"LastLoginIP": "'.$IP.'", "RegisterIP": "'.$IP.'", "MapID":0, "CreatedDate": "'.date('d.m.Y H:i:s').'","Profile": "Avatar.png"}'));
+                        $UserID = $db->lastInsertId();
+                        Functions::Register('player_equipment', 'userId', $UserID);
+                        Functions::Register('player_settings', 'userId', $UserID);
+                        Functions::Register('player_titles', 'userID', $UserID);
+                        Functions::Register('player_skilltree', 'userID', $UserID);
+
+                        $verification = $db->query("SELECT verification FROM player_accounts WHERE userID = {$UserID}")->fetch()['verification'];
+
+                        $array = json_decode($verification);
+                        $array->Hash = $Hash;
+                        $array = json_encode($array, JSON_UNESCAPED_UNICODE);
+
+                        $Query = Database::Connection()->prepare("UPDATE player_accounts SET verification = ? WHERE userID = ?");
+                        $Complete = $Query->execute(array($array, $UserID));
+                        
+                        die(json_encode(["error" => false, "msg" => Lang::Get('VerifyEmail')]));
+                    } catch (PDOExecption $e) {
+                        die(json_encode(["error" => true, "msg" => Lang::Get('RegisterError')]));
+                    }
+
+                } catch (Exception $e) {
+                    die(json_encode(["error" => true, "msg" => Lang::Get('ErrorMail')]));
                 }
             }
         }else die(json_encode(["error" => true, "msg" => Lang::Get('Checkbox')]));

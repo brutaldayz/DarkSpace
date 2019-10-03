@@ -15,7 +15,7 @@
                         <input name="tutar" type="number" class="form-control mt-2" id="amount" aria-describedby="amount" placeholder="1" min="1" max="100" value="1">
                         <br>
                         <small id="amount" class="form-text text-muted"> The minimum amount that can be written is 1.</small>
-                        <i>Ödeme sistemimiz henüz aktif değildir.</i>
+                        <i>Our payment system is not yet active.</i>
                     </form>
                   </div>
             </div>

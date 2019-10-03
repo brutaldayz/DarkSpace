@@ -115,7 +115,7 @@
                     </div>
                     <div class="modal-body shopContent"></div>
                     <div class="modal-body amountContent row" style="display:none;">
-                        <label for="amount" class="col-1 col-form-label" style="font-size:15px;">Miktar</label>
+                        <label for="amount" class="col-1 col-form-label" style="font-size:15px;"><?php echo Lang::Get('Amount'); ?></label>
                         <div class="col-md-6">
                             <input class="rb-input" type="text" placeholder="1" value="1" id="amount">
                         </div>

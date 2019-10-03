@@ -182,9 +182,9 @@
 
         // Check Verified
         public static function checkVerified($UserID){
-            $Verified = Database::Connection()->query("SELECT verified FROM player_accounts WHERE userID = $UserID")->fetch()['verified'];
-            if($Verified == 0) die(json_encode(["error" => true, "msg" => "Hesabını doğrulat aslanım."]));
-            //TODO: Dil eklenecek.
+            $Verified = Database::Connection()->query("SELECT verification FROM player_accounts WHERE userID = $UserID")->fetch()['verification'];
+            $verify = json_decode($Verified);
+            if($verify->Verified == 0) die(json_encode(["error" => true, "msg" => Lang::Get('NeedVerify')]));
         }
 
         public static function clearSession($Session){ if(isset($_SESSION[$Session])) unset($_SESSION[$Session]); }

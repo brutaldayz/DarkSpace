@@ -9,7 +9,10 @@
                 $Param1 = Security::Post('Param1');
                 Security::Empty($Param1);
                 $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
-                $Param1 = in_array($Param1, ["dmg-b01","dmg-b02","ep-b01","ep-b02","hon-b01","hon-b02","hp-b01","hp-b02","rep-b01","rep-b02","shd-b01","shd-b02"]) ? $Param1 : "dmg-b01";
+                $Param1 = in_array($Param1, ["dmg-b01","dmg-b02","ep-b01","ep-b02","hon-b01","hon-b02","hp-b01","hp-b02","rep-b01","rep-b02","shd-b01","shd-b02"]) ? $Param1 : "";
+
+                if ($Param1 === "") die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+
                 $Booster = array(
                     "dmg-b01" => array('BoosterID' => "2", "BoosterType" => "0"),
                     "dmg-b02" => array('BoosterID' => "2", "BoosterType" => "1"),

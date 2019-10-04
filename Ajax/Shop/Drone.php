@@ -8,8 +8,12 @@
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
-        $Param1 = in_array($Param1, ["apis","zeus"]) ? $Param1 : "apis";
+        $Param1 = in_array($Param1, ["apis","zeus"]) ? $Param1 : "";
+
+        if ($Param1 === "") die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+
         $Param1 == "apis" ? $Type = 1 : $Type = 2;
+        //$Type = $Param1 == "apis" ? 1 : 2;
 
         $db = Database::Connection();
 

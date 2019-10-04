@@ -8,10 +8,12 @@
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
-        $Param1 = in_array($Param1, ["Pet", "AL", "KK", "REP", "CSR"]) ? $Param1 : "Pet";
+        $Param1 = in_array($Param1, ["Pet", "AL", "KK", "REP", "CSR"]) ? $Param1 : "";
+
+        if ($Param1 === "") die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
 
         $db = Database::Connection();
-        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");  
+        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");
         $Get->execute(array($Param1));
         $Get = $Get->fetch();
         $Cost = Functions::GetPercentage($Get['Cost']);
@@ -38,7 +40,7 @@
             array_push($items->petModules, $Param1);
             $items = json_encode($items, JSON_UNESCAPED_UNICODE);
         }
-        
+
         $ss = $db->prepare("UPDATE player_equipment SET items = ? WHERE userID = {$Player->Data['userID']}");
         $ss->execute(array($items));
 

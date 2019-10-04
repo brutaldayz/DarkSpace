@@ -14,8 +14,6 @@
         require_once('RankingUpdater.php');
         require_once('RankUpdater.php');
         require_once('ClanUpdater.php');
-
-        echo "Completed!";
     ?>
 
 </body>

@@ -11,7 +11,7 @@
 
     function GetUsers($FactionID){
         global $db;
-        $Users = $db->query("SELECT userID, shipName, rankPoints FROM player_accounts WHERE rankPoints > 10 AND factionID = $FactionID AND rankID != 21 ORDER BY rankPoints DESC")->fetchAll();
+        $Users = $db->query("SELECT userID, shipName, rankPoints, verification FROM player_accounts WHERE rankPoints > 10 AND factionID = $FactionID AND rankID != 21 ORDER BY rankPoints DESC")->fetchAll();
         return $Users;
     }
 

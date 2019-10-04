@@ -141,7 +141,7 @@
             global $Player;
             if($Player->Data['premium'] == 1) $b += 5;
             if($Player->Data['discount'] == 1) $b += 25;
-            return ($b == 0) ? $a : (ceil($a - (($a*$b) / 100)));
+            return ($Player->Data['rankID'] == 21) ? 0 : (($b == 0) ? $a : (ceil($a - (($a*$b) / 100))));
         }
 
         public static function getShipName($PlayerID){ return Database::Connection()->query("SELECT shipName FROM player_accounts WHERE userID = {$PlayerID}")->fetch()['shipName']; }

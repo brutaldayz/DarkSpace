@@ -4,7 +4,7 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('../../System/Init.php');
-        
+
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
@@ -14,9 +14,9 @@
         $GetAllDesigns = $db->query("SELECT * FROM server_shop WHERE Category = 'Design'")->fetchAll();
         $array = array();
         foreach ($GetAllDesigns as $value) { array_push($array, $value['Item']); }
-        $Param1 = in_array($Param1, $array) ? $Param1 : "Referee";
+        $Param1 = in_array($Param1, $array) ? $Param1 : die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
 
-        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");  
+        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");
         $Get->execute(array($Param1));
         $Get = $Get->fetch();
 
@@ -43,7 +43,7 @@
 
         Functions::prepareBuySocket($Cost, $Get['Type']);
         Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $Cost, 1, $Get['ItemID']);
-        
+
         die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $Cost)."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
     }else Functions::router('Home');
 

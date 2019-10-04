@@ -4,18 +4,19 @@
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         require_once('../../System/Init.php');
-        
+
         $Param1 = Security::Post('Param1');
         $Param2 = Security::Post('Param2');
         Security::Empty($Param1);
         Security::Empty($Param2);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
-        $Param1 = in_array($Param1, ["LogFile","GreenKey","RedKey","BlueKey"]) ? $Param1 : "LogFile";
+        $Param1 = in_array($Param1, ["LogFile","GreenKey","RedKey","BlueKey"]) ? $Param1 : die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+
         if(!is_numeric($Param2)) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
 
         $db = Database::Connection();
 
-        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");  
+        $Get = $db->prepare("SELECT * FROM server_shop WHERE Item = ?");
         $Get->execute(array($Param1));
         $Get = $Get->fetch();
         $Cost = Functions::GetPercentage($Get['Cost']) * $Param2;

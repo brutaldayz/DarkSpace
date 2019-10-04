@@ -8,9 +8,9 @@
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
-        $Param1 = in_array($Param1, ["apis","zeus"]) ? $Param1 : "apis";
-        $Param1 == "apis" ? $Type = 1 : $Type = 2;
-
+        $Param1 = in_array($Param1, ["Apis","Zeus"]) ? $Param1 : die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+        $Param1 == "Apis" ? $Type = 1 : $Type = 2;
+        
         $db = Database::Connection();
 
         $Get = $db->query("SELECT items FROM player_equipment WHERE userId = {$Player->Data['userID']}")->fetch()['items'];

@@ -31,7 +31,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo in_array($value['Item'], ["Spearhead","Aegis","Citadel"]) ? $value['Item'] . '_' . $Player->Data['factionID'] : $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', false, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo in_array($value['Item'], ["Spearhead","Aegis","Citadel"]) ? $value['Item'] . '_' . $Player->Data['factionID'] : $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', false, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', true);" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', true, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', false, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -83,7 +83,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', false, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -97,7 +97,7 @@
                 
                 <div class="m-2">
                     <div class="item">
-                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo in_array($value['Item'], ["Spearhead_Veteran", "Spearhead_Elite", "Aegis_Veteran", "Aegis_Elite", "Citadel_Veteran", "Citadel_Elite"]) ? $value['Item'] . '_' . $Player->Data['factionID'] : $value['Item']; ?>.png)"></div>
+                        <div onclick="shopModal('<?php echo $value['Category']; ?>', '<?php echo $value['ItemHash']; ?>', '<?php echo number_format(Functions::GetPercentage($value['Cost'])); ?>', '<?php echo Lang::shopItems($value['Item']); ?>', false, '<?php echo ($value['Cost'] == 0) ? 'true' : 'false'; ?>');" class="item-image" style="background-image: url(<?php echo Config::Get('IMG'); ?>Shop/<?php echo $value['Category']; ?>/<?php echo in_array($value['Item'], ["Spearhead_Veteran", "Spearhead_Elite", "Aegis_Veteran", "Aegis_Elite", "Citadel_Veteran", "Citadel_Elite"]) ? $value['Item'] . '_' . $Player->Data['factionID'] : $value['Item']; ?>.png)"></div>
                         <span class="item-price"><?php echo ($value['Cost'] == 0) ? 'Payment' : number_format(Functions::GetPercentage($value['Cost'])); ?> <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?></span>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
             var P2 = "";
             var P3 = false;
 
-            function shopModal(Param1, Param2, Param3, Param4, Param5 = false){
+            function shopModal(Param1, Param2, Param3, Param4, Param5 = false, Param6 = false){
                 P1 = Param1;
                 P2 = Param2;
                 if(Param5 == true){
@@ -144,7 +144,7 @@
                     $(".amountContent").css('display', 'none');
                     P3 = false;
                 }
-                if(Param3 == 0) return window.open("<?php echo Config::Get('SERVER_URL'); ?>Payment");
+                if(Param6 == true) return window.open("<?php echo Config::Get('SERVER_URL'); ?>Payment");
                 $(".shopContent").html('<?php echo Lang::Get('BuyMessage'); ?>' + '<?php echo Lang::Get('Price'); ?>: ' + Param3 + ' <?php echo ($value['Cost'] == 0) ? '' : (($value['Type'] == 1) ? 'U.' : 'C.'); ?>' + '<br><br> <?php echo Lang::Shop('Description'); ?> ' + Param4);
                 $("#shopModal").modal();
             }
@@ -168,6 +168,7 @@
                     url: '<?php echo Config::Get('SERVER_URL'); ?>Ajax/Shop/'+P1+'.php',
                     data: {"Param1": P2, "Param2": Am},
                     success: function(resultData){
+                        $("#amount").val("1");
                         if(resultData.error) swal('<?php echo Lang::Get('Error'); ?>!', resultData.msg, 'error');
                         else{
                             swal('<?php echo Lang::Get('Successful'); ?>!', resultData.msg, 'success');

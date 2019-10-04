@@ -70,7 +70,7 @@
                             <?php }} ?>
                             <?php if($Player->Data['rankID'] > 10){ ?>
                             <tr>
-                                <td><?php echo $Player->Data['rank'] ?></td>
+                                <td>-</td>
                                 <td><a href="<?php echo Config::Get('SERVER_URL'); ?>Profile/<?php echo $Player->Data['profileID']; ?>"><?php echo $Player->Data['shipName']; ?></a></td>
                                 <td class="text-center"><img src="<?php echo Config::Get('DO_IMG'); ?>global/companies/company_<?php echo $Player->Data['factionID']; ?>.png"></td>
                                 <td class="text-center"><img src="<?php echo Config::Get('DO_IMG'); ?>global/ranks/rank_<?php echo $Player->Data['rankID']; ?>.png"></td>

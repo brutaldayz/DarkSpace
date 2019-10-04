@@ -252,7 +252,7 @@
                 "Exchange" => "EXCHANGE",
                 "Soon" => "Soon...",
                 "NavDsc" => "Buy DSC",
-                "Amount" => "Miktar",
+                "Amount" => "Amount",
                 "NeedVerify" => "You must verify your email address before you can log in to your account.",
                 "VerifyEmail" => "An activation link has been sent to your email address to verify your account. Don't forget to check the spam folder.",
                 "ErrorEmail" => "Failed to send email. Please try registering again.",

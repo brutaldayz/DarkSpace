@@ -35,6 +35,8 @@
 
           foreach ($ranking as $key => $value) {
             $user = $db->query('SELECT * FROM player_accounts WHERE userID = '.$value['userID'].'')->fetch();
+            $verify = json_decode($user['verification']); if($verify->Verified == 1){
+           
             $htmlString .= '<tr '.($userID == $user['userID'] ? 'class="halloffame_myrank"' : '').'>
               <td class="p-10">'.($key+1).'.</td>
               <td class="p-10" title="'.$user['shipName'].'" style="cursor:pointer">
@@ -44,6 +46,7 @@
               <td class="p-10"><img src="'.Config::Get('SERVER_URL').'do_img/global/ranks/rank_'.$user['rankID'].'.png"></td>
               <td class="p-10">'.number_format($value['data']).'</td>
             </tr>';
+            }
           }
           echo $htmlString;
         }

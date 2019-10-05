@@ -258,7 +258,8 @@
                 "ErrorEmail" => "Failed to send email. Please try registering again.",
                 "RegisterError" => "An error occurred during registration, please contact the administrators.",
                 "WaitRegister" => "Your registration is being processed, please wait ...",
-                "RegisterVerified" => "Your registration is complete. You can log in to your account."
+                "RegisterVerified" => "Your registration is complete. You can log in to your account.",
+                "Maintenance" => "The server is currently under maintenance..."
             );
 
             return $Lang[$Data];

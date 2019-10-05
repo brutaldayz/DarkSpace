@@ -258,7 +258,8 @@
                 "ErrorMail" => "E-posta gönderilemedi. Lütfen tekrar kayıt olmayı deneyin.",
                 "RegisterError" => "Kayıt sırasında bir hata oluştu lütfen yetkililerle iletişime geçin.",
                 "WaitRegister" => "Kayıt işleminiz yapılıyor lütfen bekleyin...",
-                "RegisterVerified" => "Kaydınız tamamlandı. Hesabınıza giriş yapabilirsiniz."
+                "RegisterVerified" => "Kaydınız tamamlandı. Hesabınıza giriş yapabilirsiniz.",
+                "Maintenance" => "Sunucu şu anda bakımda..."
             );
 
             return $Lang[$Data];

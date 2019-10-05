@@ -187,6 +187,10 @@
             if($verify->Verified == 0) die(json_encode(["error" => true, "msg" => Lang::Get('NeedVerify')]));
         }
 
+        public static function checkMaintenance(){
+            if(Config::Get('MAINTENANCE')) die(json_encode(["error" => true, "msg" => Lang::Get('Maintenance')]));
+        }
+
         public static function clearSession($Session){ if(isset($_SESSION[$Session])) unset($_SESSION[$Session]); }
         public static function router($Adress){ Header('Location:' . Config::Get('SERVER_URL') . $Adress); exit; }
 

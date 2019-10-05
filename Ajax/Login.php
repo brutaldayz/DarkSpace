@@ -20,6 +20,7 @@
         Functions::checkPassword($Password, $User['password']);
         Functions::checkBan($User['userID']);
         Functions::checkVerified($User['userID']);
+        Functions::checkMaintenance();
         $Session = Functions::generateCode(32);
         $LastLoginIP = Functions::getUserIP();
         $array = json_decode($User['Info']);

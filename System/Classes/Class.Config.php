@@ -8,6 +8,7 @@
                 "DB_NAME" => "server",
                 "DB_USER" => "root",
                 "DB_PASS" => "",
+                "MAINTENANCE" => true,
                 "SERVER_NAME" => "DarkSpace",
                 "SERVER_URL" => Main, // http://Domain.com/
                 "SERVER_HOST" => $_SERVER['SERVER_NAME'], // Domain.com

@@ -115,6 +115,10 @@
                 <option value="tr" <?php echo (Cookie::getLanguage() == "tr") ? 'selected' : ''; ?>>Türkçe</option>
             </select>
         </div>
+
+        <div class="col-md-12">
+            <div class="p-1 text-center" style="font-size: 20px;"><a href='https://discord.gg/sBZdB4h' target='_blank'>Discord</a></div>
+        </div>
     </div>
 
     <style>

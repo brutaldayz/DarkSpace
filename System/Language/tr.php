@@ -259,7 +259,10 @@
                 "RegisterError" => "Kayıt sırasında bir hata oluştu lütfen yetkililerle iletişime geçin.",
                 "WaitRegister" => "Kayıt işleminiz yapılıyor lütfen bekleyin...",
                 "RegisterVerified" => "Kaydınız tamamlandı. Hesabınıza giriş yapabilirsiniz.",
-                "Maintenance" => "Sunucu şu anda bakımda..."
+                "Maintenance" => "Sunucu şu anda bakımda...",
+                "NextLevel" => "Sonraki Seviye",
+                "CurrentLevel" => "Mevcut Seviye",
+                "SkillName" => "İsim"
             );
 
             return $Lang[$Data];
@@ -484,33 +487,33 @@
         public static function SkillName($SkillID){
             $Skill = array(
                 '1' => 'Mühendis',
-                '2' => 'Mayıncı 1',
-                '3' => 'Isı Arayıcısı',
-                '4' => 'Roket Uzmanı',
-                '5' => 'Kısmet 1',
-                '6' => 'Acımasız 1',
-                '7' => 'Mayıncı 2',
-                '8' => 'Acımasız 2',
-                '9' => 'Kısmet 2',
-                '10' => 'Patlayıcı Uzmanı'
+                '2' => 'Mayıncı I',
+                '3' => 'Mayıncı II',
+                '4' => 'Patlayıcı Uzmanı',
+                '5' => 'Isı Arayıcısı',
+                '6' => 'Roket Uzmanı',
+                '7' => 'Kısmet I',
+                '8' => 'Kısmet II',
+                '9' => 'Acımasız I',
+                '10' => 'Acımasız II'
             );
             return $Skill[$SkillID];
         }
 
-        public static function SkillDescription($SkillID){
+        public static function SkillDescription($SkillID, $Level){
             $Skill = array(
-                '1' => 'Seviye 1: Tamir robotların saniyede %5 daha fazla Darbe Puanı tamir edebilir. <br> Seviye 2: Tamir robotların saniyede %10 daha fazla Darbe Puanı tamir edebilir. <br> Seviye 3: Tamir robotların saniyede %15 daha fazla Darbe Puanı tamir edebilir. <br> Seviye 4: Tamir robotların saniyede %20 daha fazla Darbe Puanı tamir edebilir. <br> Seviye 5: Tamir robotların saniyede %30 daha fazla Darbe Puanı tamir edebilir.',
-                '2' => 'Seviye 1: Mayınların %7 daha fazla hasar verecek. <br> Seviye 2: Mayınların %14 daha fazla hasar verecek.',
-                '3' => 'Seviye 1: Roketlerin isabet oranları %1 artacaktır. <br> Seviye 2: Roketlerin isabet oranları %2 artacaktır. <br> Seviye 3: Roketlerin isabet oranları %4 artacaktır. <br> Seviye 4: Roketlerin isabet oranları %6 artacaktır. <br> Seviye 5: Roketlerin isabet oranları %10 artacaktır.',
-                '4' => 'Seviye 1: Roketlerin %2 daha fazla hasar verecek. <br> Seviye 2: Roketlerin %4 daha fazla hasar verecek. <br> Seviye 3: Roketlerin %6 daha fazla hasar verecek. <br> Seviye 4: Roketlerin %8 daha fazla hasar verecek. <br> Seviye 5: Roketlerin %15 daha fazla hasar verecek.',
-                '5' => 'Seviye 1: Avantaj kutularından %2 daha fazla Uridium alacaksın. <br> Seviye 2: Avantaj kutularından %4 daha fazla Uridium alacaksın.',
-                '6' => 'Seviye 1: %4 daha fazla Şeref Puanı alacaksın. <br> Seviye 1: %8 daha fazla Şeref Puanı alacaksın.',
-                '7' => 'Seviye 1: Mayınların %21 daha fazla hasar verecek. <br> Seviye 2: Mayınların %28 daha fazla hasar verecek. <br> Seviye 3: Mayınların %50 daha fazla hasar verecek.',
-                '8' => 'Seviye 1: %12 daha fazla Şeref Puanı alacaksın. <br> Seviye 1: %18 daha fazla Şeref Puanı alacaksın. <br> Seviye 3: %25 daha fazla Şeref Puanı alacaksın.',
-                '9' => 'Seviye 1: Avantaj kutularından %6 daha fazla Uridium alacaksın. <br> Seviye 2: Avantaj kutularından %8 daha fazla Uridium alacaksın. <br> Seviye 3: Avantaj kutularından %12 daha fazla Uridium alacaksın.',
-                '10' => 'Seviye 1: Mayınların tahrip alanı %4 artıyor. <br> Seviye 2: Mayınların tahrip alanı %8 artıyor. <br> Seviye 3: Mayınların tahrip alanı %12 artıyor. <br> Seviye 4: Mayınların tahrip alanı %18 artıyor. <br> Seviye 5: Mayınların tahrip alanı %25 artıyor.'
+                '1' => "<span style='color: #a4d3ef;'>Tamir robotların saniyede %".($Level <= 1 ? "5" : ($Level == 2 ? "10" : ($Level == 3 ? "15" : ($Level == 4 ? "20" : "30"))))." daha fazla Darbe Puanı tamir edebilir.</span>",
+                '2' => "<span style='color: #a4d3ef;'>Mayınların %".($Level <= 1 ? "7" : "14")." daha fazla hasar verecek.</span>",
+                '3' => "<span style='color: #a4d3ef;'>Mayınların %".($Level <= 1 ? "21" : ($Level == 2 ? "28" : "50"))." daha fazla hasar verecek.</span>",
+                '4' => "<span style='color: #a4d3ef;'>Mayınların tahrip alanı %".($Level <= 1 ? "4" : ($Level == 2 ? "8" : ($Level == 3 ? "12" : ($Level == 4 ? "18" : "25"))))." artıyor.</span>",
+                '5' => "<span style='color: #a4d3ef;'>Roketlerin isabet oranları %".($Level <= 1 ? "1" : ($Level == 2 ? "2" : ($Level == 3 ? "4" : ($Level == 4 ? "6" : "10"))))." artacaktır.</span>",
+                '6' => "<span style='color: #a4d3ef;'>Roketlerin %".($Level <= 1 ? "2" : ($Level == 2 ? "4" : ($Level == 3 ? "6" : ($Level == 4 ? "8" : "15"))))." daha fazla hasar verecek.</span>",
+                '7' => "<span style='color: #a4d3ef;'>Avantaj kutularından %".($Level <= 1 ? "2" : "4")." daha fazla Uridium alacaksın.</span>",
+                '8' => "<span style='color: #a4d3ef;'>Avantaj kutularından %".($Level <= 1 ? "6" : ($Level == 2 ? "8" : "12"))." daha fazla Uridium alacaksın.</span>",
+                '9' => "<span style='color: #a4d3ef;'>%".($Level <= 1 ? "4" : "8")." daha fazla Şeref Puanı alacaksın.</span>",
+                '10' => "<span style='color: #a4d3ef;'>%".($Level <= 1 ? "12" : ($Level == 2 ? "18" : "25"))." daha fazla Şeref Puanı alacaksın.</span>"
             );
-            return $Skill[$SkillID] . "<br><br>";
+            return $Skill[$SkillID];
         }
 
         public static function Map($MapID){

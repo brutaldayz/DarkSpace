@@ -9,8 +9,7 @@
         Security::Empty($Param1);
         $Param1 = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
         $Param1 = in_array($Param1, ["Apis","Zeus"]) ? $Param1 : die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
-        $Param1 == "Apis" ? $Type = 1 : $Type = 2;
-        
+    
         $db = Database::Connection();
 
         $Get = $db->query("SELECT items FROM player_equipment WHERE userId = {$Player->Data['userID']}")->fetch()['items'];
@@ -29,7 +28,7 @@
         $ss = $db->prepare("UPDATE player_equipment SET items = ? WHERE userID = {$Player->Data['userID']}");
         $ss->execute(array(json_encode($items)));
 
-        Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $Cost, 1, $Type);
+        Logger::addShopLog($Player->Data['userID'], Functions::getUserIP(), 1, 1, $Cost, 1, $Param1 == "Apis" ? 1 : 2);
 
         die(json_encode(["error" => false, "msg" => $Param1 . Lang::Get('BuyOk'), "Param3" => "".number_format($Player->GetData('Data', 'uridium') - $Cost)."", "Param4" => "".number_format($Player->GetData('Data', 'credits')).""]));
     }else Functions::router('Home');

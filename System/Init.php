@@ -1,7 +1,10 @@
 <?php
     date_default_timezone_set('Europe/Istanbul');
     setlocale(LC_ALL, 'tr_TR.UTF-8');
-    session_start();
+    
+    if (session_start()) {
+        setcookie(session_name(), session_id(), null, '/', null, null, true);
+    }
 
     define("Main", ((isset($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] == "on") && (isset($_SERVER["SERVER_PORT"]) && $_SERVER["SERVER_PORT"] == 443) ? "https" : "http") . "://" . $_SERVER['SERVER_NAME'] . "/");
 
@@ -25,4 +28,5 @@
     require_once('Language/' . (isset($_COOKIE['LANGUAGE']) ? $_COOKIE['LANGUAGE'] : 'en') . '.php');
     require_once('Classes/Class.Admin.php');
     require_once('Classes/Class.User.php');
+    require_once('Classes/Class.SkillTree.php');
 ?>

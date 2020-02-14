@@ -36,6 +36,11 @@
     background-image:  url('/Assets/Img/Skills/skilltree_textur.png');
     background-position: 0 0;
 }
+.skill_font_max{
+    color: #2e8ad1;
+    font-size: 14px;
+    margin-top: -5px;
+}
 #skill_1 {
     background-position: -296px 0;
 }

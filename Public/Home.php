@@ -59,7 +59,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php if($Player->Data['rankID'] > 10) $Limit = 9; else $Limit = 10; $PlayerRank = Rank::getPlayerRank($Limit); foreach ($PlayerRank as $value) { $verify = json_decode($value['verification']); if($verify->Verified == 1){ ?>
+                            <?php if($Player->Data['rank'] > 10) $Limit = 9; else $Limit = 10; $PlayerRank = Rank::getPlayerRank($Limit); foreach ($PlayerRank as $value) { $verify = json_decode($value['verification']); if($verify->Verified == 1){ ?>
                             <tr>
                                 <td><?php echo $value['rank'] ?></td>
                                 <td><a href="<?php echo Config::Get('SERVER_URL'); ?>Profile/<?php echo $value['profileID']; ?>"><?php echo $value['shipName']; ?></a></td>
@@ -68,7 +68,7 @@
                                 <td><?php echo number_format($value['rankPoints']); ?></td>
                             </tr>
                             <?php }} ?>
-                            <?php if($Player->Data['rankID'] > 10){ ?>
+                            <?php if($Player->Data['rank'] > 10){ ?>
                             <tr>
                                 <td>-</td>
                                 <td><a href="<?php echo Config::Get('SERVER_URL'); ?>Profile/<?php echo $Player->Data['profileID']; ?>"><?php echo $Player->Data['shipName']; ?></a></td>

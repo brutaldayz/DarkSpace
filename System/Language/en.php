@@ -259,7 +259,10 @@
                 "RegisterError" => "An error occurred during registration, please contact the administrators.",
                 "WaitRegister" => "Your registration is being processed, please wait ...",
                 "RegisterVerified" => "Your registration is complete. You can log in to your account.",
-                "Maintenance" => "The server is currently under maintenance..."
+                "Maintenance" => "The server is currently under maintenance...",
+                "NextLevel" => "Next Level",
+                "CurrentLevel" => "Current Level",
+                "SkillName" => "Name"
             );
 
             return $Lang[$Data];
@@ -485,33 +488,33 @@
         public static function SkillName($SkillID){
             $Skill = array(
                 '1' => 'Engineering',
-                '2' => 'Detonation 1',
-                '3' => 'Heat-seeking Missiles',
-                '4' => 'Rocket Fusion',
-                '5' => 'Luck 1',
-                '6' => 'Cruelty 1',
-                '7' => 'Detonation 2',
-                '8' => 'Cruelty 2',
-                '9' => 'Luck 2',
-                '10' => 'Explosives'
+                '2' => 'Detonation I',
+                '3' => 'Detonation II',
+                '4' => 'Explosives',
+                '5' => 'Heat-seeking Missiles',
+                '6' => 'Rocket Fusion',
+                '7' => 'Luck I',
+                '8' => 'Luck II',
+                '9' => 'Cruelty I',
+                '10' => 'Cruelty II'
             );
             return $Skill[$SkillID];
         }
 
-        public static function SkillDescription($SkillID){
+        public static function SkillDescription($SkillID, $Level){
             $Skill = array(
-                '1' => 'Level 1: Lets your repair bots repair 5% more HP per second. <br> Level 2: Lets your repair bots repair 10% more HP per second. <br> Level 3: Lets your repair bots repair 15% more HP per second. <br> Level 4: Lets your repair bots repair 20% more HP per second. <br> Level 5: Lets your repair bots repair 30% more HP per second.',
-                '2' => 'Level 1: Makes your mines cause 7% more damage. <br> Level 2: Makes your mines cause 14% more damage.',
-                '3' => 'Level 1: Increases hit probability of your rockets by 1%. <br> Level 2: Increases hit probability of your rockets by 2%. <br> Level 3: Increases hit probability of your rockets by 4%. <br> Level 4: Increases hit probability of your rockets by 6%. <br> Level 5: Increases hit probability of your rockets by 10%.',
-                '4' => 'Level 1: Makes your rockets cause 2% more damage. <br> Level 2: Makes your rockets cause 5% more damage. <br> Level 3: Makes your rockets cause 6% more damage. <br> Level 4: Makes your rockets cause 8% more damage. <br> Level 5: Makes your rockets cause 15% more damage.',
-                '5' => 'Level 1: Gives you 2% more bonus-box Uridium. <br> Level 2: Gives you 4% more bonus-box Uridium.',
-                '6' => 'Level 1: Gives you 4% more Honor Points. <br> Level 2: Gives you 8% more Honor Points.',
-                '7' => 'Level 1: Makes your mines cause 21% more damage. <br> Level 2: Makes your mines cause 28% more damage. <br> Level 3: Makes your mines cause 50% more damage.',
-                '8' => 'Level 1: Gives you 12% more Honor Points. <br> Level 2: Gives you 18% more Honor Points. <br> Level 2: Gives you 25% more Honor Points.',
-                '9' => 'Level 1: Gives you 6% more bonus-box Uridium. <br> Level 2: Gives you 8% more bonus-box Uridium. <br> Level 3: Gives you 12% more bonus-box Uridium.',
-                '10' => 'Level 1: Increases the radius of mine explosions by 4%. <br> Level 2: Increases the radius of mine explosions by 8%. <br> Level 3: Increases the radius of mine explosions by 12%. <br> Level 4: Increases the radius of mine explosions by 18%. <br> Level 5: Increases the radius of mine explosions by 25%.'
+                '1' => "<span style='color: #a4d3ef;'>Lets your repair bots repair %".($Level <= 1 ? "5" : ($Level == 2 ? "10" : ($Level == 3 ? "15" : ($Level == 4 ? "20" : "30"))))." more HP per second.</span>",
+                '2' => "<span style='color: #a4d3ef;'>Makes your mines cause ".($Level <= 1 ? "7" : "14")."% more damage.</span>",
+                '3' => "<span style='color: #a4d3ef;'>Makes your mines cause  ".($Level <= 1 ? "21" : ($Level == 2 ? "28" : "50"))."% more damage.</span>",
+                '4' => "<span style='color: #a4d3ef;'>Increases the radius of mine explosions by ".($Level <= 1 ? "4" : ($Level == 2 ? "8" : ($Level == 3 ? "12" : ($Level == 4 ? "18" : "25"))))."%.</span>",
+                '5' => "<span style='color: #a4d3ef;'>Increases hit probability of your rockets by ".($Level <= 1 ? "1" : ($Level == 2 ? "2" : ($Level == 3 ? "4" : ($Level == 4 ? "6" : "10"))))."%.</span>",
+                '6' => "<span style='color: #a4d3ef;'>Makes your rockets cause ".($Level <= 1 ? "2" : ($Level == 2 ? "4" : ($Level == 3 ? "6" : ($Level == 4 ? "8" : "15"))))."% more damage.</span>",
+                '7' => "<span style='color: #a4d3ef;'>Gives you ".($Level <= 1 ? "2" : "4")."% more bonus-box Uridium.</span>",
+                '8' => "<span style='color: #a4d3ef;'>Gives you ".($Level <= 1 ? "6" : ($Level == 2 ? "8" : "12"))."% more bonus-box Uridium.</span>",
+                '9' => "<span style='color: #a4d3ef;'>Gives you ".($Level <= 1 ? "4" : "8")."% more Honor Points.</span>",
+                '10' => "<span style='color: #a4d3ef;'>Gives you ".($Level <= 1 ? "12" : ($Level == 2 ? "18" : "25"))."% more Honor Points.</span>"
             );
-            return $Skill[$SkillID] . "<br><br>";
+            return $Skill[$SkillID];
         }
 
         public static function Map($MapID){

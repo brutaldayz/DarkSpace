@@ -8,18 +8,35 @@
         $Param1 = Security::Post('Param1');
         Security::Empty($Param1);
         $SkillID = base64_decode(base64_decode(base64_decode(base64_decode($Param1))));
+        $UserSkills = Database::Connection()->query("SELECT * FROM player_skilltree WHERE userID = ".$Player->Data['userID']."")->fetch();
 
         $SkillHashs = array(
             '1' => 'skill_13',
             '2' => 'skill_5a',
-            '3' => 'skill_20',
-            '4' => 'skill_6',
-            '5' => 'skill_23a',
-            '6' => 'skill_21a',
-            '7' => 'skill_5b',
-            '8' => 'skill_21b',
-            '9' => 'skill_23b',
-            '10' => 'skill_1'
+            '3' => 'skill_5b',
+            '4' => 'skill_1',
+            '5' => 'skill_20',
+            '6' => 'skill_6',
+            '7' => 'skill_23a',
+            '8' => 'skill_23b',
+            '9' => 'skill_21a',
+            '10' => 'skill_21b'
+        );
+
+        $Skill = SkillTree::GetSkills($UserSkills)[$SkillHashs[$SkillID]];
+
+        die();
+        /*$SkillHashs = array(
+            '1' => 'skill_13',
+            '2' => 'skill_5a',
+            '3' => 'skill_5b',
+            '4' => 'skill_1',
+            '5' => 'skill_20',
+            '6' => 'skill_6',
+            '7' => 'skill_23a',
+            '8' => 'skill_23b',
+            '9' => 'skill_21a',
+            '10' => 'skill_21b'
         );
 
         $SkillMaxLevels = array(
@@ -45,13 +62,13 @@
             'skill_5a' => "skill_5b",
             'skill_21a' => "skill_21b",
             'skill_23a' => "skill_23b"
-        );
+        );*/
 
         $db = Database::Connection();
 
         $PlayerSkill = $db->query("SELECT * FROM player_skilltree WHERE userID = ".$Player->Data['userID']."")->fetch();
 
-        if (!in_array($SkillID, [1,2,3,4,5,6,7,8,9, 10])) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
+        if (!in_array($SkillID, [1,2,3,4,5,6,7,8,9,10])) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
 
         if($PlayerSkill['currentRp'] == 0) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
         if($PlayerSkill[$SkillHashs[$SkillID]] >= $SkillMaxLevels[$SkillHashs[$SkillID]]) die(json_encode(["error" => true, "msg" => Lang::Get('equippingWrongError')]));
